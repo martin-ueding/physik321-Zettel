@@ -134,10 +134,7 @@
 
 \section{Identitäten der Vektoranalysis}
 
-Ich schreibe $\partial_x$ für $\pd{}x$. Da der metrische Tensor $g_{ab}$ hier
-einfach nur $\delta_a^b$ ist, kann ich Indizes ohne weiteres nach oben und
-unten ziehen. Ich schreibe alle Indizes unten. Die Summenkonvention gilt
-weiterhin.
+Ich schreibe $\partial_x$ für $\pd{}x$.
 
 \subsection{rot grad}
 
@@ -148,7 +145,7 @@ Dazu schreibe ich das alles in Komponenten:
 %
 \begin{align*}
 	\vnabla \times \del{\vnabla \phi} &=
-	\epsilon_{abc} \partial_a \partial_b \phi e_c \\
+	\epsilon^{ab}_{c} \partial_a \partial_b \phi e^c \\
 	\intertext{Da der $\tens \epsilon$-Tensor total antisymmetrisch, die Ableitungen allerdings symmetrisch sind (Satz von Schwarz), ist die Summe gerade 0.}
 	&= 0
 \end{align*}
@@ -162,9 +159,8 @@ Auch hier benutze ich wieder Komponenten:
 %
 \begin{align*}
 	\divergence{\vnabla \times \vec A}
-	&= \partial_a \del{\epsilon_{bcd} \partial_b A_c e_d}_a \\
-	&= \partial_a \epsilon_{bca} \partial_b A_c \\
-	&= \epsilon_{abc} \partial_a \partial_b A_c \\
+	&= \partial_a \epsilon^{ab}_{c} \partial_b A^c \\
+	&= \epsilon^{ab}_{c} \partial_a \partial_b A^c \\
 	&= 0
 \end{align*}
 
@@ -175,9 +171,9 @@ Es ist zu zeigen, dass gilt:
 
 \begin{align*}
 	\divergence{\phi \vec A}
-	&= \partial_a \del{\phi A}_a \\
+	&= \partial_a \del{\phi A}^a \\
 	\intertext{Hier wende ich die normale Produktregel an.}
-	&= \del{\partial_a \phi} A_a + \phi \partial_a A_a \\
+	&= \del{\partial_a \phi} A^a + \phi \partial_a A^a \\
 	&= \inner{\vnabla \phi}{\vec A} + \phi \divergence{\vec A}
 \end{align*}
 
