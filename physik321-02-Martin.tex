@@ -1,0 +1,673 @@
+% Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+%
+\documentclass[11pt, ngerman]{article}
+
+\usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[activate]{pdfcprot}
+\usepackage[cdot, squaren]{SIunits}
+\usepackage[iso]{isodate}
+\usepackage[parfill]{parskip}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{babel}
+\usepackage{color}
+\usepackage{commath}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{tikz}
+
+\usepackage[charter]{mathdesign}
+
+\definecolor{darkblue}{rgb}{0,0,.5}
+\definecolor{darkgreen}{rgb}{0,.5,0}
+
+\hypersetup{
+	breaklinks=false,
+	citecolor=darkgreen,
+	colorlinks=true,
+	linkcolor=black,
+	menucolor=black,
+	urlcolor=darkblue,
+}
+
+\setlength{\columnsep}{2cm}
+
+\DeclareMathOperator{\arcsinh}{arsinh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\asinh}{arsinh}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\dalambert}{\mathop{{}\Box}\nolimits}
+\newcommand{\divergence}[1]{\inner{\vnabla}{#1}}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\emesswert}{\del{\messwert \pm \messwert}}
+\newcommand{\e}[1]{\cdot 10^{#1}}
+\newcommand{\fehlt}{\textcolor{red}{Hier fehlen noch Inhalte.}}
+\newcommand{\half}{\frac 12}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\laplace}{\mathop{{}\bigtriangleup}\nolimits}
+\newcommand{\messwert}{\textcolor{blue}{\square}}
+\newcommand{\punkte}{\textcolor{white}{xxxxx}}
+\newcommand{\tens}[1]{\boldsymbol{#1}}
+\newcommand{\vnabla}{\vec \nabla}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+
+\newcommand{\themodul}{physik321}
+\newcommand{\thegruppe}{Gruppe 8 -- Julia Volmer}
+\newcommand{\theuebung}{2}
+
+\pagestyle{fancy}
+
+\fancyfoot[C]{\footnotesize{\thegruppe}}
+\fancyfoot[L]{\footnotesize{Martin Ueding, Simon Schlepphorst}}
+\fancyfoot[R]{\footnotesize{Seite \thepage}}
+\fancyhead[L]{\themodul{} -- Übung \theuebung}
+
+\setcounter{section}{0}
+
+\def\thesection{H \theuebung.\arabic{section}}
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}} \and Simon Schlepphorst \\ \small{\href{mailto:s2@uni-bonn.de}{s2@uni-bonn.de}}}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c|c|c}
+		Aufgabe & H \theuebung.1 & H \theuebung.2 & H \theuebung.3 & H \theuebung.4 & H \theuebung.5 & $\Sigma$   \\
+		\hline
+		Punkte & \punkte & \punkte & \punkte & \punkte & \punkte & \punkte
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  zylindrische und sphärische Koordinaten                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{zylindrische und sphärische Koordinaten}
+
+\subsection{orthonormales System}
+
+\paragraph{Kugelkoordinaten}
+
+Die Transformationen von zylindrische in kartesische Koordinaten ist gegeben durch:
+\[
+	\vec\varphi\del{r, \phi, \theta} = r \begin{pmatrix}
+		\cos(\phi) \sin(\theta) \\
+		\sin(\phi) \sin(\theta) \\
+		\cos(\theta)
+	\end{pmatrix}
+\]
+
+Die dazugehörige Jakobimatrix ist:
+\[
+	\tens J_k := \Dif \vec\varphi = \begin{pmatrix}
+		\cos(\phi) \sin(\theta) & -r \sin(\phi)\sin(\theta) & r \cos(\phi) \cos(\theta) \\
+		\sin(\phi) \sin(\theta) & r \cos(\phi)\sin(\theta) & r \sin(\phi)\cos(\theta) \\
+						 \cos(\theta) & 0 & - r \sin(\theta)
+	\end{pmatrix}
+\]
+
+Die Einheitsvektoren sind sind die Spalten der Jakobimatrix, allerdings normiert. Diese sind:
+\[
+	\vec e_r = \begin{pmatrix}
+		\cos(\phi) \sin(\theta) \\
+		\sin(\phi) \sin(\theta) \\
+		\cos(\theta)
+	\end{pmatrix}
+	, \quad
+	\vec e_\phi = \begin{pmatrix}
+		-\sin(\phi) \\
+		\cos(\phi) \\
+		0
+	\end{pmatrix}
+	, \quad
+	\vec e_\theta = \begin{pmatrix}
+		\cos(\phi) \cos(\theta) \\
+		\sin(\phi) \cos(\theta) \\
+		-\sin(\theta)
+	\end{pmatrix}
+\]
+
+Diese sollen jetzt orthogonal sein. Dies bedeutet, dass gilt:
+\[
+	\lambda_1 \vec e_r + \lambda_2 \vec e_\phi + \lambda_3 \vec e_\theta = \vec 0
+	\quad \Leftrightarrow \quad
+	\forall i \in \set{1, 2, 3}\colon \lambda_i = 0
+\]
+
+Ich sehe, dass $\inner{\vec e_r}{\vec e_\phi} = 0$, $\inner{\vec e_\phi}{\vec e_\theta} = 0$, und $\inner{\vec e_\theta}{\vec e_r} = 0$. Somit sind sie paarweise ortogonal. Da es drei Stück gibt, bilden sie eine orthonormale Basis.
+
+\paragraph{Zylinderkoordinaten}
+
+Die Transformation ist:
+\[
+	\vec\varphi\del{\rho, \phi, z} = \begin{pmatrix}
+		\rho \cos(\phi) \\
+		\rho \sin(\phi) \\
+		z
+	\end{pmatrix}
+\]
+
+Die Jakobimatrix ist:
+\[
+	\tens J_z := \Dif \vec\varphi = \begin{pmatrix}
+		\cos(\phi) & - \rho \sin(\phi) & 0 \\
+		\sin(\phi) & \rho \cos(\phi) & 0 \\
+						  0 & 0 & 1
+	\end{pmatrix}
+\]
+
+Die (normierten) Einheitsvektoren sind dann:
+\[
+	\vec e_\rho = \begin{pmatrix}
+		\cos(\phi) \\
+		\sin(\phi) \\
+		0
+	\end{pmatrix}
+	, \quad
+	\vec e_\phi = \begin{pmatrix}
+		-\sin(\phi) \\
+		\cos(\phi) \\
+		0
+	\end{pmatrix}
+	, \quad
+	\vec e_z = \begin{pmatrix}
+		0 \\
+		0 \\
+		1
+	\end{pmatrix}
+\]
+
+Auch hier kann ich schnell sehen, dass die Vektoren paarweise orthogonal sind. Somit bilden sie auch eine orthonormale Basis.
+
+\subsection{Ableitungsoperatoren}
+
+Die partiellen Ableitungen kann ich mit der Jakobimatrix transformieren. Dabei gilt für die partiellen Ableitungen:
+\[
+	\begin{pmatrix}
+		\partial_x \\ \partial_y \\ \partial_z
+	\end{pmatrix} = \tens J_z \begin{pmatrix}
+		\partial_\rho \\ \partial_\phi \\ \partial_z
+	\end{pmatrix}
+\]
+
+\subsubsection{Zylinderkoordinaten}
+
+
+Die partiellen Ableitungen in Zylinderkoordinaten sind also:
+\[
+	\begin{pmatrix}
+		\partial_x \\ \partial_y \\ \partial_z
+	\end{pmatrix} =
+	\begin{pmatrix}
+		\cos(\phi) \partial_\rho - \rho \sin(\phi) \partial_\phi \\
+		\sin(\phi) \partial_\rho + \rho \cos(\phi) \partial_\phi \\
+		\partial_z
+	\end{pmatrix}
+\]
+
+Mit der inversen Jakobimatrix geht das auch in die andere Richtung:
+\[
+	\begin{pmatrix}
+		\partial_\rho \\ \partial_\phi \\ \partial_z
+	\end{pmatrix} =
+	\begin{pmatrix}
+		\frac{x}{\sqrt{x^2 + y^2}} \partial_x + \frac{y}{\sqrt{x^2 + y^2}} \partial_y \\
+			\frac{-y}{\sqrt{x^2 + y^2}} \partial_x + \frac{x}{\sqrt{x^2 + y^2}} \partial_y \\
+		\partial_z
+	\end{pmatrix}
+\]
+
+\paragraph{Divergenz}
+
+\fehlt
+
+\paragraph{Rotation}
+
+\fehlt
+
+\paragraph{Laplace}
+
+\fehlt
+
+\subsubsection{Kugelkoordinaten}
+
+Für die andere Richtung brauche ich zuerst die inverse Jakobimatrix:
+\[
+	\tens J_z^{-1} =
+	\begin{pmatrix}
+		\cos(\phi)\sin(\theta) & \cos(\theta) & \sin(\phi)\sin(\theta) \\
+		\frac 1r \cos(\phi) \cos(\theta) & \frac 1r \sin(\phi) \cos(\theta) & - \frac 1r \sin(\theta) \\
+		- \frac 1r \frac{\sin(\phi)}{\sin(\theta)} & \frac 1r \frac{\cos(\phi)}{\sin(\theta)} & 0
+	\end{pmatrix}
+\]
+
+\paragraph{Divergenz}
+
+\fehlt
+
+\paragraph{Rotation}
+
+\fehlt
+
+\paragraph{Laplace}
+
+\fehlt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         zum Integralsatz von Stokes                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{zum Integralsatz von Stokes}
+
+Gegeben ist ein Vektorfeld:
+\[ \vec K \del{\vec r} = \vec r \]
+
+\subsection{Linienintegrale}
+
+\paragraph{gerade Pfade}
+
+Es soll ein Linienintegral berechnet werden, der Pfad ist in Abbildung \ref{fig:linien} dargestellt.
+
+\begin{figure}[h]
+	\centering
+	\begin{minipage}[b]{0.4\textwidth}
+		\centering
+		\begin{tikzpicture}[scale=2.5]
+			\draw[->>, thick] (0, 0) node[below left] {$(0, 0, 0)$} -- (0, 1) node[above left] {$(0, 0, 1)$};
+			\draw[->>, thick] (0, 1) -- (1, 1) node[above right] {$(0, 1, 1)$};
+			\draw[->>, thick] (1, 1) -- (0, 0);
+
+			\foreach \x in {-0.2, 0, 0.2, 0.4, 0.8}
+			\foreach \y in {-0.1, 0, 0.2, 0.5, 0.8}
+			\draw[dotted, ->] (\x, \y) -- ++(\x, \y);
+		\end{tikzpicture}
+		\caption{Vektorfeld $\vec K$ und Pfad $\gamma_1$}
+		\label{fig:linien}
+	\end{minipage}
+	\hspace{0.1\textwidth}
+	\begin{minipage}[b]{0.4\textwidth}
+		\centering
+		\begin{tikzpicture}[scale=2.5]
+			\draw[->>, thick] (0, 0) node[below left] {$(0, 0, 0)$} parabola (1, 1) node[above right] {$(0, 1, 1)$};
+			\draw[->>, thick] (1, 1) -- (0, 0);
+
+			\foreach \x in {-0.2, 0, 0.2, 0.4, 0.8}
+			\foreach \y in {-0.1, 0, 0.2, 0.5, 0.8}
+			\draw[dotted, ->] (\x, \y) -- ++(\x, \y);
+		\end{tikzpicture}
+		\caption{Vektorfeld $\vec K$ und Pfad $\gamma_2$}
+		\label{fig:parabel}
+
+	\end{minipage}
+
+\end{figure}
+
+Ich beginne mit den normierten Tangentialvektoren:
+\[
+	\vec \tau = \begin{pmatrix}
+		0 \\ 0 \\ 1
+	\end{pmatrix}
+	,\quad
+	\vec \tau = \begin{pmatrix}
+		0 \\ 1 \\ 0
+	\end{pmatrix}
+	,\quad
+	\vec \tau = \frac{1}{\sqrt{2}} \begin{pmatrix}
+		0 \\ -1 \\ -1
+	\end{pmatrix}
+\]
+
+Die Karten für die eindimensionale Untermannigfaltigkeit, die die Linie ja ist, sind:
+\[
+	\vec\varphi_1(t) = \begin{pmatrix}
+		0 \\ 0 \\ 1
+	\end{pmatrix} t
+	,\quad
+	\vec\varphi_1(t) = \begin{pmatrix}
+		0 \\ 0 \\ 1
+	\end{pmatrix} + \begin{pmatrix}
+		0 \\ 1 \\ 0
+	\end{pmatrix} t
+	,\quad
+	\vec\varphi_1(t) = \begin{pmatrix}
+		0 \\ 1 \\ 1
+	\end{pmatrix} + \frac{1}{\sqrt{2}} \begin{pmatrix}
+		0 \\ -1 \\ -1
+	\end{pmatrix} t
+\]
+
+Die gramschen Determinanten sind allesamt $1$.
+
+Nun kann ich die Linienintegrale ausrechnen:
+\begin{align*}
+	W &=
+	\sum_i \int \dif t \inner{\vec \tau_i}{\vec K \del{\vec\varphi_i(t)}} \\
+	\intertext{Ich setze alles ein.}
+	&=
+	\int_0^1 \dif t \inner{\begin{pmatrix}
+			0 \\ 0 \\ 1
+	\end{pmatrix}}{\begin{pmatrix}
+			0 \\ 0 \\ 1
+	\end{pmatrix} t}
+	+
+	\int_0^1 \dif t \inner{\begin{pmatrix}
+			0 \\ 1 \\ 0
+	\end{pmatrix}}{\begin{pmatrix}
+			0 \\ 0 \\ 1
+		\end{pmatrix} + \begin{pmatrix}
+			0 \\ 1 \\ 0
+	\end{pmatrix} t} \\
+	&\quad+
+	\int_0^{\sqrt{2}} \dif t \inner{\frac 1{\sqrt{2}} \begin{pmatrix}
+		0 \\ -1 \\ -1 \end{pmatrix}}{\begin{pmatrix}
+				0 \\ 1 \\ 1
+			\end{pmatrix} + \frac{1}{\sqrt{2}} \begin{pmatrix}
+				0 \\ -1 \\ -1
+		\end{pmatrix} t} \\
+		\intertext{Die Skalarprodukte löse ich auf.}
+		&= \int_0^1 \dif t t
+		+\int_0^1 \dif t t
+		+\int_0^{\sqrt{2}} \dif t \sqrt{2} \del{1-\frac t{\sqrt{2}}} \\
+		&= \half + \half -1 = 0
+	\end{align*}
+
+	\paragraph{Parabel}
+
+	Nun der zweite Pfad $\gamma_2$, diesmal mit Parabelbogen (Abbildung \ref{fig:parabel}).
+
+	Für den Parabelteil ist meine Karte $\vec\varphi$, deren gramsche
+	Determinante $g$ und der Tangentialvektor:
+	\[
+		\vec\varphi(t) = \begin{pmatrix}
+			0 \\ t \\ t^2
+		\end{pmatrix}
+		, \quad
+		g = 1 + 4t^2
+		, \quad
+		\vec \tau = \frac 1{\sqrt{g}} \begin{pmatrix}
+			0 \\ 1 \\ 2t
+		\end{pmatrix}
+	\]
+
+	Das Linienintegral ist nun, zusammen mit dem zweiten Pfadteil, dessen Ergebnis $-1$ ich aus der vorherigen Aufgabe übernehme:
+	\begin{align*}
+		W
+		&= \int_0^1 \dif t \inner{\begin{pmatrix}
+		0 \\ t \\ t^2
+\end{pmatrix}}{\frac 1{\sqrt{1+4t^2}} \begin{pmatrix}
+		0 \\ 1 \\ 2t
+\end{pmatrix}} \sqrt{1+4t^2} - 1 \\
+&= \sbr{\half t^2 + \half t^4}_0^1 - 1 = 0
+\end{align*}
+
+Es fällt auf, dass die beiden geschlossenen Integrale gerade null sind. Somit scheint dieses Kraftfeld, zumindest hier lokal, konservativ zu sein.
+
+\subsection{mit dem Satz von Stokes}
+
+Die geschlossenen Linienintegrale können auch über die Rotation des
+Vektorfeldes bestimmt werden. Das Vektorfeld muss allerdings differenzierbar
+sein und das Gebiet kompakt.
+
+Da $\vnabla \times \vec r = 0$ gilt, sind hier alle geschlossenen Pfadintegrale
+gleich null.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             Multipolentwicklung                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Multipolentwicklung}
+
+Die Verteilungen der Ladungen im Raum habe ich in Abbildung \ref{fig:ladungen}
+skizziert. Berechnet werden soll das Dipolmoment $\vec p$ und der Quadrupoltensor $\tens Q$ bestimmt werden.
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=3]
+		\foreach \x in {-1, 0, 1}
+		\foreach \y in {-1, 0, 1}
+		\foreach \z in {-1, 0, 1}
+		\draw[dotted] (\x, \y, \z) -- ++(1, 0, 0);
+
+		\foreach \x in {-1, 0, 1, 2}
+		\foreach \y in {-1, 0}
+		\foreach \z in {-1, 0, 1}
+		\draw[dotted] (\x, \y, \z) -- ++(0, 1, 0);
+
+		\foreach \x in {-1, 0, 1, 2}
+		\foreach \y in {-1, 0, 1}
+		\foreach \z in {-1, 0}
+		\draw[dotted] (\x, \y, \z) -- ++(0, 0, 1);
+
+		\draw (0, 1, 0) -- (0, 0, 1) -- (0, -1, 0) -- (0, 0, -1) -- cycle;
+		\draw (2, 0, 0) -- (-1, 0, 0);
+
+		\shade[ball color=black!5] (   0,  1,  0) circle (1.2mm) node {$+q$};
+		\shade[ball color=black!5] (   0, -1,  0) circle (1.2mm) node {$+q$};
+		\shade[ball color=black!5] (   0,  0,  1) circle (1.2mm) node {$+q$};
+		\shade[ball color=black!5] (   0,  0, -1) circle (1.2mm) node {$+q$};
+		\shade[ball color=black!5] (  -1,  0,  0) circle (1.2mm) node {$-q$};
+		\shade[ball color=black!5] (-0.5,  0,  0) circle (1.2mm) node {$-q$};
+		\shade[ball color=black!5] (   1,  0,  0) circle (1.2mm) node {$-q$};
+		\shade[ball color=black!5] (   2,  0,  0) circle (1.2mm) node {$-q$};
+	\end{tikzpicture}
+	\caption{Anordnung der Ladungen}
+	\label{fig:ladungen}
+\end{figure}
+
+Das Dipolmoment $\vec p$ eines Dipols mit Ladung $+q$ und $-q$ und Separation
+$\vec d$ ist:
+\[
+	\vec p = q \vec d
+\]
+
+\fehlt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                Magnetisches Feld eines ausgedehnten Leiters                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Magnetisches Feld eines ausgedehnten Leiters}
+
+Es gilt $\vnabla \times \vec H = \vec j$. Dies kann ich auch in Integralen
+schreiben, für dieses Problem benutze ich Zylinderkoordinaten. Ich betrachte
+eine Kreisfläche $A$ mit Radius $r$, die den Leiter in einem Kreis schneidet.
+Das Normalenvektorfeld auf $A$ ist $\vec \nu$, der Tangentialvektor an den
+Kreisrand ist $\vec \tau$. Die Stromdichte $\vec j$ ist $\frac{\vec I}{\pi R^2}$ Somit gilt nach dem Satz von Stokes:
+%
+\[
+	\oint_{\partial A} \dif l \inner{\vec H}{\vec \tau} = \int_A \dif A \inner{\vec j}{\vec \nu}
+\]
+
+Die Integrale sind für den Fall $r > R$ durch Wahl des Koordinatensystems trivial. Somit folgt für das magnetische Feld:
+\[
+	2 \pi r H = I
+	\quad \Leftrightarrow \quad
+	H(r) = \frac{1}{2\pi} \frac{1}r I
+\]
+
+Falls $r < R$ gilt, ist der umschlossene Strom kleiner. Dann gilt nur noch:
+\[
+	2 \pi r H = \frac{r^2}{R^2} I
+	\quad \Leftrightarrow \quad
+	H(r) = \frac{1}{2\pi} \frac{r}{R^2} I
+\]
+
+Das Feld ist ein Wirbelfeld, dessen Richtung mit der rechten Handregel bestimmt
+werden kann.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       geladene Walze, Rohr und Platte                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{geladene Walze, Rohr und Platte}
+
+Bei all diesen Aufgaben benutze ich das Gesetz von Gauß.
+
+\subsection{Hohlzylinder}
+
+Die Oberflächenladungsdichte auf der Außenseite sei $\sigma$. Als
+Integrationsvolumen benutze ich einen Zylinder mit Radius $r$, der konzentrisch mit dem
+Hohlzylinder liegt. Dann gilt:
+\[
+	\oint_{\partial V} \dif A \inner{\vec D}{\vec \nu} = \int_V \dif V \rho
+\]
+
+Die Integrale sind hier recht trivial:
+\[
+	2 \pi r h D = 2 \pi R h \sigma
+	\quad \Leftrightarrow \quad
+	\vec D = \sigma \frac{R}{r} \hat{\vec r}
+\]
+
+Innerhalb des Zylinders befindet sich keine Ladung, so dass es dort auch kein Feld bilden kann.
+
+Das Potential ist das negative Feld nach dem Radius integriert. Dabei ist es innerhalb des Zylinders konstant, weil keine Kraft wirkt.
+\[
+	\phi(r) = \begin{cases}
+		\epsilon_0 R \sigma \ln\del{\frac rR} & r \geq R \\
+								 \phi(R) & r < R
+	\end{cases}
+\]
+
+Verschiebungsdichte und Potential sind in Abbildung \ref{fig:Dhohl} beziehungsweise \ref{fig:phihohl} gezeigt.
+
+\begin{figure}[h]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\draw[domain=1:3] plot (\x, {1 / \x});
+			\draw[thin, ->] (0, -1) -- ++(3, 0) node[right] {$r$};
+			\draw[thin, ->] (0, -1) -- ++(0, +1.5) node[above] {$D(r)$};
+			\draw[thin] (1, -0.9) -- ++(0, -0.2) node[below] {$R$};
+		\end{tikzpicture}
+		\caption{Verschiebungsdichte des Hohlzylinders}
+		\label{fig:Dhohl}
+	\end{minipage}
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\draw[domain=1:3] plot (\x, {ln(\x)});
+			\draw (0, 0) -- (1, 0);
+			\draw[thin, ->] (0, -1) -- ++(3, 0) node[right] {$r$};
+			\draw[thin, ->] (0, -1) -- ++(0, +1.5) node[above] {$\phi(r)$};
+			\draw[thin] (1, -0.9) -- ++(0, -0.2) node[below] {$R$};
+		\end{tikzpicture}
+		\caption{Potential des Hohlzylinders}
+		\label{fig:phihohl}
+	\end{minipage}
+\end{figure}
+
+\subsection{Vollzylinder}
+
+Der Vollzylinder funktioniert analog für den Fall $r > R$. Nur wird die Fläche und Oberflächenladungsdichte durch Volumen und Ladungsdichte ersetzt.
+\[
+	2 \pi r h D = \pi R^2 h \rho
+	\quad \Leftrightarrow \quad
+	\vec D = \half \rho \frac{R^2}{r} \hat{\vec r}
+\]
+
+Innerhalb des Vollzylinders gibt es nun ein Feld. Dieses ist:
+\[
+	2 \pi r h D = \pi r^2 h \rho
+	\quad \Leftrightarrow \quad
+	\vec D = \half \rho r \hat{\vec r}
+\]
+
+Das Potential ist wieder das negative Feld nach dem Radius integriert. Es ergibt sich:
+\[
+	\phi(r) = \begin{cases}
+		\half \rho R^2 \ln\del{\frac rR} & r \geq R \\
+   \frac 14 \rho r^2 - \frac 14 \rho R^2 & r < R
+	\end{cases}
+\]
+
+Verschiebungsdichte und Potential sind in Abbildung \ref{fig:Dvoll} beziehungsweise \ref{fig:phivoll} gezeigt.
+
+\begin{figure}[h]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\draw[domain=1:3] plot (\x, {0.5 / \x});
+			\draw[domain=0:1] plot (\x, {0.5 * \x});
+			\draw[thin, ->] (0, -1) -- ++(3, 0) node[right] {$r$};
+			\draw[thin, ->] (0, -1) -- ++(0, +1.5) node[above] {$D(r)$};
+			\draw[thin] (1, -0.9) -- ++(0, -0.2) node[below] {$R$};
+		\end{tikzpicture}
+		\caption{Verschiebungsdichte des Vollzylinders}
+		\label{fig:Dvoll}
+	\end{minipage}
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\draw[domain=1:3] plot (\x, {0.5 * ln(\x)});
+			\draw[domain=0:1] plot (\x, {0.25 * \x^2 - 0.25});
+			\draw[thin, ->] (0, -1) -- ++(3, 0) node[right] {$r$};
+			\draw[thin, ->] (0, -1) -- ++(0, +1.5) node[above] {$\phi(r)$};
+			\draw[thin] (1, -0.9) -- ++(0, -0.2) node[below] {$R$};
+		\end{tikzpicture}
+		\caption{Potential des Vollzylinders}
+		\label{fig:phivoll}
+	\end{minipage}
+\end{figure}
+
+\subsection{Platte}
+
+Bei einer Platte wähle ich ein beliebiges Prisma, dessen Stirnflächen (Flächeninhalt $A$) parallel zur Platte sind und das von der Platte geschnitten wird. Aus der Symmetrie folgt dann, dass kein Fluss durch die Seitenflächen geht. Nach dem Gesetz von Gauß gilt dann:
+\[
+	2 A D = A \sigma
+	\quad \Leftrightarrow \quad
+	\vec D = \half \sigma \hat{\vec r}
+\]
+
+Das Potential ist das negative Feld nach dem Abstand integriert:
+\[
+	\phi(r) = - \half \sigma \abs r
+\]
+
+Verschiebungsdichte und Potential sind in Abbildung \ref{fig:Dplatte} beziehungsweise \ref{fig:phiplatte} gezeigt.
+
+\begin{figure}[h]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\draw (-1, -1) -- (0, -1);
+			\draw (1, 1) -- (0, 1);
+			\draw[thin, ->] (-1, 0) -- (1, 0) node[right] {$r$};
+			\draw[thin, ->] (0, -1.3) -- (0, +1.3) node[above] {$D(r)$};
+		\end{tikzpicture}
+		\caption{Verschiebungsdichte der Platte}
+		\label{fig:Dplatte}
+	\end{minipage}
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\draw[domain=-1:1] plot (\x, {-abs(\x)});
+			\draw[thin, ->] (-1, 0) -- (1, 0) node[right] {$r$};
+			\draw[thin, ->] (0, 0) -- ++(0, +1) node[above] {$\phi(r)$};
+		\end{tikzpicture}
+		\caption{Potential der Platte}
+		\label{fig:phiplatte}
+	\end{minipage}
+\end{figure}
+
+\end{document}
+
+% vim: spell spelllang=de
