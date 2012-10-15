@@ -196,41 +196,30 @@ Auch hier kann ich schnell sehen, dass die Vektoren paarweise orthogonal sind. S
 
 \subsection{Ableitungsoperatoren}
 
-Die partiellen Ableitungen kann ich mit der Jakobimatrix transformieren. Dabei gilt für die partiellen Ableitungen:
-\[
-	\begin{pmatrix}
-		\partial_x \\ \partial_y \\ \partial_z
-	\end{pmatrix} = \tens J_z \begin{pmatrix}
-		\partial_\rho \\ \partial_\phi \\ \partial_z
-	\end{pmatrix}
-\]
 
 \subsubsection{Zylinderkoordinaten}
 
+% http://www.cns.gatech.edu/~predrag/courses/PHYS-4421-10/Lautrup/curvilinear.pdf
 
-Die partiellen Ableitungen in Zylinderkoordinaten sind also:
+Für den Nabla in Zylinderkoordinaten projiziere ich diesen auf die
+Einheitsvektoren, die allerdings nicht normiert worden sind. Von der anderen
+Seite kann ich über die Kettenregel die Koordinatentransformation durchführen.
+\begin{align*}
+	\dpd{}\rho &= \dpd x\rho \dpd{}x + \dpd y\rho \dpd{}y = \cos(\phi) \dpd{}x + \sin(\phi) \dpd{}y = \inner{\hat{\vec e}_\rho}\vnabla \\
+ \dpd{}\phi &= \dpd x\phi \dpd{}x + \dpd y\phi \dpd{}y= - \rho \sin(\phi) \dpd{}x + \rho \cos(\phi) \dpd{}y = \rho \inner{\hat{\vec e}_\phi}\vnabla \\
+	  \dpd{} z &= \dpd{} z = \inner{\hat{\vec z}_\phi}\vnabla
+\end{align*}
+
+Daraus folgt:
 \[
+	\vnabla_z =
 	\begin{pmatrix}
-		\partial_x \\ \partial_y \\ \partial_z
-	\end{pmatrix} =
-	\begin{pmatrix}
-		\cos(\phi) \partial_\rho - \rho \sin(\phi) \partial_\phi \\
-		\sin(\phi) \partial_\rho + \rho \cos(\phi) \partial_\phi \\
-		\partial_z
+		\pd{}r \\
+		\frac 1r \pd{}\phi \\
+		\pd{}z
 	\end{pmatrix}
 \]
 
-Mit der inversen Jakobimatrix geht das auch in die andere Richtung:
-\[
-	\begin{pmatrix}
-		\partial_\rho \\ \partial_\phi \\ \partial_z
-	\end{pmatrix} =
-	\begin{pmatrix}
-		\frac{x}{\sqrt{x^2 + y^2}} \partial_x + \frac{y}{\sqrt{x^2 + y^2}} \partial_y \\
-			\frac{-y}{\sqrt{x^2 + y^2}} \partial_x + \frac{x}{\sqrt{x^2 + y^2}} \partial_y \\
-		\partial_z
-	\end{pmatrix}
-\]
 
 \paragraph{Divergenz}
 
@@ -246,15 +235,16 @@ Mit der inversen Jakobimatrix geht das auch in die andere Richtung:
 
 \subsubsection{Kugelkoordinaten}
 
-Für die andere Richtung brauche ich zuerst die inverse Jakobimatrix:
-\[
-	\tens J_z^{-1} =
-	\begin{pmatrix}
-		\cos(\phi)\sin(\theta) & \cos(\theta) & \sin(\phi)\sin(\theta) \\
-		\frac 1r \cos(\phi) \cos(\theta) & \frac 1r \sin(\phi) \cos(\theta) & - \frac 1r \sin(\theta) \\
-		- \frac 1r \frac{\sin(\phi)}{\sin(\theta)} & \frac 1r \frac{\cos(\phi)}{\sin(\theta)} & 0
-	\end{pmatrix}
-\]
+Die gleiche Idee wie bei den Zylinderkoordinaten:
+\begin{align*}
+	\dpd{}r &= \dpd xr \dpd{}x + \dpd yr \dpd{}y + \dpd zr \dpd{}z = \cos(\phi) \sin(\theta) \dpd{}x + \sin(\phi) \sin(\theta) \dpd{}y + \cos(\theta) \dpd{}z = \inner{\hat{\vec e}_r}\vnabla \\
+	%
+	\dpd{}\phi &= \dpd x\phi \dpd{}x + \dpd y\phi \dpd{}y + \dpd z\phi \dpd{}z \\
+	%
+	\dpd{}\theta &= \dpd x\theta \dpd{}x + \dpd y\theta \dpd{}y + \dpd z\theta \dpd{}z
+\end{align*}
+
+\fehlt
 
 \paragraph{Divergenz}
 
