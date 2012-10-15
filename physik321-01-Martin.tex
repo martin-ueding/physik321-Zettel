@@ -204,7 +204,7 @@ mit $\vec D = \varepsilon_0 \vec E$.
 Ich wähle einen Zylinder mit Radius $r$ und Höhe $h$, der so ausgerichtet ist, dass die Gerade seine Symmetrieachse ist. Die Ladungsdichte auf der Geraden sei $\lambda$. Dann gilt nach dem gaußschen Satz:
 %
 \begin{align*}
-	\oiint_{\partial V} \dif A \inner{\vec D}{\vec \nu} &= \iiint_V \dif V \rho \\
+	\oint_{\partial V} \dif A \inner{\vec D}{\vec \nu} &= \int_V \dif V \rho \\
 	\intertext{Durch die „Deckel“ des Zylinders geht aufgrund der Symmetrie kein Fluss. Außerdem steht das Feld immer senkrecht auf der Mantelfläche, so dass das erste Integral einfach ein Produkt wird. Das zweite Integral ist ebenfalls trivial, da einfach nur die Höhe des Zylinders gebraucht wird.}
 	2 \pi D h r &= \lambda h \\
 			   \vec D &= \frac{\lambda}{2 \pi r} \hat{\vec r}
@@ -215,14 +215,14 @@ Ich wähle einen Zylinder mit Radius $r$ und Höhe $h$, der so ausgerichtet ist,
 Ich beginne mit dem Feld außerhalb des Zylinders. Dort gilt wie vorher auch das gleiche gaußsche Satz sowie die gleichen Symmetrien.
 %
 \begin{align*}
-	\oiint \dif A \inner{\vec D}{\vec \nu} &= \iiint \dif V \rho \\
+	\oint_{\partial V} \dif A \inner{\vec D}{\vec \nu} &= \int_V \dif V \rho \\
 				  2 \pi D h r &= \pi \rho h R^2 \\
 									  \vec D &= \frac 12 \rho \frac {R^2}r \hat{\vec r}
 \end{align*}
 
 Ist $r < R$, so wird über weniger Volumen integriert. So gilt:
 \begin{align*}
-	\oiint \dif A \inner{\vec D}{\vec \nu} &= \iiint \dif V \rho \\
+	\oint_{\partial V} \dif A \inner{\vec D}{\vec \nu} &= \int_V \dif V \rho \\
 				  2 \pi D h r &= \pi \rho h r^2 \\
 									  \vec D &= \frac 12 \rho r \hat{\vec r}
 \end{align*}
@@ -234,7 +234,7 @@ Platte sind. Wegen der Symmetrie geht kein Fluss durch die Seiten der Prismas,
 nur durch die Stirnflächen, deren Fläche $A$ sei. Dann gilt nach dem gaußschen Satz:
 %
 \begin{align*}
-	\oiint \dif A \inner{\vec D}{\vec \nu} &= \iiint \dif V \rho \\
+	\oint_{\partial V} \dif A \inner{\vec D}{\vec \nu} &= \int_V \dif V \rho \\
 	2 D A &= \sigma A \\
    \vec D &= \frac{\sigma}2 \hat{\vec r}
 \end{align*}
@@ -244,7 +244,7 @@ nur durch die Stirnflächen, deren Fläche $A$ sei. Dann gilt nach dem gaußsche
 Als Volumen wähle ich nun eine Kugel mit Radius $r$.
 %
 \begin{align*}
-	\oiint \dif A \inner{\vec D}{\vec \nu} &= \iiint \dif V \rho \\
+	\oint_{\partial V} \dif A \inner{\vec D}{\vec \nu} &= \int_V \dif V \rho \\
 	4 \pi D r^2 &= \frac 43 \pi \rho R^3 \\
 						\vec D &= \frac 13 \rho \frac{R^3}{r^2} \hat{\vec r}
 \end{align*}
@@ -252,7 +252,7 @@ Als Volumen wähle ich nun eine Kugel mit Radius $r$.
 Falls $r < R$ gilt, wird über weniger Ladung integriert. Somit gilt dann:
 %
 \begin{align*}
-	\oiint \dif A \inner{\vec D}{\vec \nu} &= \iiint \dif V \rho \\
+	\oint_{\partial V} \dif A \inner{\vec D}{\vec \nu} &= \int_V \dif V \rho \\
 	4 \pi D r^2 &= \frac 43 \pi \rho r^3 \\
 						\vec D &= \frac 13 \rho r \hat{\vec r}
 \end{align*}
