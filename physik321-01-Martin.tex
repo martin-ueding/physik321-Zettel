@@ -134,8 +134,6 @@
 
 \section{Identitäten der Vektoranalysis}
 
-Ich schreibe $\partial_x$ für $\pd{}x$.
-
 \subsection{rot grad}
 
 Es ist zu zeigen, dass Gradienten wirbelfrei sind:
@@ -145,7 +143,7 @@ Dazu schreibe ich das alles in Komponenten:
 %
 \begin{align*}
 	\vnabla \times \del{\vnabla \phi} &=
-	\epsilon^{ab}_{c} \partial_a \partial_b \phi e^c \\
+	\epsilon^{ab}{}_{c} \partial_a \partial_b \phi e^c \\
 	\intertext{Da der $\tens \epsilon$-Tensor total antisymmetrisch, die Ableitungen allerdings symmetrisch sind (Satz von Schwarz), ist die Summe gerade 0.}
 	&= 0
 \end{align*}
@@ -159,8 +157,8 @@ Auch hier benutze ich wieder Komponenten:
 %
 \begin{align*}
 	\divergence{\vnabla \times \vec A}
-	&= \partial_a \epsilon^{ab}_{c} \partial_b A^c \\
-	&= \epsilon^{ab}_{c} \partial_a \partial_b A^c \\
+	&= \partial_a \epsilon^{ab}{}_{c} \partial_b A^c \\
+	&= \epsilon^{ab}{}_{c} \partial_a \partial_b A^c \\
 	&= 0
 \end{align*}
 
@@ -180,18 +178,17 @@ Es ist zu zeigen, dass gilt:
 \subsection{rot rot}
 
 Es ist zu zeigen, dass gilt:
-\[ \vnabla \times \del{\vnabla \times \vec A} = \vnabla \divergence{\vec A} - \laplace A \]
+\[ \vnabla \times \del{\vnabla \times \vec A} = \vnabla \divergence{\vec A} - \laplace \vec A \]
 
+Dies geht mit der $\vec B \inner{\vec A}{\vec C} - \vec C \inner{\vec A}{\vec
+B}$-Regel:
 \begin{align*}
 	\vnabla \times \del{\vnabla \times \vec A}
-	&= \epsilon_{abc} \partial_a \del{\epsilon_{def} \partial_d A_e e_f}_b e_c \\
-	&= \epsilon_{abc} \partial_a \del{\epsilon_{deb} \partial_d A_e} e_c \\
-	&= \epsilon_{cab} \epsilon_{deb} \partial_a \partial_d A_e e_c \\
-	&= \del{\delta_{cd} \delta_{ae} - \delta_{ce} \delta_{da}} \partial_a \partial_d A_e e_c \\
-	&= \delta_{cd} \delta_{ae} \partial_a \partial_d A_e e_c - \delta_{ce} \delta_{da} \partial_a \partial_d A_e e_c \\
-	&= \partial_c e_c \partial_a A_a - \partial_a \partial_a A_c e_c \\
-	&= \vnabla \divergence{\vec A} - \laplace A
+	&= \vnabla \divergence{\vec A} - \vec A \inner{\vnabla}{\vnabla} \\
+	&= \vnabla \divergence{\vec A} - \laplace \vec A
 \end{align*}
+
+Dabei ist $\laplace \vec A$ der Vektor, auf dessen Komponenten jeweils der $\laplace$-Operator angewandt wurde.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                          elektrische Feldstärken                           %
