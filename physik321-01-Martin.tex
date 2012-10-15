@@ -1,0 +1,267 @@
+% Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+%
+\documentclass[11pt, ngerman]{article}
+
+\usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[activate]{pdfcprot}
+\usepackage[cdot, squaren]{SIunits}
+\usepackage[iso]{isodate}
+\usepackage[parfill]{parskip}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{babel}
+\usepackage{color}
+\usepackage{commath}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{setspace}
+
+\usepackage[charter]{mathdesign}
+
+\definecolor{darkblue}{rgb}{0,0,.5}
+\definecolor{darkgreen}{rgb}{0,.5,0}
+
+\hypersetup{
+	breaklinks=false,
+	citecolor=darkgreen,
+	colorlinks=true,
+	linkcolor=black,
+	menucolor=black,
+	urlcolor=darkblue,
+}
+
+\setlength{\columnsep}{2cm}
+
+\DeclareMathOperator{\arcsinh}{arsinh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\asinh}{arsinh}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\dalambert}{\mathop{{}\Box}\nolimits}
+\newcommand{\divergence}[1]{\inner{\vnabla}{#1}}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\emesswert}{\del{\messwert \pm \messwert}}
+\newcommand{\e}[1]{\cdot 10^{#1}}
+\newcommand{\fehlt}{\textcolor{red}{Hier fehlen noch Inhalte.}}
+\newcommand{\half}{\frac 12}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\laplace}{\mathop{{}\bigtriangleup}\nolimits}
+\newcommand{\messwert}{\textcolor{blue}{\square}}
+\newcommand{\punkte}{\textcolor{white}{xxxxx}}
+\newcommand{\tens}[1]{\boldsymbol{#1}}
+\newcommand{\vnabla}{\vec \nabla}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+
+\newcommand{\themodul}{physik321}
+\newcommand{\thegruppe}{Gruppe 8 -- Julia Volmer}
+\newcommand{\theuebung}{1}
+
+\pagestyle{fancy}
+
+\fancyfoot[C]{\footnotesize{\thegruppe}}
+\fancyfoot[L]{\footnotesize{Martin Ueding, Simon Schlepphorst}}
+\fancyfoot[R]{\footnotesize{Seite \thepage}}
+\fancyhead[L]{\themodul{} -- Übung \theuebung}
+
+\setcounter{section}{0}
+
+\def\thesection{H \theuebung.\arabic{section}}
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}} \and Simon Schlepphorst \\ \small{\href{mailto:s2@uni-bonn.de}{s2@uni-bonn.de}}}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c}
+		Aufgabe & H 1.1 & H 1.2 & H 1.3 & $\Sigma$   \\
+		\hline
+		Punkte & \punkte & \punkte & \punkte & \punkte
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      Gradient, Divergenz und Rotation                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Gradient, Divergenz und Rotation}
+
+\subsection{Gradienten}
+
+\[ \vnabla \inner{\vec a}{\vec x} = e^i \partial_i a_j x^j = \vec a \]
+\[ \vnabla \frac{1}{r} = - \frac{\vec r}{r^2} \]
+
+\subsection{Divergenz}
+
+\[ \divergence{\vec x} = \partial_i x^i = 3 \]
+\[ \divergence{r \vec a} = \partial_i \del{r a}^i = \del{\partial_i r} a^i + r \partial_i a^i = \frac{x_i}{r} a^i = \frac{\inner{\vec x}{\vec a}}{r} \]
+\[ \divergence{\frac{\vec x}{r}} = \frac{3}{r} + 1 \]
+
+\subsection{Rotation}
+
+\[ \vnabla \times \vec x = 0 \]
+\[
+	\vnabla \times \begin{pmatrix}
+		yz + 12 xy \\
+		xz - 8yz^2 + 6x^2 \\
+		xy - 12y^2z^2
+	\end{pmatrix} = \begin{pmatrix}
+		-24yz^2 + 16 yz \\
+		0 \\
+		0
+	\end{pmatrix}
+\]
+\[
+	\vnabla \times \del{\frac 12 \vec a \times \vec x}
+	= \frac 12 \del{\vec a \divergence{\vec c} - \vec x \divergence{\vec a}}
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       Identitäten der Vektoranalysis                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Identitäten der Vektoranalysis}
+
+Ich schreibe $\partial_x$ für $\pd{}x$. Da der metrische Tensor $g_{ab}$ hier
+einfach nur $\delta_a^b$ ist, kann ich Indizes ohne weiteres nach oben und
+unten ziehen. Ich schreibe alle Indizes unten. Die Summenkonvention gilt
+weiterhin.
+
+\subsection{rot grad}
+
+Es ist zu zeigen, dass Gradienten wirbelfrei sind:
+\[ \vnabla \times \del{\vnabla \phi} = 0 \]
+
+Dazu schreibe ich das alles in Komponenten:
+%
+\begin{align*}
+	\vnabla \times \del{\vnabla \phi} &=
+	\epsilon_{abc} \partial_a \partial_b \phi e_c \\
+	\intertext{Da der $\tens \epsilon$-Tensor total antisymmetrisch, die Ableitungen allerdings symmetrisch sind (Satz von Schwarz), ist die Summe gerade 0.}
+	&= 0
+\end{align*}
+
+\subsection{div rot}
+
+Es ist zu zeigen, dass Wirbelfelder quellenfrei sind:
+\[ \divergence{\vnabla \times \vec A} = 0 \]
+
+Auch hier benutze ich wieder Komponenten:
+%
+\begin{align*}
+	\divergence{\vnabla \times \vec A}
+	&= \partial_a \del{\epsilon_{bcd} \partial_b A_c e_d}_a \\
+	&= \partial_a \epsilon_{bca} \partial_b A_c \\
+	&= \epsilon_{abc} \partial_a \partial_b A_c \\
+	&= 0
+\end{align*}
+
+\subsection{div Produktregel}
+
+Es ist zu zeigen, dass gilt:
+\[ \divergence{\phi \vec A} = \phi \divergence{\vec A} + \inner{\vec A}{\vnabla \phi} \]
+
+\begin{align*}
+	\divergence{\phi \vec A}
+	&= \partial_a \del{\phi A}_a \\
+	\intertext{Hier wende ich die normale Produktregel an.}
+	&= \del{\partial_a \phi} A_a + \phi \partial_a A_a \\
+	&= \inner{\vnabla \phi}{\vec A} + \phi \divergence{\vec A}
+\end{align*}
+
+\subsection{rot rot}
+
+Es ist zu zeigen, dass gilt:
+\[ \vnabla \times \del{\vnabla \times \vec A} = \vnabla \divergence{\vec A} - \laplace A \]
+
+\begin{align*}
+	\vnabla \times \del{\vnabla \times \vec A}
+	&= \epsilon_{abc} \partial_a \del{\epsilon_{def} \partial_d A_e e_f}_b e_c \\
+	&= \epsilon_{abc} \partial_a \del{\epsilon_{deb} \partial_d A_e} e_c \\
+	&= \epsilon_{cab} \epsilon_{deb} \partial_a \partial_d A_e e_c \\
+	&= \del{\delta_{cd} \delta_{ae} - \delta_{ce} \delta_{da}} \partial_a \partial_d A_e e_c \\
+	&= \delta_{cd} \delta_{ae} \partial_a \partial_d A_e e_c - \delta_{ce} \delta_{da} \partial_a \partial_d A_e e_c \\
+	&= \partial_c e_c \partial_a A_a - \partial_a \partial_a A_c e_c \\
+	&= \vnabla \divergence{\vec A} - \laplace A
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                          elektrische Feldstärken                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{elektrische Feldstärken}
+
+Ich rechne hier mit dem $\vec D$-Feld, der Übergang zum $\vec E$-Feld geht hier
+mit $\vec D = \varepsilon_0 \vec E$.
+
+\subsection{Gerade}
+
+Ich wähle einen Zylinder mit Radius $r$ und Höhe $h$, der so ausgerichtet ist, dass die Gerade seine Symmetrieachse ist. Die Ladungsdichte auf der Geraden sei $\lambda$. Dann gilt nach dem gaußschen Satz:
+%
+\begin{align*}
+	\oiint_{\partial V} \dif A \inner{\vec D}{\vec \nu} &= \iiint_V \dif V \rho \\
+	\intertext{Durch die „Deckel“ des Zylinders geht aufgrund der Symmetrie kein Fluss. Außerdem steht das Feld immer senkrecht auf der Mantelfläche, so dass das erste Integral einfach ein Produkt wird. Das zweite Integral ist ebenfalls trivial, da einfach nur die Höhe des Zylinders gebraucht wird.}
+	2 \pi D h r &= \lambda h \\
+			   \vec D &= \frac{\lambda}{2 \pi r} \hat{\vec r}
+\end{align*}
+
+\subsection{Zylinder}
+
+Ich beginne mit dem Feld außerhalb des Zylinders. Dort gilt wie vorher auch das gleiche gaußsche Satz sowie die gleichen Symmetrien.
+%
+\begin{align*}
+	\oiint \dif A \inner{\vec D}{\vec \nu} &= \iiint \dif V \rho \\
+				  2 \pi D h r &= \pi \rho h R^2 \\
+									  \vec D &= \frac 12 \rho \frac {R^2}r \hat{\vec r}
+\end{align*}
+
+Ist $r < R$, so wird über weniger Volumen integriert. So gilt:
+\begin{align*}
+	\oiint \dif A \inner{\vec D}{\vec \nu} &= \iiint \dif V \rho \\
+				  2 \pi D h r &= \pi \rho h r^2 \\
+									  \vec D &= \frac 12 \rho r \hat{\vec r}
+\end{align*}
+
+\subsection{Platte}
+
+Als Volumen wähle ich ein beliebiges Prisma, dessen Stirnflächen parallel zur
+Platte sind. Wegen der Symmetrie geht kein Fluss durch die Seiten der Prismas,
+nur durch die Stirnflächen, deren Fläche $A$ sei. Dann gilt nach dem gaußschen Satz:
+%
+\begin{align*}
+	\oiint \dif A \inner{\vec D}{\vec \nu} &= \iiint \dif V \rho \\
+	2 D A &= \sigma A \\
+   \vec D &= \frac{\sigma}2 \hat{\vec r}
+\end{align*}
+
+\subsection{Kugel}
+
+Als Volumen wähle ich nun eine Kugel mit Radius $r$.
+%
+\begin{align*}
+	\oiint \dif A \inner{\vec D}{\vec \nu} &= \iiint \dif V \rho \\
+	4 \pi D r^2 &= \frac 43 \pi \rho R^3 \\
+						\vec D &= \frac 13 \rho \frac{R^3}{r^2} \hat{\vec r}
+\end{align*}
+
+Falls $r < R$ gilt, wird über weniger Ladung integriert. Somit gilt dann:
+%
+\begin{align*}
+	\oiint \dif A \inner{\vec D}{\vec \nu} &= \iiint \dif V \rho \\
+	4 \pi D r^2 &= \frac 43 \pi \rho r^3 \\
+						\vec D &= \frac 13 \rho r \hat{\vec r}
+\end{align*}
+
+\end{document}
