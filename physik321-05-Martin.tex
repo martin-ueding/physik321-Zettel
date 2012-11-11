@@ -108,15 +108,25 @@ $\vec H$:
 	\vnabla \times \vec H = \vec j = 0
 \]
 
-Somit ist $\vec H$ rotationsfrei und kann als Gradient geschrieben werden. Da
-allerdings auch $\divergence{\vec H} = 0$, somit löst $\vec H$ die
-Laplacegleichung.
+Somit ist $\vec H$ rotationsfrei und kann als Gradient geschrieben werden.
 
 Die magnetische Flussdichte setzt sich aus der Erregung und Magnetisierung
 zusammen:
 \[
 	\vec B = \mu_0 \del{\vec H + \vec M}
 \]
+
+Da allerdings auch $\divergence{\vec B} = 0$ gelten muss, gilt
+$\divergence{\vec H + \vec M} = 0$.
+
+Mit dem Poissonintegral können wir das skalare Potential $\varphi_m$ bestimmen:
+\begin{align*}
+	\varphi_m\del{\vec r}
+	&= - \frac{1}{4 \pi} \int \dif^3 r' \frac{\divergence{\vec M\del{\vec r'}}}{\abs{\vec r - \vec r'}} \\
+	&= - \frac{M_0}{4 \pi} \dpd{}z \int \dif^3 r' \frac{1}{\abs{\vec r - \vec r'}} \\
+	&= - \frac{M_0}{4 \pi} \dpd{}z \frac{4 \pi R^3}{3r} \\
+	&= \frac{M_0 R^3 \cos\del{\angle\del{\vec r, \vec e_z}}}{3r}
+\end{align*}
 
 \fehlt
 
