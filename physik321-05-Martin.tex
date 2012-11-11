@@ -100,7 +100,42 @@
 \section{Magnetfeld an Grenzflächen}
 \label 1
 
+\subsection{Gradient}
+
+Es gibt keine Stromdichte, somit gilt überall $\vec j = 0$. Daraus für $H$:
+\[
+	\vnabla \times \vec H = \vec j = 0
+\]
+
+Somit ist $\vec H$ rotationsfrei und kann als Gradient geschrieben werden. Da
+allerdings auch $\divergence{\vec H} = 0$, somit löst $\vec H$ die
+Laplacegleichung.
+
+Die magnetische Flussdichte setzt sich aus der Erregung und Magnetisierung
+zusammen:
+\[
+	\vec B = \mu_0 \del{\vec H + \vec M}
+\]
+
 \fehlt
+
+\subsection{Magnetfeld innerhalb und außerhalb}
+
+\fehlt
+
+\subsection{Oberflächenstromdichte}
+
+Es soll erklärt werden, warum die Oberflächenstromdichte folgende Form haben
+muss:
+\[
+	\vec j = \alpha\del\theta \delta\del{r-R} \vec e_\phi
+\]
+
+Damit die Magnetisierung parallel zur $z$-Achse ist, muss der Strom ein
+Wirbelfeld um die $z$-Achse sein. Die Richtung von $\phi$ sind konzentrische
+Kreise um die $z$-Achse, womit der Strom in $\vec e_\phi$ Richtung fließen
+muss. Daher das $\vec e_\phi$.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                   Konzentrische Zylinder mit Dielektrikum                   %
