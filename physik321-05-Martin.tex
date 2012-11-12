@@ -168,12 +168,36 @@ Das magnetische Moment ist definiert als:
 \]
 
 Dies muss gerade \eqref{eq:1-m} sein. Somit erhalten wir als Gleichung für $\vec j$:
-\begin{align*}
+\[
 	\half \int \dif^3 r \del{\vec r \times \vec j\del{\vec r}}
-	&= \frac 43 \pi R^3 M_0 \ev_z \\
+	= \frac 43 \pi R^3 M_0 \ev_z
+\]
+
+Wir können $\vec r \times \ev_\phi = - r \ev_\theta$ in das Integral für die Stromdichte einsetzen und erhalten:
+\begin{align*}
+	- \half \int \dif^3 r \alpha(\theta) \delta(r-R) r \ev_\theta
+	&= - \half \int_0^\pi \dif \theta \int_0^{2 \pi} \dif \phi \int_0^R \dif r \, r^2 \sin\del\theta r \alpha(\theta) \delta(r-R) r \ev_\theta \\
+	&= - \half \int_0^\pi \dif \theta \int_0^{2 \pi} \dif \phi \, R^3 \sin\del\theta \alpha(\theta) \ev_\theta \\
+	\intertext{An dieser Stelle setzen wir $\ev_\theta$ in kartesischen Koordinaten ein, damit wir später auch ein $\ev_z$ erhalten können. Dieses ist: $\ev_\theta = \del{\cos\del\phi \cos\del\theta, \sin\del\phi \cos\del\theta, - \sin\del\theta}^T$.}
+	&= - \half \int_0^\pi \dif \theta \int_0^{2 \pi} \dif \phi \, R^3 \sin\del\theta \alpha(\theta) \begin{pmatrix}
+		\cos\del\phi \cos\del\theta \\ \sin\del\phi \cos\del\theta \\ - \sin\del\theta
+	\end{pmatrix} \\
+	\intertext{Jetzt nutzen wir aus, dass $\int_0^{2\pi} \dif \phi \, \cos\del\phi = 0$, sowie $\int_0^{2\pi} \dif \phi \, \sin\del\phi = 0$ und $\int_0^{2\pi} \dif \phi = 2\pi$.}
+	&= \pi R^3 \ev_z \int_0^\pi \dif \theta \, \sin\del\theta \alpha(\theta)
 \end{align*}
 
-\fehlt
+Dies sollte jetzt gerade $\frac 43 \pi R^3 M_0 \ev_z$ sein.
+\begin{align*}
+	\pi R^3 \ev_z \int_0^\pi \dif \theta \, \sin\del\theta \alpha(\theta) &= \frac 43 \pi R^3 M_0 \ev_z \\
+	\int_0^\pi \dif \theta \, \sin\del\theta \alpha(\theta) &= \frac 43 M_0 \\
+	\int_0^\pi \dif \theta \, \sin\del\theta \alpha(\theta) &= \frac 1\pi \int_0^\pi \dif \theta \, \frac 43 M_0 \\
+	\alpha\del\theta &= \frac 43 \frac 1\pi M_0 \csc^2\del\theta
+\end{align*}
+
+Somit ist die Stromverteilung:
+\[
+	\vec j = \frac 4{3\pi} M_0 \csc^2\del\theta \delta\del{r-R} \ev_\phi
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                   Konzentrische Zylinder mit Dielektrikum                   %
