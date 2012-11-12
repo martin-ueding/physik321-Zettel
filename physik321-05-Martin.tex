@@ -121,6 +121,8 @@ zusammen:
 Da allerdings auch $\divergence{\vec B} = 0$ gelten muss, gilt
 $\divergence{\vec H + \vec M} = 0$.
 
+\fehlt
+
 Mit dem Poissonintegral können wir das skalare Potential $\varphi_m$ bestimmen:
 \begin{align*}
 	\varphi_m\del{\vec r}
@@ -130,7 +132,16 @@ Mit dem Poissonintegral können wir das skalare Potential $\varphi_m$ bestimmen:
 	&= \frac{M_0 R^3 \cos\del{\angle\del{\vec r, \vec e_z}}}{3r}
 \end{align*}
 
-\fehlt
+Das magnetische Moment der Kugel ist, da das Feld homogen ist:
+\[
+	\vec m = \int \dif^3 r' \vec M \del{\vec r'} = \frac 43 \pi R^3 M_0 \ev_z
+\]
+
+Zusammen erhalten wir:
+\[
+	\varphi_m \del{\vec r}
+	= \frac{1}{4\pi} \frac{\inner{\vec m}{\vec r}}{r^3}
+\]
 
 \subsection{Magnetfeld innerhalb und außerhalb}
 
