@@ -188,11 +188,20 @@ Stromdichte einsetzen und erhalten:
 	- \half \int \dif^3 r \alpha(\theta) \delta(r-R) r \ev_\theta
 	&= - \half \int_0^\pi \dif \theta \int_0^{2 \pi} \dif \phi \int_0^R \dif r \, r^2 \sin\del\theta r \alpha(\theta) \delta(r-R) r \ev_\theta \\
 	&= - \half \int_0^\pi \dif \theta \int_0^{2 \pi} \dif \phi \, R^3 \sin\del\theta \alpha(\theta) \ev_\theta \\
-	\intertext{An dieser Stelle setzen wir $\ev_\theta$ in kartesischen Koordinaten ein, damit wir später auch ein $\ev_z$ erhalten können. Dieses ist: $\ev_\theta = \del{\cos\del\phi \cos\del\theta, \sin\del\phi \cos\del\theta, - \sin\del\theta}^T$.}
+	\intertext{%
+		An dieser Stelle setzen wir $\ev_\theta$ in kartesischen Koordinaten
+		ein, damit wir später auch ein $\ev_z$ erhalten können. Dieses ist:
+		$\ev_\theta = \del{\cos\del\phi \cos\del\theta, \sin\del\phi
+		\cos\del\theta, - \sin\del\theta}^T$.
+	}
 	&= - \half \int_0^\pi \dif \theta \int_0^{2 \pi} \dif \phi \, R^3 \sin\del\theta \alpha(\theta) \begin{pmatrix}
 		\cos\del\phi \cos\del\theta \\ \sin\del\phi \cos\del\theta \\ - \sin\del\theta
 	\end{pmatrix} \\
-	\intertext{Jetzt nutzen wir aus, dass $\int_0^{2\pi} \dif \phi \, \cos\del\phi = 0$, sowie $\int_0^{2\pi} \dif \phi \, \sin\del\phi = 0$ und $\int_0^{2\pi} \dif \phi = 2\pi$.}
+	\intertext{%
+		Jetzt nutzen wir aus, dass $\int_0^{2\pi} \dif \phi \, \cos\del\phi =
+		0$, sowie $\int_0^{2\pi} \dif \phi \, \sin\del\phi = 0$ und
+		$\int_0^{2\pi} \dif \phi = 2\pi$.
+	}
 	&= \pi R^3 \ev_z \int_0^\pi \dif \theta \, \sin\del\theta \alpha(\theta)
 \end{align*}
 
