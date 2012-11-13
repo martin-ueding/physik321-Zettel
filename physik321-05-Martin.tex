@@ -280,9 +280,38 @@ Die Ableitung des Potentials ist das negative $\vec E$-Feld:
 	E_\rho = \frac{V_0}{\ln\del{\frac ab}} \frac 1\rho
 \]
 
-Innerhalb von $\intcc{0, a}$ gilt $E_\rho = 0$.
+Innerhalb von $\intcc{0, a}$ gilt $E_\rho = 0$. Ohne Beschränkung der
+Allgemeinheit nehmen wir jetzt an, dass für $\rho \in \intoo{b, \infty}$ gilt:
+$E_\rho = 0$. Einen anderen Wert könnten wir mit einer Oberflächenladung
+außerhalb des außeren Zylinders realisieren.
 
-\fehlt
+Der Sprung des $\vec D$-Feldes gilt die Oberflächenladung:
+\[
+	\inner{\vec \nu}{\vec D_2 - \vec D_1} = \sigma
+\]
+
+Da im Inneren gerade $\vec D = 0$ gilt, und das Feld immer senkrecht zu den
+Oberflächen ist, vereinfacht sich die Gleichung zu:
+\[
+	D = \sigma
+\]
+
+Mit $\vec E \varepsilon \varepsilon_0 = \vec D$ erhalten wir für die
+Oberflächenladungsdichten:
+\[
+	\sigma_a = \varepsilon \varepsilon_0 \frac{V_0}{\ln\del{\frac ba} a}
+	, \quad
+	\sigma_b = - \varepsilon \varepsilon_0 \frac{V_0}{\ln\del{\frac ba} b}
+\]
+
+Von der Richtung her passt dies gut, weil die Feldlinien so radial nach außen
+laufen und auf das höhere Potential führen.
+
+Die Linienladungsdichte ist in beiden Fällen gleich, sie ist die
+Oberflächenladungsdichte multipliziert mit dem Kreisumfang:
+\[
+	\lambda_a = - \lambda_b = 2 \pi \varepsilon \varepsilon_0 \frac{V_0}{\ln\del{\frac ba}}
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                 Greensfunktionen in $d = 2, 1$ Dimensionen                  %
