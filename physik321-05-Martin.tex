@@ -225,6 +225,63 @@ Somit ist die Stromverteilung:
 \section{Konzentrische Zylinder mit Dielektrikum}
 \label 2
 
+Mit dem gaußschen Gesetz können wir herleiten, dass das Innere ($\rho < a$)
+feldfrei sein muss. Dazu wählen wir einen Zylinder mit Radius $R = a$. Dann
+liegt die Oberfläche im (feldfreien) Leiter. Aus Symmetriegründen geht nichts
+durch Boden und Deckel des Zylinders. Somit kann sich keine Ladung auf der
+Innenseite befinden.
+
+Außerdem können wir ein Ringprisma mit Radien $a$ und $b$ konzentrisch in die
+Anordnung legen und damit feststellen, dass die Ladung pro Höhe auf der
+Außenseite des inneren und auf der Innenseite des Äußeren gleich sein muss. Mit
+einem Ringsektorprisma mit Bogenlänge $a \dif \phi$ auf der Innenseite, $b \dif
+\phi$ auf der Außenseite und Radius $b-a$ finden wir konkret für die
+Flächenladungsdichten:
+\[
+	\dif \phi \del{a \sigma_a + b \sigma_b} = 0
+\]
+
+Zwischen $a$ und $b$ muss das Potential $\varphi$ die Laplacegleichung
+erfüllen. In Zylinderkoordinaten erhalten wir (durch die Symmetrie bezüglich
+$\phi$ und $z$ vereinfacht):
+\[
+	\laplace \varphi = \frac 1\rho \dpd{}\rho \del{\rho \dpd\varphi\rho} = 0
+\]
+
+Die Differentialgleichung $\pd\varphi\rho = \frac{c_1}\varphi$ können wir durch
+Integration nach $\rho$ lösen und erhalten als Lösung:
+\[
+	\varphi(\rho) = c_1 \ln\del\rho + c_2
+\]
+
+Durch Umformungen und die Randbedingungen $\varphi\del a = 0$ und $\varphi\del
+b = V_0$ erhalten wir:
+\[
+	\varphi\del\rho = \frac{V_0}{\ln\del{\frac ba}} \ln\del{\frac \rho a}
+\]
+
+Für das Innere ($\rho < a$) muss $c_1$ = 0 gelten, da dort keine Singularität
+auftreten darf. Somit ist das Potential dort einfach konstant $0$.
+
+Außerhalb ($\rho > b$) hängt das Potential von der Ladungsdichte außen auf dem
+Äußeren Zylinder ab, das interessiert hier allerdings nicht.
+
+Somit ist das Potential:
+\[
+	\varphi\del\rho = \begin{cases}
+		0 & \rho \in \intcc{0, a} \\
+		\frac{V_0}{\ln\del{\frac ba}} \ln\del{\frac \rho a} & \rho \in \intoc{a, b} \\
+		\text{undefiniert} & \rho \in \intoo{b, \infty}
+	\end{cases}
+\]
+
+Die Ableitung des Potentials ist das negative $\vec E$-Feld:
+\[
+	E_\rho = \frac{V_0}{\ln\del{\frac ab}} \frac 1\rho
+\]
+
+Innerhalb von $\intcc{0, a}$ gilt $E_\rho = 0$.
+
 \fehlt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
