@@ -439,7 +439,8 @@ Nun betrachten wir die Kraft auf das Leiterschlaufe:
 		- B_{0,y} \\ B_{0,x} \\ 0
 	\end{pmatrix}
 	} \\
-	&= I \varepsilon^2 \del{-B_{0,z} - B_{0,y}} \ev_x \\
+	\intertext{Der konstante Teil des Magnetfeldes hat nette keine Kraft auf die Leiterschleife, da der Strom in den gegenüberliegenden Seiten gerade entgegengesetzt fließt.}
+	&= I \varepsilon^2 \del{-B_z - B_y} \ev_x \\
 	&= - I \varepsilon^2 \divergence{\vec B} \ev_x \\
 	\intertext{An dieser Stelle können wir Gradienten von $B_x$ addieren, weil es durch die Näherung konstant ist und somit 0 addiert wird.}
 	&= - I \varepsilon^2 \del{\divergence{\vec B} \ev_x - \vnabla B_x} \\
@@ -449,7 +450,7 @@ Nun betrachten wir die Kraft auf das Leiterschlaufe:
 	\intertext{Hier führen wir noch mehr Indizes ein.}
 	&= - I \varepsilon^2 \del{\delta_k{}^b \delta^i{}_x \partial_b B^k - \delta_{kx} \delta^{ib} \partial_b B^k} \\
 	&= I \varepsilon^2 \del{\delta_{kx} \delta^{ib} - \delta_k{}^b \delta^i{}_x} \partial_b B^k \\
-	\intertext{Diese vier $\delta$ können wir nun zwei zwei, mit einem Index kontrahierten, $\tens \epsilon$-Tensoren zusammenfassen.}
+	\intertext{Diese vier $\delta$ können wir nun als zwei, mit einem Index kontrahierten, $\tens \epsilon$-Tensoren zusammenfassen.}
 	&= \epsilon_{jk}{}^i \epsilon^j{}_x{}^b I \varepsilon^2 \partial_b B^k \\
 	\intertext{Wir führen einen weitern Index $a$ ein.}
 	&= \epsilon_{jk}{}^i \epsilon^j{}_a{}^b I \varepsilon^2 \delta_x{}^a \partial_b B^k \\
