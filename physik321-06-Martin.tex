@@ -297,7 +297,173 @@ dargestellt. Dies stimmt mit den Überlegungen und der Simulation (Abbildung
 \section{Kraft auf elementaren Dipol}
 \label 2
 
-\fehlt
+Zuerst bestimmen wir das magnetische Moment der Leiterschleife. Die Definition lautet:
+\[
+	\vec m = \half \int \dif^3 x \del{\vec r \times \vec j\del{\vec r}}
+\]
+
+Da nur auf der Leiterschleife Strom fließt, können wir das Integral auf die
+vier Kanten zerlegen. Dabei gehen wir davon aus, dass der Strom gemäß der
+rechten Hand um die $x$-Achse fließt. Wir könnten die Stromdichte aus einer
+Summe von $\delta$-Distributionen zusammensetzen, diesen Schritt überspringen
+wir. Das magnetische Moment ist also über alle vier Kanten zusammen:
+\begin{align*}
+	\vec m
+	&= \half \int \dif^3 r \del{\vec r \times \vec j\del{\vec r}} \\
+	&= \half I \del{
+	\int_0^\varepsilon \dif y
+	\begin{pmatrix}
+		0 \\ y \\ 0
+	\end{pmatrix}
+	\times
+	\ev_y
+	+
+	\int_0^\varepsilon \dif z
+	\begin{pmatrix}
+		0 \\ \varepsilon \\ z
+	\end{pmatrix}
+	\times
+	\ev_z
+	-
+	\int_0^\varepsilon \dif y
+	\begin{pmatrix}
+		0 \\ y \\ \varepsilon
+	\end{pmatrix}
+	\times
+	\ev_y
+	-
+	\int_0^\varepsilon \dif z
+	\begin{pmatrix}
+		0 \\ 0 \\ z
+	\end{pmatrix}
+	\times
+	\ev_z
+} \\
+	&= \half I \del{
+	\int_0^\varepsilon \dif y
+	\begin{pmatrix}
+		0 \\ 0 \\ \varepsilon
+	\end{pmatrix}
+	+
+	\int_0^\varepsilon \dif z
+	\begin{pmatrix}
+		0 \\ 0 \\ \varepsilon
+	\end{pmatrix}
+} \\
+&= I \varepsilon^2 \ev_x
+\end{align*}
+
+Dies stimmt mit dem in der Aufgabenstellung gegebenen Betrag $m = I \varepsilon^2$
+überein.
+
+Nun betrachten wir die Kraft auf das Leiterschlaufe:
+\begin{align*}
+	\vec F
+	&= \oint \dif l \del{\vec I \times \vec B} \\
+	\intertext{Die magnetische Flussdichte können wir mit der gegebenen Näherung annähern. Dabei schreiben wir $B_{0,i} := B_i(0, 0, 0)$, und $B_i := \eval[2]{\pd Bi}_{\vec r = \vec 0}$.}
+	&=
+	\int_0^\varepsilon \dif y
+	\begin{pmatrix}
+		0 \\ I \\ 0
+	\end{pmatrix}
+	\times
+	\begin{pmatrix}
+		B_{0,x} \\ B_{0,y} + B_y y \\ B_{0,z}
+	\end{pmatrix}
+	+
+	\int_0^\varepsilon \dif z
+	\begin{pmatrix}
+		0 \\ 0 \\ I
+	\end{pmatrix}
+	\times
+	\begin{pmatrix}
+		B_{0,x} \\ B_{0,y} + B_y \varepsilon \\ B_{0,z} + B_z z
+	\end{pmatrix} \\
+	&\quad
+	-
+	\int_0^\varepsilon \dif z
+	\begin{pmatrix}
+		0 \\ I \\ 0
+	\end{pmatrix}
+	\times
+	\begin{pmatrix}
+		B_{0,x} \\ B_{0,y} + B_y y \\ B_{0,z} + B_z \varepsilon
+	\end{pmatrix}
+	-
+	\int_0^\varepsilon \dif y
+	\begin{pmatrix}
+		0 \\ 0 \\ I
+	\end{pmatrix}
+	\times
+	\begin{pmatrix}
+		B_{0,x} \\ B_{0,y} \\ B_{0,z} + B_z z
+	\end{pmatrix} \\
+	&=
+	I \del{
+	\int_0^\varepsilon \dif y
+	\begin{pmatrix}
+		B_{0,z} \\ 0 \\ - B_{0,x}
+	\end{pmatrix}
+	-
+	\begin{pmatrix}
+		B_{0,z} + B_{0,z} \varepsilon \\ 0 \\ - B_{0,x}
+	\end{pmatrix}
+	}
+	+
+	I \del{
+	\int_0^\varepsilon \dif y
+	\begin{pmatrix}
+		- B_{0,y} - B_y \varepsilon \\ B_{0,x} \\ 0
+	\end{pmatrix}
+	-
+	\begin{pmatrix}
+		- B_{0,y} \\ B_{0,x} \\ 0
+	\end{pmatrix}
+	} \\
+	&=
+	I \varepsilon \del{
+	\begin{pmatrix}
+		B_{0,z} \\ 0 \\ - B_{0,x}
+	\end{pmatrix}
+	-
+	\begin{pmatrix}
+		B_{0,z} + B_{0,z} \varepsilon \\ 0 \\ - B_{0,x}
+	\end{pmatrix}
+	+
+	\int_0^\varepsilon \dif y
+	\begin{pmatrix}
+		- B_{0,y} - B_y \varepsilon \\ B_{0,x} \\ 0
+	\end{pmatrix}
+	-
+	\begin{pmatrix}
+		- B_{0,y} \\ B_{0,x} \\ 0
+	\end{pmatrix}
+	} \\
+	&= I \varepsilon^2 \del{-B_{0,z} - B_{0,y}} \ev_x \\
+	&= - I \varepsilon^2 \divergence{\vec B} \ev_x \\
+	\intertext{An dieser Stelle können wir Gradienten von $B_x$ addieren, weil es durch die Näherung konstant ist und somit 0 addiert wird.}
+	&= - I \varepsilon^2 \del{\divergence{\vec B} \ev_x - \vnabla B_x} \\
+	\intertext{Ab hier betrachten wir noch noch die $i$-Komponente der Kraft.}
+	F^i
+	&= - I \varepsilon^2 \del{\delta^i{}_x \partial_b B^b - \partial^i B_x} \\
+	\intertext{Hier führen wir noch mehr Indizes ein.}
+	&= - I \varepsilon^2 \del{\delta_k{}^b \delta^i{}_x \partial_b B^k - \delta_{kx} \delta^{ib} \partial_b B^k} \\
+	&= I \varepsilon^2 \del{\delta_{kx} \delta^{ib} - \delta_k{}^b \delta^i{}_x} \partial_b B^k \\
+	\intertext{Diese vier $\delta$ können wir nun zwei zwei, mit einem Index kontrahierten, $\tens \epsilon$-Tensoren zusammenfassen.}
+	&= \epsilon_{jk}{}^i \epsilon^j{}_x{}^b I \varepsilon^2 \partial_b B^k \\
+	\intertext{Wir führen einen weitern Index $a$ ein.}
+	&= \epsilon_{jk}{}^i \epsilon^j{}_a{}^b I \varepsilon^2 \delta_x{}^a \partial_b B^k \\
+	\intertext{Jetzt können wir das vorher bestimmte magnetische Moment $\vec m$ einsetzen. Dabei müssen wir natürlich nur die entsprechende, $x$-Komponente einsetzen.}
+	&= \epsilon_{jk}{}^i \epsilon^j{}_a{}^b m^a \partial_b B^k \\
+	\intertext{Nun permutieren wir die Indizes am ersten $\tens \epsilon$-Tensor.}
+	&= \epsilon^i{}_{jk} \epsilon^j{}_a{}^b m^a \partial_b B^k \\
+	\intertext{Zur Übersicht können wir noch den mittleren Term als eigenen Vektor schreiben.}
+	&= \epsilon^i{}_{jk} \del{\epsilon_{na}{}^b m^a \partial_b \ev^n}^j B^k \\
+	\intertext{Dies ist nun ein doppeltes Kreuzprodukt.}
+	&= \del{ \vec m \times \vnabla} \times B
+\end{align*}
+
+Und das ist genau die gesuchte Relation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                              Helmholtz-Spulen                               %
