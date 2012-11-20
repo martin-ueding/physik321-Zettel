@@ -473,7 +473,39 @@ Und das ist genau die gesuchte Relation.
 \section{Helmholtz-Spulen}
 \label 3
 
+\subsection{Herleitung des Potentials}
+
 \fehlt
+
+\subsection{homogenes Feld}
+
+Es soll gezeigt werden, dass das Feld bei $R = 2a$ homogen ist. Dazu bilde ich
+$\vec B = \vnabla \times \vec A$ in Zylinderkoordinaten. Es gilt $\vec A = A_y
+\phi$. Die Rotation ist:
+\[
+	\vec B = \del{\frac 1\rho \dpd{A_z}\phi - \dpd{A_\phi}z} \ev_\rho
+	+ \del{\dpd{A_\rho}z - \dpd{A_z}\rho} \ev_\phi
+	+ \frac 1\rho \del{\dpd{\del{\rho A_\phi}}\rho - \dpd{A_\rho}\phi} \ev_z
+\]
+
+Dabei sind nur zwei Terme nicht null. Diese sind:
+\[
+	\dpd{A_\phi}z = \frac{\mu_0 I \rho R^2}{2 \del{R^2 + a^2}^{3/2}} \del{- \frac{3z}{R^2 + a^2} + \frac{15 a^2 z}{\del{R^2+a^2}^2}}
+\]
+\[
+	\frac 1\rho \dpd{\del{\rho A_\phi}}\rho
+	=
+	\frac{\mu_0 I \rho R^2}{\del{R^2+a^2}^{3/2}} \del{1- \frac 32 \frac{z^2 + \rho^2}{R^2 + a^2} + \frac{15}8 \frac{R^2 \rho^2 + 4 a^2 z^2}{\del{R^2 + a^2}^2} - \frac{3\rho^2}{R^2+a^2} + \frac{15}4 \frac{R^2 \rho^2}{\del{R^2+a^2}^2}}
+\]
+
+Wir kombinieren die beiden Komponenten und setzen $R := 2a$ ein. Damit fallen
+alle Terme in den Klammern, bis auf die $1$ im zweiten Term weg, so dass das
+$\vec B$-Feld ist:
+\[
+	\vec B = \frac{4 \mu_0 I a^2}{\del{5a^2}^{3/2}} \ev_z
+\]
+
+Dies ist in der Tat homogen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %               Eigenschaften ebener elektromagnetischer Wellen               %
