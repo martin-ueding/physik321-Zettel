@@ -475,6 +475,130 @@ Und das ist genau die gesuchte Relation.
 
 \subsection{Herleitung des Potentials}
 
+Die Stromdichte der einen Spule bei $z = +a$ ist gegeben durch:
+\[
+	\vec j \del{\vec r} = I \delta\del{z-a} \delta\del{\rho-R} \ev_\phi\del{\vec r}
+\]
+
+Das Vektorpotential ist definiert als:
+\[
+	\vec A\del{\vec r} := \frac{\mu_0}{4\pi} \int \dif{^3 r'} \frac{\vec j\del{\vec r'}}{\abs{\vec r - \vec r'}}
+\]
+
+Wir setzen die Stromdichte in das Vektorpotential ein und erhalten das Integral:
+\begin{align*}
+	\vec A\del{\vec r}
+	&= \frac{\mu_0}{4\pi}
+	\int_0^{2\pi} \dif{\phi'}
+	\int_{-\infty}^\infty \dif{z'}
+	\int_0^\infty \dif{\rho'}
+	\rho' \frac{I \delta\del{z'-a} \delta\del{\rho'-R} \ev_{\phi'} \del{\vec r'}}{\abs{\vec r - \vec r'}}
+	%
+	\intertext{%
+		Durch die Rotationssymmetrie können wir ohne Beschränkung der
+		Allgemeinheit $\phi = 0$ (nicht $\phi'$!) betrachten. Außerdem wechseln
+		wir für $\vec A$ in kartesische Koordinaten, für die Integrale
+		allerdings nicht.  Wir setzen $\ev_{\phi'} = \del{-\sin\del{\phi'},
+		\cos\del{\phi'}, 0}^T$ ein.
+	}
+	%
+	&= \frac{\mu_0}{4\pi}
+	\int_0^{2\pi} \dif{\phi'}
+	\int_{-\infty}^\infty \dif{z'}
+	\int_0^\infty \dif{\rho'}
+	\rho' \frac{I \delta\del{z'-a} \delta\del{\rho'-R} \del{-\sin\del{\phi'}, \cos\del{\phi'}, 0}^T}
+	{\abs{\vec r - \vec r'}}
+	%
+	\intertext{Ab hier betrachten wir noch die $y$-Komponente von $\vec A$.}
+	%
+	A_y\del{\vec r}
+	&= \frac{\mu_0}{4\pi}
+	\int_0^{2\pi} \dif{\phi'}
+	\int_{-\infty}^\infty \dif{z'}
+	\int_0^\infty \dif{\rho'}
+	\rho' \frac{I \delta\del{z'-a} \delta\del{\rho'-R} \cos\del{\phi'}}{\abs{\vec r - \vec r'}}
+	%
+	\intertext{%
+		Wir setzen $\abs{\vec r - \vec r'}$ ein. Dabei rechnen wir vorher in
+		kartesische Koordinaten um, da der Abstand in Zylinderkoordinaten nicht
+		wirklich übersichtlich sein wird. Dann führen wir die beiden inneren
+		Integrale aus, die durch die $\delta$-Distributionen nur Werte für
+		$\rho'$ und $z'$ festlegen.
+	}
+	%
+	A_y\del{\vec r}
+	&= \frac{\mu_0 I R}{4\pi}
+	\int_0^{2\pi} \dif{\phi'}
+	\frac{\cos\del{\phi'}}{\sqrt{R^2 - 2R\rho \cos\del{\phi'} + \del{a-z}^2}}
+	%
+	\intertext{%
+		Dieses Integral ist so nicht direkt lösbar. Wir dürfen hier annehmen,
+		dass $\rho \ll R$ ist und wir es um $\rho = 0$ entwickeln dürfen. Diese
+		Entwicklung führt mit $b_0 = 1$, $b_1 = 1/2$, $b_2 = 3/2$ und $b_3 =
+		5/2$ nach Umformungen auf:
+	}
+	%
+	&= \frac{\mu_0 I R}{4\pi}
+	\int_0^{2\pi} \dif{\phi'}
+	\cos\del{\phi'}
+	\sum_{n=0}^3 \del{R^2 + (a-z)^2}^{-1/2-n} b_n (R \rho)^n
+	\cos^n \del{\phi'} + \mathcal O\del{\rho^4} \\
+	%
+	&= \frac{\mu_0 I R}{4\pi}
+	\sum_{n=0}^3 \del{R^2 + (a-z)^2}^{-1/2-n} b_n (R \rho)^n
+	\int_0^{2\pi} \dif{\phi'}
+	\cos^{n+1} \del{\phi'} + \mathcal O\del{\rho^4}
+	%
+	\intertext{%
+		Die Integrale über die Potenzen von Kosinus lassen sich mit den
+		Potenzformeln bestimmen. Die Resultate sind für $n=0$: $0$ und $n = 1$:
+		$\pi$ und $n=2$: $0$ sowie $n = 3$: $3 \pi / 4$. Dies kürzt das $\pi$
+		im Vorfaktor. Damit können wir nun $A_y$ ohne Integrale schreiben:
+	}
+	%
+	&= \frac{\mu_0 I R}{4}
+	\del{\del{R^2 + (a-z)^2}^{-3/2} R \rho + \frac{15}8 \del{R^2 + (a-z)^2}^{-7/2} R^3 \rho^3}
+	+ \mathcal O\del{\rho^4}
+	%
+	\intertext{%
+		Dies entwickeln wir noch um $z = 0$, da $z \ll a$ angenommen werden
+		darf.
+	}
+	%
+	&= \frac{\mu_0 I R}{4}
+	\del{\del{R^2 + a^2}^{-3/2} R \rho + \frac{15}8 \del{R^2 + a^2}^{-7/2} R^3 \rho^3} \\
+	&\quad
+	+ \frac{\mu_0 I R}{4} \del{
+	3 \del{R^2 + a^2}^{-5/2} R \rho a z
++ \frac{15}2 \del{R^2 + a^2}^{-7/2} R \rho a^2 z^2} \\
+	&\quad
+	+ \mathcal O\del{(\rho + z)^4}
+	%
+	\intertext{%
+		Wir addieren nun ein zweites $\vec A$, das allerdings bei $a=-a$
+		positioniert ist. Damit haben wir ein Spulenpaar. Der in $a$ lineare
+		Teil des $\vec A$-Feldes wird sich gerade aufheben, so dass nur noch
+		der Konstante und quadratische Term übrig bleibt. Somit verdoppelt sich
+		das Feld zu:
+	}
+	%
+	\tilde A_y\del{\vec r}
+	&= \frac{\mu_0 I R}{2}
+	\del{\del{R^2 + a^2}^{-3/2} R \rho + \frac{15}8 \del{R^2 + a^2}^{-7/2} R^3 \rho^3} \\
+	&\quad - \frac{\mu_0 I R}{2} \frac{15}2 \del{R^2 + a^2}^{-7/2} R \rho a^2 z^2 + \mathcal O\del{(\rho + z)^4}
+	%
+	\intertext{%
+		Dies können wir noch weiter zusammenfassen.
+	}
+	%
+	&= \frac{\mu_0 I R^2 \rho}{2 \del{R^2 + a^2}^{3/2}}
+	\del{1 + \frac{15}{8} \frac{R^2 \rho^2 + 4 a^2 z^2}{\del{R^2 + a^2}^2}}
+	+ \mathcal O\del{(\rho + z)^4}
+\end{align*}
+
+Dies ist fast der Ausdruck, der auf dem Aufgabenblatt steht, allerdings fehlt
+noch ein Summand \[ - \frac 32 \frac{z^2+\rho^2}{R^2+a^2} \] in der Klammer.
+
 \fehlt
 
 \subsection{homogenes Feld}
