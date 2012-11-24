@@ -149,11 +149,93 @@ erhalten:
 Somit gilt $\dalambert \vec B = \vec 0$.
 
 \subsection{Berechnung des magnetischen Flusses}
+\label c
 
 Das $\vec E$-Feld breitet sich in $z$-Richtung aus. Somit muss das $\vec
-B$-Feld dies auch tun.
+B$-Feld dies auch tun. Außerdem handelt es sich hier um ebene Wellen, so dass
+$\partial_x \vec B = \vec 0$ und $\partial_y \vec B = \vec 0$ gelten muss. Wir setzen das gegebene elektrische Feld dritte Gleichung ein und erhalten als Differentialgleichung:
+\[
+	c^2
+	\begin{pmatrix}
+		- \partial_z B_y \\ \partial_z B_x \\ 0
+	\end{pmatrix}
+	=
+	\frac{E_0}{5}
+	\begin{pmatrix}
+		1 \\ -2 \\ 0
+	\end{pmatrix}
+	\exp\del{\ii \del{kz-\omega t}} (-\ii \omega)
+\]
+
+Die ersten beiden Zeilen können wir integrieren und erhalten (von
+einer additiven harmonischen Funktion abgesehen):
+\[
+	\vec B = \frac{1}{c^2} \frac{\omega}{k} \frac{E_0}{5}
+	\begin{pmatrix}
+		2 \\ 1 \\ 0
+	\end{pmatrix}
+	\exp\del{\ii \del{kz-\omega t}}
+\]
+
+Die Polarisierung ist linear. Dabei sind $\vec E$- und $\vec B$-Feld und
+$\pi/2$ phasenverschoben, das letztere vor dem ersteren (siehe Abbildung
+\ref{fig:3-3}). Beide Felder schwingen in der Ebene, die von ihrem Feld und der
+$z$-Achse aufgespannt wird.
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw[thick, ->] (0, 0) -- (1, -2) node[right] {$\vec E$};
+		\draw[thick, ->] (0, 0) -- (2, 1) node[right] {$\vec B$};
+		\draw[dotted, ->] (0, 0) -- (-1, 2) node[left] {$\vec E'$};
+		\draw[dotted, ->] (0, 0) -- (-2, -1) node[left] {$\vec B'$};
+		\draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+		\draw[->] (0, -2) -- (0, 2) node[above] {$y$};
+	\end{tikzpicture}
+	\caption{Polarisation der Felder in Aufgabe \ref c}
+	\label{fig:3-3}
+\end{figure}
 
 \subsection{Berechnung des elektrischen Feldes}
+\label d
+
+Wir setzen analog zur Aufgabe \ref c an und erhalten als Differentialgleichung:
+\[
+	\begin{pmatrix}
+		- \partial_z E_y \\ \partial_z E_x \\ 0
+	\end{pmatrix}
+	=
+	B_0 \omega
+	\begin{pmatrix}
+		\sin\del{kz-\omega t} \\ - \cos\del{kz-\omega t} \\ 0
+	\end{pmatrix}
+\]
+
+Durch Integration erhalten wir (bis auf eine harmonische Funktion):
+\[
+	\vec E = B_0 \frac \omega k
+	\begin{pmatrix}
+		- \sin\del{kz-\omega t} \\ \cos\del{kz-\omega t} \\ 0
+	\end{pmatrix}
+\]
+
+Diese Welle ist zirkulär polarisiert. Dabei ist das $\vec E$- um $\pi/2$ vor
+dem $\vec B$-Feld. Ein bestimmter Zeitpunkt ist in Abbildung \ref{fig:3-4}
+gezeigt.
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw[thick, ->] (0, 0) -- (30:2) node[right] {$\vec B$};
+		\draw[dotted, ->] (30:1.5) arc (30:50:1.5);
+		\draw[thick, ->] (0, 0) -- (120:2) node[right] {$\vec E$};
+		\draw[dotted, ->] (120:1.5) arc (120:140:1.5);
+		\draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+		\draw[->] (0, -2) -- (0, 2) node[above] {$y$};
+	\end{tikzpicture}
+	\caption{Polarisation der Felder in Aufgabe \ref d}
+	\label{fig:3-4}
+\end{figure}
 
 %\bibliography{../../zentrale_BibTeX/Central}
 %\bibliographystyle{plain}
