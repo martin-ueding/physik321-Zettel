@@ -120,6 +120,41 @@
 \section{Isolator im elektromagnetischen Feld}
 \label 3
 
+\subsection{Maxwellgleichungen}
+
+Im Isolator mit $\mu_r$ und $\varepsilon_r$ können wir $\vec D$ und $\vec H$
+ersetzen und erhalten:
+\[
+	\divergence{\vec E} = 0
+	,\quad
+	\divergence{\vec B} = 0
+	,\quad
+	\frac 1{\mu_r \mu_0} \vnabla \times \vec B - \varepsilon_r \varepsilon_0 \dot{\vec E} = \vec 0
+	,\quad
+	\vnabla \times \vec E + \dot{\vec B} = \vec 0
+\]
+
+\subsection{homogene Wellengleichung}
+
+Wir stellen die letzte um und bilden die Rotation von der dritten Gleichung und
+erhalten:
+\[
+	\ddot{\vec B}
+	= - \vnabla \times \dot{\vec E}
+	= - c^2 \vnabla \times \del{\vnabla \times \vec B}
+	= - c^2 \del{\vnabla \divergence{\vec B} - \laplace \vec B}
+		= c^2 \laplace \vec B
+\]
+
+Somit gilt $\dalambert \vec B = \vec 0$.
+
+\subsection{Berechnung des magnetischen Flusses}
+
+Das $\vec E$-Feld breitet sich in $z$-Richtung aus. Somit muss das $\vec
+B$-Feld dies auch tun.
+
+\subsection{Berechnung des elektrischen Feldes}
+
 %\bibliography{../../zentrale_BibTeX/Central}
 %\bibliographystyle{plain}
 
