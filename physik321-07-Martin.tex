@@ -43,6 +43,7 @@
 \DeclareMathOperator{\card}{card}
 \DeclareMathOperator{\diam}{diam}
 
+\newcommand{\curl}{\vnabla \times}
 \newcommand{\dalambert}{\mathop{{}\Box}\nolimits}
 \newcommand{\divergence}[1]{\inner{\vnabla}{#1}}
 \newcommand{\ee}{\mathrm e}
@@ -140,7 +141,7 @@ Es sollen die vier Relationen hergeleitet werden.
 
 An der Grenzfläche gilt:
 \[
-	\vnabla \times \vec E + \dot{\vec B} = 0
+	\curl \vec E + \dot{\vec B} = 0
 	, \quad
 	\divergence{\vec D} = 0
 \]
@@ -206,9 +207,9 @@ ersetzen und erhalten:
 	,\quad
 	\divergence{\vec B} = 0
 	,\quad
-	\frac 1{\mu_r \mu_0} \vnabla \times \vec B - \varepsilon_r \varepsilon_0 \dot{\vec E} = \vec 0
+	\frac 1{\mu_r \mu_0} \curl \vec B - \varepsilon_r \varepsilon_0 \dot{\vec E} = \vec 0
 	,\quad
-	\vnabla \times \vec E + \dot{\vec B} = \vec 0
+	\curl \vec E + \dot{\vec B} = \vec 0
 \]
 
 \subsection{homogene Wellengleichung}
@@ -217,10 +218,10 @@ Wir stellen die letzte Gleichung um, bilden die Rotation der Dritten und
 erhalten:
 \[
 	\ddot{\vec B}
-	= - \vnabla \times \dot{\vec E}
-	= - c^2 \vnabla \times \del{\vnabla \times \vec B}
+	= - \curl \dot{\vec E}
+	= - c^2 \curl \del{\curl \vec B}
 	= - c^2 \del{\vnabla \divergence{\vec B} - \laplace \vec B}
-		= c^2 \laplace \vec B
+	= c^2 \laplace \vec B
 \]
 
 Somit gilt $\dalambert \vec B = \vec 0$.
