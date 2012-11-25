@@ -102,6 +102,74 @@
 \section{Reflexion und Transmission}
 \label 1
 
+\subsection{Brechungsgesetz, Amplituden}
+
+\paragraph{Einfallswinkel}
+
+Es soll gerade gelten, dass für alle $\vec r$ entlang der Grenzschicht die gleiche Phase herrscht. Somit muss gelten:
+\begin{align*}
+	\exp\del{i\del{\inner{\vec k}{\vec r} - \omega t}} &= \exp\del{i\del{\inner{\vec k''}{\vec r} - \omega t}} \\
+	\intertext{Daraus folgt:}
+	\inner{\vec k}{\vec r} &= \inner{\vec k''}{\vec r} \\
+	  k r \cos\del{\alpha} &= k'' r \cos\del{\alpha ''} \\
+	\intertext{Da allerdings gerade $k = k''$ gilt, folgt:}
+	\alpha &= \alpha''
+\end{align*}
+
+Somit ist Einfalls- gleich Ausfallswinkel.
+
+\paragraph{Brechungsgesetz}
+
+Wir setzen analog an:
+\begin{align*}
+	\exp\del{i\del{\inner{\vec k}{\vec r} - \omega t}} &= \exp\del{i\del{\inner{\vec k'}{\vec r} - \omega t}} \\
+	  k \cos\del{\alpha} &= k' \cos\del{\alpha '} \\
+	  \sqrt{\varepsilon \mu} \cos\del{\alpha} &= \sqrt{\varepsilon' \mu'} \cos\del{\alpha '} \\
+	  \frac{\cos\del{\alpha}}{\cos\del{\alpha '}} &= \frac{\sqrt{\varepsilon' \mu'}}{\sqrt{\varepsilon \mu}} \\
+	  \frac{\cos\del{\alpha}}{\cos\del{\alpha '}} &= \frac{n'}{n}
+	\intertext{%
+		Allerdings ist $\alpha$ der Winkel zwischen Strahl und Grenzfläche. Wir
+		setzen $\theta = \pi/2 - \alpha$ ein und erhalten das Brechungsgesetz:
+	}
+	  \frac{\sin\del{\theta}}{\sin\del{\theta '}} &= \frac{n'}{n}
+\end{align*}
+
+\paragraph{Amplituden}
+
+Es sollen die vier Relationen hergeleitet werden.
+
+An der Grenzfläche gilt:
+\[
+	\vnabla \times \vec E + \dot{\vec B} = 0
+	, \quad
+	\divergence{\vec D} = 0
+\]
+
+\begin{enumerate}
+	\item
+		Daraus können wir ableiten, dass die zur Grenzfläche parallele
+		Komponente stetig sein muss. Die parallelen Komponenten erhalten wir
+		durch Projektion der zur Ebene parallelen Komponenten mit
+		$\cos\del{\theta}$ und $\cos\del{\theta'}$:
+		\[
+			\del{E_\parallel - E_\parallel''} \cos\del{\theta} - E_\parallel' \cos\del{\theta'} = 0
+		\]
+
+	\item \fehlt
+
+	\item
+		Die senkrechte Komponente muss genauso wie in der ersten Relation
+		stetig sein. Dabei müssen wir hier allerdings nicht projizieren. Somit
+		gilt direkt:
+		\[
+			E_\parallel - E_\parallel'' - E_\parallel' = 0
+		\]
+
+	\item \fehlt
+\end{enumerate}
+
+\subsection{Reflexions- und Transmissionsfaktor}
+
 \fehlt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
