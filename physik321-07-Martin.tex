@@ -156,7 +156,23 @@ An der Grenzfläche gilt:
 			\del{E_\parallel - E_\parallel''} \cos\del{\theta} - E_\parallel' \cos\del{\theta'} = 0
 		\]
 
-	\item \fehlt
+	\item
+		Für die zur Ebene parallele Komponente gilt auch eine Erhaltung der
+		projizierten Normalenkomponente aufgrund von $\divergence{\vec D} = 0$.
+		Diese skaliert mit dem Sinus der Winkel. Für das $\vec E$-Feld müssen
+		wir noch das $\epsilon'$ mitnehmen. Somit gilt:
+		\begin{align*}
+			E_\parallel \sin\del{\theta} - E_\parallel'' \sin\del{\theta''} &= E_\parallel' \sin\del{\theta'} \epsilon'
+			\intertext{Wir benutzen $\theta = \theta''$.}
+			\del{E_\parallel - E_\parallel''} \sin\del{\theta} &= E_\parallel' \sin\del{\theta'} \epsilon'
+			\intertext{Wir setzen das Brechungsgesetz ein.}
+			\del{E_\parallel - E_\parallel''} &= E_\parallel' \epsilon' \sqrt{\frac{\mu \epsilon}{\mu' \epsilon'}} \\
+			\del{E_\parallel - E_\parallel''} &= E_\parallel' \sqrt{\frac{\mu \epsilon \mu'}{\epsilon'}} \\
+	\del{E_\parallel - E_\parallel''} \sqrt{\frac{1}{\mu \epsilon}} &= E_\parallel' \sqrt{\frac{\mu'}{\epsilon'}}
+		\end{align*}
+
+		Das ist zwar so grob in die richtige Richtung, allerdings solle
+		eigentlich $\sqrt{\epsilon/\mu}$ auf beiden Seiten stehen.
 
 	\item
 		Die senkrechte Komponente muss genauso wie in der ersten Relation
