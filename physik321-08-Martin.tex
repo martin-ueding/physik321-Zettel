@@ -127,9 +127,20 @@
 \section{potentielle Energie eines Ionenkristalls}
 \label 3
 
+Unser Programm für diese Aufgabe, implementiert in Python (Version 3):
+
 \inputminted[fontsize=\footnotesize, frame=lines, linenos, mathescape]{python}{H3.py}
 
+Die Ausgabe des Programms:
+
 \inputminted[fontsize=\footnotesize, frame=lines]{text}{H3.txt}
+
+Der Algorithmus hängt leider $\mathcal O\del{n^3}$ von der Eingabe ab, so dass
+es ab $n = 60$ mehr als eine halbe Minute dauert. Das Ergebnis ändert sich
+allerdings nur noch wenig, für $n = 64$ haben wir $U =
+\unit{-1.53015901663\e{-28}}\volt$ sowie für $n = 128$ haben wir $U =
+\unit{-1.540450919\e{-28}}\volt$ erhalten. Für eine erste Abschätzung sollte
+dies reichen.
 
 \end{document}
 
