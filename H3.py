@@ -68,8 +68,8 @@ def points(limit=None):
     :rtype: generator
     """
     for x in integers(limit):
-        for y in integers(np.abs(x)):
-            for z in integers(np.abs(x)):
+        for y in integers(limit):
+            for z in integers(limit):
                 yield (x, y, z)
 
 def potential(sign, R):
