@@ -35,6 +35,12 @@ _charge = 1.609e-19**2
 Elementary charge squared.
 """
 
+_factor = _charge / (4 * np.pi * _epsilon_0)
+"""
+Factor that comes up in the potential. This saved cycles in the ``potential``
+function.
+"""
+
 def integers(limit=None):
     """
     Iterator that yields the integers :math:`\mathbb Z` in the order 0, 1, -1,
@@ -75,7 +81,7 @@ def potential(sign, R):
     :return: Potential energy.
     :rtype: float
     """
-    return sign * _charge / (4 * np.pi * _epsilon_0 * R)
+    return sign * _factor / R
 
 def total_potential(limit=None):
     """
