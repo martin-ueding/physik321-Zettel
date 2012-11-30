@@ -20,6 +20,10 @@
  * IN THE SOFTWARE.
  */
 
+/*
+ * Calculates the potential energy in a ion grid.
+ */
+
 #include <stdio.h>
 #include <math.h>
 

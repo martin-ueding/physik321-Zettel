@@ -21,6 +21,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+"""
+Calculates the potential energy in a ion grid. This program is not very fast
+since it uses generators instead of simple nested ``for`` loops.
+"""
+
 import numpy as np
 
 __docformat__ = "restructuredtext en"
