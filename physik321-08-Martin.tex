@@ -164,7 +164,6 @@ Die Ausgabe des Programms:
 
 \inputminted[fontsize=\small, frame=lines]{text}{H3.txt}
 
-
 Der Algorithmus hängt leider $\mathcal O\del{a^3}$ von der Eingabe ab, so dass
 es ab $a = 60$ mehr als einige Sekunden dauert. Das Ergebnis ändert sich
 allerdings nur noch wenig, für $a = 64$ haben wir $U =
@@ -179,6 +178,10 @@ Das ganze haben wir auch noch in C implementiert:
 Die Ausgabe des Programms:
 
 \inputminted[fontsize=\small, frame=lines]{text}{H3-c.txt}
+
+Es kommt, von Rundungsfehlern abgesehen, das gleiche Ergebnis heraus. Auf
+GitHub haben wir noch eine Version in Java, die mit $\unit{0.1}\second$ noch
+einigermaßen zügig läuft.
 
 \end{document}
 
