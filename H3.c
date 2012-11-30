@@ -40,7 +40,7 @@ double potential(int limit) {
 					continue;
 				}
 
-				short sign = x % 2 == 0 ^ y % 2 == 0 ^ z % 2 == 0 ? 1 : -1;
+				short sign = (x + y + z) % 2 == 0 ? 1 : -1;
 				U += sign * e2 / (4 * pi * e0 * sqrt(x*x + y*y + z*z));
 			}
 		}
