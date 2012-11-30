@@ -30,9 +30,9 @@ _epsilon_0 = 8.85419e-12
 Vacuum permittivity.
 """
 
-_elementary_charge = 1.609e-19
+_charge = 1.609e-19**2
 """
-Elementary charge.
+Elementary charge squared.
 """
 
 def integers(limit=None):
@@ -75,7 +75,7 @@ def potential(sign, R):
     :return: Potential energy.
     :rtype: float
     """
-    return sign * _elementary_charge**2 / (4 * np.pi * _epsilon_0 * R)
+    return sign * _charge / (4 * np.pi * _epsilon_0 * R)
 
 def total_potential(limit=None):
     """
