@@ -109,7 +109,25 @@
 \section{potentielle Energie des statischen Magnetfeldes}
 \label 1
 
-\fehlt
+Wir beginnen mit:
+\begin{align*}
+	P &= \int \dif V \, \inner{\vec E}{\vec j} \\
+	\intertext{Wir setzen ein, dass $\curl \vec H - \vec j = 0$ ist.}
+	P &= \int \dif V \, \inner{\vec E}{\curl \vec H} \\
+	\intertext{Nun benutzen wir die gegebene Identität.}
+	P &= \int \dif V \, \del{\inner{\vnabla}{\vec E \times \vec H} \inner{\vec H}{\curl \vec E}} \\
+	\intertext{Die Rotation des elektrischen Feldes ist gerade $- \dot{\vec B}$.}
+	P &= \int \dif V \, \del{\inner{\vnabla}{\vec E \times \vec H} \inner{\vec H}{\dot{\vec B}}} \\
+	\intertext{Für den ersten Summanden wenden wir den Satz von Gauß an. Im zweiten Summanden wenden wir an, dass $\frac{1}{\mu} H = B$ ist.}
+	P &= \int\limits_{\partial V} \dif A \, \inner{\nu}{\vec E \times \vec H} - \frac{1}{2\mu} \int \dif V \, \dpd{}t B^2 \\
+	\intertext{Das Oberflächenintegral ist über den Poyntingvektor, also misst es die Leistung, die durch Wellen nach Außen getragen werden. Falls das Magnetfeld also keine Leistung nach Außen trägt, kann dieses Integral vernachlässigt werden.}
+	P &= - \frac{1}{2\mu} \int \dif V \, \dpd{}t B^2 \\
+	\intertext{Wir integrieren nach der Zeit und erhalten die Energie im Magnetfeld.}
+	U &= - \frac{1}{2\mu} \int \dif V \int_0^t \dif{t'} \, \dpd{}{t'} B^2\del{t'} \\
+	U &= - \frac{1}{2\mu} \int \dif V \, B^2\del{t}
+\end{align*}
+
+Dies ist die gesuchte Relation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 Regenbogen                                  %
