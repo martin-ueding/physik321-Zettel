@@ -103,7 +103,7 @@ def total_potential(limit=None):
 def main():
     U = total_potential(60)
 
-    print("U =", U, "V")
+    print("U =", U, "J")
 
 if __name__ == "__main__":
     main()
