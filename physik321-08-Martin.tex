@@ -155,15 +155,15 @@ haben wir durch $(-1)^x (-1)^y (-1)^z$ bestimmt. Somit ist der Ursprung, auf
 den sich die potentielle Energie bezieht, in einer positiven Ladung zentriert.
 
 Unser Programm für diese Aufgabe haben wir in Python 3 implementiert. Es kann
-unter \url{http://uni-bonn.de/~s6mauedi/physik321/} oder
-\url{https://github.com/martin-ueding/physik321-08} (\texttt{H3.py})
+unter \url{https://github.com/martin-ueding/physik321-08} (\texttt{H3.py})
 heruntergeladen werden.
 
-\inputminted[fontsize=\small, frame=lines, linenos, mathescape]{python}{H3.py}
+\inputminted[fontsize=\small, frame=lines, linenos]{python}{H3.py}
 
 Die Ausgabe des Programms:
 
 \inputminted[fontsize=\small, frame=lines]{text}{H3.txt}
+
 
 Der Algorithmus hängt leider $\mathcal O\del{a^3}$ von der Eingabe ab, so dass
 es ab $a = 60$ mehr als einige Sekunden dauert. Das Ergebnis ändert sich
@@ -171,6 +171,14 @@ allerdings nur noch wenig, für $a = 64$ haben wir $U =
 \unit{-1.53015901663\e{-28}}\joule$ sowie für $a = 128$ haben wir $U =
 \unit{-1.540450919\e{-28}}\joule$ erhalten. Für eine erste Abschätzung sollte
 dies reichen.
+
+Das ganze haben wir auch noch in C implementiert:
+
+\inputminted[fontsize=\small, frame=lines, linenos, tabsize=4]{c}{H3.c}
+
+Die Ausgabe des Programms:
+
+\inputminted[fontsize=\small, frame=lines]{text}{H3-c.txt}
 
 \end{document}
 
