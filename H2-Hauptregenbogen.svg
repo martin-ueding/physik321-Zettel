@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="H2-Hauptregenbogen.pdf">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.5873892"
+     inkscape:cx="444.75773"
+     inkscape:cy="532.95057"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="956"
+     inkscape:window-height="1138"
+     inkscape:window-x="1366"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path2985"
+       sodipodi:cx="310.57355"
+       sodipodi:cy="544.3902"
+       sodipodi:rx="153.1812"
+       sodipodi:ry="153.1812"
+       d="m 463.75475,544.3902 a 153.1812,153.1812 0 1 1 -306.3624,0 153.1812,153.1812 0 1 1 306.3624,0 z"
+       transform="translate(59.482732,-37.900502)" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;stroke:none"
+       id="path3010"
+       sodipodi:cx="358.16"
+       sodipodi:cy="204.29938"
+       sodipodi:rx="3.5064616"
+       sodipodi:ry="3.5064616"
+       d="m 361.66647,204.29938 a 3.5064616,3.5064616 0 1 1 -7.01293,0 3.5064616,3.5064616 0 1 1 7.01293,0 z"
+       transform="translate(11.896276,302.19032)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 187.51173,366.13627 708.21315,505.6578 181.3023,646.84313"
+       id="path3020"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 232.45717,339.87153 369.78958,506.81231 204.10873,698.9517"
+       id="path3022"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 369.78958,506.18234 337.66136,-0.62996"
+       id="path3024"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 271.51501,388.37885 523.50109,506.18234 270.88504,622.72591"
+       id="path3026"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 209.14845,639.105 c -1.52398,12.52352 3.86095,22.5347 20.78885,28.34844"
+       id="path3032"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 312.46275,571.06876 c 7.90068,6.236 19.4898,9.8374 16.37909,23.93868"
+       id="path3034"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 463.6544,505.55238 c -5.48542,10.26896 -9.40786,20.36425 0,28.9784"
+       id="path3036"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 329.47181,416.09732 c -5.44557,7.86312 -11.04014,15.4779 -21.41882,15.11916"
+       id="path3038"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 243.16657,353.10079 c -14.1032,1.01597 -23.25332,6.98501 -23.93868,21.41882"
+       id="path3040"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 594.68716,475.94401 c -3.65181,16.63848 -24.29439,23.93203 2.51986,57.32684"
+       id="path3042"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+       x="606.02655"
+       y="497.9928"
+       id="text3044"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3046"
+         x="607.82928"
+         y="497.9928"
+         style="font-size:20px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic"><tspan
+           style="font-size:15px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic"
+           id="tspan3062">Θ</tspan><tspan
+           id="tspan3068"
+           style="font-size:65.00091553%;font-style:italic;baseline-shift:sub;-inkscape-font-specification:Bitstream Charter Italic">S </tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+       x="470.58401"
+       y="521.30145"
+       id="text3056"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3058"
+         x="470.58401"
+         y="521.30145"
+         style="font-size:15px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic">Θ<tspan
+   style="font-size:65.00091553%;font-style:italic;baseline-shift:sub;-inkscape-font-specification:Bitstream Charter Italic"
+   id="tspan3064">T</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="470.58401"
+         y="540.05145"
+         id="tspan3060" /></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3070"
+       y="595.00739"
+       x="313.72269"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+       xml:space="preserve"><tspan
+         style="font-size:15px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic"
+         y="595.00739"
+         x="313.72269"
+         id="tspan3072"
+         sodipodi:role="line">Θ<tspan
+   id="tspan3074"
+   style="font-size:65.00091553%;font-style:italic;baseline-shift:sub;-inkscape-font-specification:Bitstream Charter Italic">T</tspan></tspan><tspan
+         id="tspan3076"
+         y="613.75739"
+         x="313.72269"
+         sodipodi:role="line" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+       x="308.68295"
+       y="421.13699"
+       id="text3078"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3080"
+         x="308.68295"
+         y="421.13699"
+         style="font-size:15px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic">Θ<tspan
+   style="font-size:65.00091553%;font-style:italic;baseline-shift:sub;-inkscape-font-specification:Bitstream Charter Italic"
+   id="tspan3082">T</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="308.68295"
+         y="439.88699"
+         id="tspan3084" /></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3086"
+       y="650.44434"
+       x="228.04741"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+       xml:space="preserve"><tspan
+         style="font-size:15px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic"
+         y="650.44434"
+         x="228.04741"
+         id="tspan3088"
+         sodipodi:role="line">Θ<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan3104">I</tspan></tspan><tspan
+         id="tspan3092"
+         y="669.35413"
+         x="228.04741"
+         sodipodi:role="line" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+       x="236.23695"
+       y="371.36975"
+       id="text3094"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3096"
+         x="236.23695"
+         y="371.36975"
+         style="font-size:15px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic">Θ<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan3102">I</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="236.23695"
+         y="390.27954"
+         id="tspan3100" /></text>
+  </g>
+</svg>

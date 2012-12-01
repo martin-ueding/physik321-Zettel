@@ -140,8 +140,25 @@ Dies ist die gesuchte Relation.
 
 \subsection{Maximum}
 
+\begin{figure}
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{H2-Hauptregenbogen.pdf}
+		\caption{Skizze zum Hauptregenbogen}
+		\label{fig:haupt}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{H2-Nebenregenbogen.pdf}
+		\caption{Skizze zum Nebenregenbogen}
+		\label{fig:neben}
+	\end{minipage}
+\end{figure}
+
 Analog zur nächsten Aufgabe betrachten wir für den symmetrischen Fall, da wir
-hier ein Extremum haben. Wir lesen aus der Skizze ab:
+hier ein Extremum haben. Wir lesen aus der Skizze (Abbildung \ref{fig:haupt})
+ab:
 \[
 	\half \Theta_S = \pi - \del{\Theta_I - \Theta_T} - \del{\pi - \Theta_T}
 \]
@@ -168,8 +185,7 @@ Dies setzen wir gleich 0 und formen nach $\Theta_I$ um. Wir erhalten:
 
 Dann leiten wir noch einmal ab:
 \[
-	\dod[2]{\Theta_S}{\Theta_I} = 4 \left(\frac{\sin (\Theta_I) \cos ^2(\Theta_I)}{n^3 \left(1-\frac{\sin
-	^2(\Theta_I)}{n^2}\right)^{3/2}}-\frac{\sin (\Theta_I)}{n \sqrt{1-\frac{\sin ^2(\Theta_I)}{n^2}}}\right) 
+	\dod[2]{\Theta_S}{\Theta_I} = 4 \left(\frac{\sin (\Theta_I) \cos ^2(\Theta_I)}{n^3 \left(1-\frac{\sin ^2(\Theta_I)}{n^2}\right)^{3/2}}-\frac{\sin (\Theta_I)}{n \sqrt{1-\frac{\sin ^2(\Theta_I)}{n^2}}}\right) 
 \]
 
 Wir setzen die Extremstelle $\Theta_I$ ein und erhalten:
@@ -184,9 +200,10 @@ $\unit{-3.85763}{\reciprocal\radian}$. Es handelt sich also um ein Maximum.
 
 Wir gehen davon aus, dass sich bereits der extremale Winkel eingestellt hat.
 Somit sind die Reflexionswinkel im Inneren alle gleich sowie -- wie auf der
-Zeichnung auch dargestellt -- der Austrittswinkel gleich dem Eintrittswinkel.
-Das Fünfeck, das von den Lichtstrahlen aufgespannt wird, hat eine Winkelsumme
-von $3 \pi$. Es gilt also:
+Zeichnung auf dem Aufgabenblatt auch dargestellt -- der Austrittswinkel gleich
+dem Eintrittswinkel. Das Fünfeck, das von den Lichtstrahlen aufgespannt wird
+(siehe Abbildung \ref{fig:neben}), hat eine Winkelsumme von $3 \pi$. Es gilt
+also:
 \[
 	\Theta_S = 3 \pi - 2 \del{\pi - \Theta_I} - 6 \Theta_T
 	= \pi + 2 \Theta_I - 6 \Theta_T
@@ -217,6 +234,20 @@ Dabei interessiert uns nur die Lösung mit den zwei Pluszeichen. Wir setzen $n_B
 \]
 
 Mit einem Brechungsindex dazwischen würden wir auf die geforderten $\Theta_S = \unit{0.891863}\radian$ kommen.
+
+Wir leiten noch einmal ab und erhalten:
+\[
+	\dod[2]{\Theta_S}{\Theta_I} = \frac{6 \left(n^2-1\right) \sin (\Theta_I)}{\sqrt{1-\frac{\sin ^2(\Theta_I)}{n^2}} \left(n^3-n \sin ^2(\Theta_I)\right)}
+\]
+
+Dort setzen wir die Extremstelle ein und erhalten:
+\[
+\frac{16 \sqrt{9-n^2}}{9 \sqrt{1-\frac{1}{n^2}} n}
+\]
+
+Für $n = 1.3$ erhalten wir $\unit{5.78644}{\reciprocal\radian}$, es handelt
+sich also
+um ein Minimum.
 
 \subsection{Farbreihenfolge}
 
