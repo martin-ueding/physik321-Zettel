@@ -136,9 +136,49 @@ Dies ist die gesuchte Relation.
 \section{Regenbogen}
 \label 2
 
+% http://compact.nussnet.at/basiswissen_6/regenbogen.php
+
 \subsection{Maximum}
 
-\fehlt
+Analog zur nächsten Aufgabe betrachten wir für den symmetrischen Fall, da wir
+hier ein Extremum haben. Wir lesen aus der Skizze ab:
+\[
+	\half \Theta_S = \pi - \del{\Theta_I - \Theta_T} - \del{\pi - \Theta_T}
+\]
+
+Umgestellt:
+\[
+	\Theta_S = - 2 \Theta_I + 4 \Theta_T
+\]
+
+Wir setzen das Brechungsgesetz ein:
+\[
+	\Theta_S = - 2 \Theta_I + 4 \arcsin\del{\frac{\sin\del{\Theta_I}} n}
+\]
+
+Dann leiten wir ab:
+\[
+	\dod{\Theta_S}{\Theta_I} = \frac{4 \cos (\Theta_I)}{n \sqrt{1-\frac{\sin ^2(\Theta_I)}{n^2}}}-2 
+\]
+
+Dies setzen wir gleich 0 und formen nach $\Theta_I$ um. Wir erhalten:
+\[
+	\Theta_I = \arccos\del{\frac{\sqrt{n^2-1}}{\sqrt{3}}}
+\]
+
+Dann leiten wir noch einmal ab:
+\[
+	\dod[2]{\Theta_S}{\Theta_I} = 4 \left(\frac{\sin (\Theta_I) \cos ^2(\Theta_I)}{n^3 \left(1-\frac{\sin
+	^2(\Theta_I)}{n^2}\right)^{3/2}}-\frac{\sin (\Theta_I)}{n \sqrt{1-\frac{\sin ^2(\Theta_I)}{n^2}}}\right) 
+\]
+
+Wir setzen die Extremstelle $\Theta_I$ ein und erhalten:
+\[
+	-\frac{32 \sqrt{9-n^2}}{27 \sqrt{1-\frac{1}{n^2}} n}
+\]
+
+Zur Vorzeichenbestimmung setzen wir $n = 1.3$ ein und erhalten
+$\unit{-3.85763}{\reciprocal\radian}$. Es handelt sich also um ein Maximum.
 
 \subsection{Winkelbestimmung}
 
@@ -180,12 +220,12 @@ Mit einem Brechungsindex dazwischen würden wir auf die geforderten $\Theta_S = 
 
 \subsection{Farbreihenfolge}
 
-Da der Winkel ein Maximum und kein Minimum wie beim Primärbogen ist, ist die
+Da der Winkel ein Minimum und kein Maximum wie beim Primärbogen ist, ist die
 \textcolor{red}F\textcolor{orange}a\textcolor{yellow}r\textcolor{green}b\textcolor{blue}reihenfolge
-umgekehrt und somit ist \textcolor{blue}{rot} innen und
-\textcolor{red}{blau} außen. Außerhalb des Bogens ist es auch heller als
-innerhalb. Das ganze sehen wir auch an den Ergebnissen der vorherigen Aufgabe,
-denn \textcolor{blue}{rotes} Licht wird weniger stark abgelenkt, der
+umgekehrt und somit ist \textcolor{blue}{rot} innen und \textcolor{red}{blau}
+außen. Außerhalb des Bogens ist es auch heller als innerhalb. Das ganze sehen
+wir auch an den Ergebnissen der vorherigen Aufgabe, denn
+\textcolor{blue}{rotes} Licht wird weniger stark abgelenkt, der
 \textcolor{blue}{rote} Bogen ist also kleiner, sprich innen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
