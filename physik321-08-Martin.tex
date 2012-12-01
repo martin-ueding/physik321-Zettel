@@ -142,18 +142,51 @@ Dies ist die gesuchte Relation.
 
 \subsection{Winkelbestimmung}
 
-\fehlt
+Wir gehen davon aus, dass sich bereits der extremale Winkel eingestellt hat.
+Somit sind die Reflexionswinkel im Inneren alle gleich sowie -- wie auf der
+Zeichnung auch dargestellt -- der Austrittswinkel gleich dem Eintrittswinkel.
+Das Fünfeck, das von den Lichtstrahlen aufgespannt wird, hat eine Winkelsumme
+von $3 \pi$. Es gilt also:
+\[
+	\Theta_S = 3 \pi - 2 \del{\pi - \Theta_I} - 6 \Theta_T
+	= \pi + 2 \Theta_I - 6 \Theta_T
+\]
 
 \subsection{Extremalbedingung}
 
-\fehlt
+Zuerst rechnen wir den Winkel um: $\Theta_S = \unit{0.891863}\radian$. Dann setzen wir das Brechungsgesetz in die Relation der vorherigen Aufgabe ein und erhalten:
+\[
+	\Theta_S = \pi + 2 \Theta_I - 6 \arcsin\del{\frac{\sin\del{\Theta_I}} n}
+\]
+
+Die leiten wir ab:
+\[
+	\dod{\Theta_S}{\Theta_I} = 2 - \frac{6 \cos{\del{\Theta_I}}}{n \sqrt{1 - \del{\frac{\sin\del{\Theta_I}}n}^2}}
+\]
+
+Und setzen gleich 0 und stellen nach $\Theta_I$ um:
+\[
+	\Theta_I = \pm \arccos\del{\pm \frac{\sqrt{-1 + n^2}}{2 \sqrt{2}}}
+\]
+
+Dabei interessiert uns nur die Lösung mit den zwei Pluszeichen. Wir setzen $n_B = 1.334$ und $n_R = 1.331$ ein und erhalten:
+\[
+	\Theta_I = \unit{0.937814}\radian
+	,\quad
+	\Theta_I = \unit{0.879037}\radian
+\]
+
+Mit einem Brechungsindex dazwischen würden wir auf die geforderten $\Theta_S = \unit{0.891863}\radian$ kommen.
 
 \subsection{Farbreihenfolge}
 
 Da der Winkel ein Maximum und kein Minimum wie beim Primärbogen ist, ist die
-Farbreihenfolge umgekehrt und somit ist \textcolor{blue}{rot} innen und
+\textcolor{red}F\textcolor{orange}a\textcolor{yellow}r\textcolor{green}b\textcolor{blue}reihenfolge
+umgekehrt und somit ist \textcolor{blue}{rot} innen und
 \textcolor{red}{blau} außen. Außerhalb des Bogens ist es auch heller als
-innerhalb.
+innerhalb. Das ganze sehen wir auch an den Ergebnissen der vorherigen Aufgabe,
+denn \textcolor{blue}{rotes} Licht wird weniger stark abgelenkt, der
+\textcolor{blue}{rote} Bogen ist also kleiner, sprich innen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                  potentielle Energie eines Ionenkristalls                   %
