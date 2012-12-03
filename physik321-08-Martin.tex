@@ -298,13 +298,11 @@ wir auch an den Ergebnissen der vorherigen Aufgabe, denn
 \label 3
 
 Das Durchzählen der Punkte ist relativ simpel realisiert, wir zählen alle
-Punkte
-\[
-	\set{(x, y, z)\colon \min\set{x, y, z} \leq a}
-\] durch. Dabei ist $a = 0, 1, 2, \ldots$, wobei der Punkt $(0, 0, 0)$
-ausgeschlossen worden ist. Das Vorzeichen der Ladung an der Stelle $(x, y, z)$
-haben wir durch $(-1)^x (-1)^y (-1)^z$ bestimmt. Somit ist der Ursprung, auf
-den sich die potentielle Energie bezieht, in einer positiven Ladung zentriert.
+Punkte \[ \set{(x, y, z)\colon \max\set{x, y, z} \leq a} \] durch. Dabei ist $a
+= 60$, wobei der Punkt $(0, 0, 0)$ ausgeschlossen worden ist. Das Vorzeichen
+der Ladung an der Stelle $(x, y, z)$ haben wir durch $(-1)^x (-1)^y (-1)^z =
+(-1)^{x+z+y}$ bestimmt. Somit ist der Ursprung, auf den sich die potentielle
+Energie bezieht, in einer positiven Ladung zentriert.
 
 Unser Programm für diese Aufgabe haben wir in Python 3 implementiert. Es kann
 unter \\ \url{https://github.com/martin-ueding/physik321-08} (\texttt{H3.py})
