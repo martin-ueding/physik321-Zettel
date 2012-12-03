@@ -1,0 +1,189 @@
+% Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+%
+\documentclass[11pt, ngerman, fleqn]{article}
+
+\usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[activate]{pdfcprot}
+\usepackage[cdot, squaren]{SIunits}
+\usepackage[iso]{isodate}
+\usepackage[parfill]{parskip}
+\usepackage[scaled]{beramono}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{babel}
+\usepackage{color}
+\usepackage{commath}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage{setspace}
+\usepackage{tikz}
+
+\usepackage[charter, greekuppercase=italicized]{mathdesign}
+
+\definecolor{darkblue}{rgb}{0,0,.5}
+\definecolor{darkgreen}{rgb}{0,.5,0}
+
+\hypersetup{
+	breaklinks=false,
+	citecolor=darkgreen,
+	colorlinks=true,
+	linkcolor=black,
+	menucolor=black,
+	urlcolor=darkblue,
+}
+
+\setlength{\columnsep}{2cm}
+
+\DeclareMathOperator{\arcsinh}{arsinh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\asinh}{arsinh}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\curl}{\vnabla \times}
+\newcommand{\dalambert}{\mathop{{}\Box}\nolimits}
+\newcommand{\divergence}[1]{\inner{\vnabla}{#1}}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\emesswert}{\del{\messwert \pm \messwert}}
+\newcommand{\ev}{\hat{\vec e}}
+\newcommand{\e}[1]{\cdot 10^{#1}}
+\newcommand{\fehlt}{\textcolor{red}{Hier fehlen noch Inhalte.}}
+\newcommand{\half}{\frac 12}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\laplace}{\mathop{{}\bigtriangleup}\nolimits}
+\newcommand{\messwert}{\textcolor{blue}{\square}}
+\newcommand{\punkte}{\textcolor{white}{xxxxx}}
+\newcommand{\tens}[1]{\boldsymbol{\mathsf{#1}}}
+\newcommand{\vnabla}{\vec \nabla}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+
+\newcommand{\themodul}{physik321}
+\newcommand{\thegruppe}{Gruppe 8 -- Julia Volmer}
+\newcommand{\theuebung}{8}
+
+\pagestyle{fancy}
+
+\fancyfoot[C]{\footnotesize{\thegruppe}}
+\fancyfoot[L]{\footnotesize{Martin Ueding, Simon Schlepphorst}}
+\fancyfoot[R]{\footnotesize{Seite \thepage\ / \pageref{LastPage}}}
+\fancyhead[L]{\themodul{} -- Übung \theuebung}
+
+\def\thesection{H \theuebung.\arabic{section}}
+\def\thesubsubsection{\thesubsection\alph{section}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{
+	Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
+	\and
+	Simon Schlepphorst \\ \small{\href{mailto:s2@uni-bonn.de}{s2@uni-bonn.de}}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c}
+		Aufgabe & \ref 1 & \ref 2 & \ref 3 & $\sum$   \\
+		\hline
+		Punkte & \punkte / 10 & \punkte / 10 & \punkte / 10 & \punkte / 30
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         inhomogene Wellengleichung                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{inhomogene Wellengleichung}
+\label 1
+
+Die interessanten Maxwellgleichungen im Vakuum (ohne Ladungen und Ströme) sind:
+\[
+	\curl \vec E + \dot{\vec B} = \vec 0
+	,\quad
+	\curl \vec B - \frac{1}{c^2} \dot{\vec E} = \vec 0
+\]
+
+Für die erste Wellengleichung, $\dalambert \vec E = \lambda$, bilde ich die Rotation der ersten Gleichung und leite die zweite nach der Zeit ab:
+\[
+	\curl \curl \vec E + \curl \dot{\vec B} = \vec 0
+	,\quad
+	\curl \dot{\vec B} - \frac{1}{c^2} \ddot{\vec E} = \vec 0
+\]
+
+Außerdem ist $\curl \curl \vec x = \vnabla \divergence{\vec x} - \laplace \vec x$. Wobei hier die Divergenzen alle $0$ sind.
+
+Mit diesen Vorüberlegungen kann ich die erste Wellengleichung umformen:
+\begin{align*}
+	\dalambert \vec E &= \lambda_1 \\
+	\laplace \vec E - \frac{1}{c^2} \ddot{\vec E} &= \lambda_1 \\
+	- \curl \curl \vec E - \frac{1}{c^2} \ddot{\vec E} &= \lambda \\
+	\intertext{%
+		Wir setzen eine der Gleichungen ein.
+	}
+	- \curl \curl \vec E - \curl \dot{\vec B} &= \lambda_1 \\
+	\intertext{%
+		Die Rotation können wir aufheben. Dabei müssen wir einen beliebigen
+		Gradienten addieren.
+	}
+	- \curl \vec E - \dot{\vec B} &= \lambda_1 + \vnabla \phi \\
+	\intertext{%
+		Die linke Seite ist gerade die negative Stromdichte, die hier
+		allerdings $0$ ist.
+	}
+	0 &= \lambda_1 + \vnabla \phi \\
+	\lambda_1 &= - \vnabla \phi
+\end{align*}
+
+Die Funktion $\lambda_1$ ist also ein beliebiger Gradient.
+
+Analog bilden wir anders herum Rotation und Zeitableitung der beiden Gleichungen:
+\[
+	\curl \dot{\vec E} + \ddot{\vec B} = 0
+	,\quad
+	\curl \curl B - \curl \dot{\vec D} = 0
+\]
+
+Nun können wir wieder die Wellengleichung umformen:
+\begin{align*}
+	\dalambert \vec B &= \lambda_2 \\
+	\laplace \vec B - \frac{1}{c^2} \ddot{\vec B} &= \lambda_2 \\
+- \curl \curl \vec B - \frac{1}{c^2} \ddot{\vec B} &= \lambda_2 \\
+	   - \curl \curl \vec B - \frac{1}{c^2} \curl \dot{\vec E} &= \lambda_2 \\
+	\intertext{%
+		Wir nehmen wieder eine Rotation weg und addieren einen Gradienten.
+	}
+	   - \curl \vec B - \frac{1}{c^2} \dot{\vec E} &= \lambda_2 + \vnabla \psi \\
+	   0 &= \lambda_2 + \vnabla \psi \\
+	   \lambda_2 &= - \vnabla \psi
+\end{align*}
+
+Die zweite Funktion $\lambda_2$ ist also wieder ein Gradient.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         zirkular polarisierte Welle                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{zirkular polarisierte Welle}
+\label 2
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         Coulomb- und Lorentzeichung                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Coulomb- und Lorentzeichung}
+\label 3
+
+%\bibliography{../../zentrale_BibTeX/Central}
+%\bibliographystyle{plain}
+
+\end{document}
+
+% vim: spell spelllang=de
