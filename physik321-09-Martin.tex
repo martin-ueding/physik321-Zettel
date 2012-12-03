@@ -175,6 +175,113 @@ Die zweite Funktion $\lambda_2$ ist also wieder ein Gradient.
 \section{zirkular polarisierte Welle}
 \label 2
 
+\subsection{Magnetfeld}
+
+Gegeben ist das elektrische Feld:
+\[
+	\vec E = \re\del{f(x-ct) \del{\ev_y + \ii \ev_z}}
+\]
+
+Wir bilden die Rotation dieses Feldes:
+\[
+	\curl \vec E = \re\del{f'(x-ct) \del{-\ii \ev_y + \ev_z}}
+\]
+
+Dies integrieren wir nach der Zeit und wählen alle Integrationskonstanten gleich $0$:
+\[
+	\vec B = \frac 1c \re\del{f(x-ct) \del{\ii \ev_y - \ev_z}}
+\]
+
+\subsection{Energiedichten}
+
+Wir bestimmen die Energiedichte:
+\begin{align*}
+	\omega
+	&= \half\del{\inner{\vec B}{\vec H} + \inner{\vec D}{\vec E}} \\
+	&= \half f(x-ct)f^*(x-ct) \del{\frac{1}{c^2} \frac{1}{\mu_0} \del{\ii\ev_y - \ev_z}\del{-\ii\ev_y - \ev_z} + \varepsilon_0 \del{\ev_y+\ii\ev_z}\del{\ev_y - \ii \ev_z}} \\
+	&= 2 \varepsilon_0 f(x-ct)f^*(x-ct) \\
+\end{align*}
+
+Und die Energiestromdichte:
+\begin{align*}
+	\vec S
+	&= \vec E \times \vec H \\
+	&= \frac{1}{c \mu} f(x-ct)f^*(x-ct) \begin{pmatrix} 0 \\ 1 \\ \ii \end{pmatrix} \times \begin{pmatrix} 0 \\ \ii \\ 1 \end{pmatrix} \\
+	&= 2 \sqrt{\frac{\varepsilon_0}{\mu_0}} f(x-ct)f^*(x-ct) \ev_x
+\end{align*}
+
+Sowie den Energie-Impuls-Tensor $\tens T$. Dieser ist definiert als:
+\[
+	\tens T = \begin{pmatrix}
+		\omega & S_x & S_y & S_z \\
+	 S_x & G_{xx} & G_{xy} & G_{xz} \\
+  S_y & G_{yx} & G_{yy} & G_{yz} \\
+  S_z & G_{zx} & G_{zy} & G_{zz} \\
+	\end{pmatrix} \\
+\]
+
+$\omega$ und $\vec S$ haben wir bereits bestimmt. Es fehlt der Spannungstensor
+$\tens G$:
+\[
+	G^{\alpha\beta} = \omega \delta^{\alpha\beta} - \varepsilon_0 E^\alpha B^\beta - \frac{1}{\mu_0} B^\alpha B^\beta
+\]
+
+Oder als ganzer Tensor geschrieben:
+\begin{align*}
+	\tens G &= \omega \tens 1 - \varepsilon_0 \vec E \otimes \vec E - \frac{1}{\mu_0} \vec B \otimes \vec B \\
+	&=
+	\begin{pmatrix}
+		\omega & 0 & 0 \\
+				0 & \omega & 0 \\
+		  0 & 0 & \omega
+	\end{pmatrix}
+	-
+	\re\del{
+		f^2(x-ct)
+		\del{
+			\varepsilon_0
+			\begin{pmatrix}
+				0 & 0 & 0 \\
+		  0 & 1 & \ii \\
+		  0 & \ii & -1
+			\end{pmatrix}
+			+
+			\frac{1}{c^2 \mu_0}
+			\begin{pmatrix}
+				0 & 0 & 0 \\
+		  0 & -1 & -\ii \\
+		  0 & -\ii & 1
+			\end{pmatrix}
+		}
+	} \\
+	&=
+	f(x-ct)f^*(x-ct) \varepsilon_0 \del{
+		\begin{pmatrix}
+			2 & 0 & 0 \\
+			0 & 2 & 0 \\
+			0 & 0 & 2
+		\end{pmatrix}
+		-
+		\del{
+			\begin{pmatrix}
+				0 & 0 & 0 \\
+		  0 & 1 & \ii \\
+		  0 & \ii & -1
+			\end{pmatrix}
+			+
+			\begin{pmatrix}
+				0 & 0 & 0 \\
+		  0 & -1 & -\ii \\
+		  0 & -\ii & 1
+			\end{pmatrix}
+		}
+	} \\
+	&= 2 f(x-ct)f^*(x-ct) \varepsilon_0 \tens 1
+\end{align*}
+
+Die Diagonalform heißt wohl, dass dieses Feld nur Druck und keine Scherspannung
+ausübt.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                         Coulomb- und Lorentzeichung                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
