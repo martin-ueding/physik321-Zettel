@@ -114,20 +114,52 @@ Wir beginnen mit:
 	P &= \int \dif V \, \inner{\vec E}{\vec j} \\
 	\intertext{Wir setzen ein, dass $\curl \vec H - \vec j = 0$ ist.}
 	P &= \int \dif V \, \inner{\vec E}{\curl \vec H} \\
-	\intertext{Nun benutzen wir die gegebene Identität.}
-	P &= \int \dif V \, \del{\inner{\vnabla}{\vec E \times \vec H} + \inner{\vec H}{\curl \vec E}} \\
-	\intertext{Die Rotation des elektrischen Feldes ist gerade $- \dot{\vec B}$.}
-	P &= \int \dif V \, \del{\inner{\vnabla}{\vec E \times \vec H} + \inner{\vec H}{\dot{\vec B}}} \\
-	\intertext{Für den ersten Summanden wenden wir den Satz von Gauß an. Im zweiten Summanden wenden wir an, dass $\frac{1}{\mu} H = B$ ist.}
-	P &= \int\limits_{\partial V} \dif A \, \inner{\nu}{\vec E \times \vec H} - \frac{1}{2\mu} \int \dif V \, \dod{}t B^2 \\
-	\intertext{Das Oberflächenintegral ist über den Poyntingvektor, also misst es die Leistung, die durch Wellen nach Außen getragen werden. Falls das Magnetfeld also keine Leistung nach Außen trägt, kann dieses Integral vernachlässigt werden.}
-	P &= - \frac{1}{2\mu} \int \dif V \, \dod{}t B^2 \\
-	\intertext{Wir integrieren nach der Zeit und erhalten die Energie im Magnetfeld.}
-	U &= - \frac{1}{2\mu} \int \dif V \int_0^t \dif{t'} \, \dod{}{t'} B^2\del{t'} \\
-	U &= - \frac{1}{2\mu} \int \dif V \, B^2\del{t}
+	\intertext{%
+		Nun benutzen wir die gegebene Identität, allerdings in der richtigen
+		Fassung. Diese lautet $\divergence{\vec A \times \vec B} = \inner{\vec
+		B}{\curl \vec A} - \inner{\vec A}{\curl \vec B}$. Dies können wir
+		durch Nachrechnen (siehe unten) überprüfen.
+	}
+	P &= \int \dif V \, \del{\inner{\vec H}{\curl \vec E} - \inner{\vnabla}{\vec E \times \vec H}} \\
+	\intertext{%
+		Die Rotation des elektrischen Feldes ist gerade $- \dot{\vec B}$.
+	}
+	P &= \int \dif V \, \del{\inner{\vec H}{\dot{\vec B}} - \inner{\vnabla}{\vec E \times \vec H}} \\
+	\intertext{%
+		Für den zweiten Summanden wenden wir den Satz von Gauß an. Im ersten
+		Summanden wenden wir an, dass $\frac{1}{\mu} H = B$ ist.
+	}
+	P &= \frac{1}{2\mu} \int \dif V \, \dod{}t B^2 - \int\limits_{\partial V} \dif A \, \inner{\nu}{\vec E \times \vec H} \\
+	\intertext{%
+		Das Oberflächenintegral ist über den Poyntingvektor, also misst es die
+		Leistung, die durch Wellen nach Außen getragen werden. Falls das
+		Magnetfeld also keine Leistung nach Außen trägt, kann dieses Integral
+		vernachlässigt werden.
+	}
+	P &= \frac{1}{2\mu} \int \dif V \, \dod{}t B^2 \\
+	\intertext{%
+		Wir integrieren nach der Zeit und erhalten die Energie im Magnetfeld.
+	}
+	U &= \frac{1}{2\mu} \int \dif V \int_0^t \dif{t'} \, \dod{}{t'} B^2\del{t'} \\
+	U &= \frac{1}{2\mu} \int \dif V \, B^2\del{t}
 \end{align*}
 
 Dies ist die gesuchte Relation.
+
+Hier noch der Beweis der Identität:
+\begin{proof}
+	\begin{align*}
+		\divergence{\vec A \times \vec B}
+		&= \partial_i \epsilon^i{}_{jk} A^j B^k \\
+	 &= \epsilon^i{}_{jk} \del{\partial_i A^j} B^k + \epsilon^i{}_{jk} A^j \partial_i B^k \\
+	 &= B^k \epsilon^i{}_{jk} \del{\partial_i A^j} + A^j \epsilon^i{}_{jk} \partial_i B^k \\
+		\intertext{%
+			Wir ziehen den nicht differenzierten Vektor vor den $\tens \epsilon$-Tensor und permutieren die Indizes.
+		}
+		&= B^k \epsilon_k{}^i{}_j \partial_i A^j - A^j \epsilon_j{}^i{}_k \partial_i B^k \\
+	 &= \inner{\vec B}{\curl \vec A} - \inner{\vec A}{\curl \vec B}
+	\end{align*}
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 Regenbogen                                  %
