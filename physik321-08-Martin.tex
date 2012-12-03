@@ -129,7 +129,7 @@ Wir beginnen mit:
 		Für den zweiten Summanden wenden wir den Satz von Gauß an. Im ersten
 		Summanden wenden wir an, dass $\frac{1}{\mu} H = B$ ist.
 	}
-	P &= \frac{1}{2\mu} \int \dif V \, \dod{}t B^2 - \int\limits_{\partial V} \dif A \, \inner{\nu}{\vec E \times \vec H} \\
+	P &= \frac{1}{2\mu} \int \dif V \, \dod{}t B^2 - \int\limits_{\partial V} \dif A \, \inner{\vec \nu}{\vec E \times \vec H} \\
 	\intertext{%
 		Das Oberflächenintegral ist über den Poyntingvektor, also misst es die
 		Leistung, die durch Wellen nach Außen getragen werden. Falls das
@@ -141,7 +141,7 @@ Wir beginnen mit:
 		Wir integrieren nach der Zeit und erhalten die Energie im Magnetfeld.
 	}
 	U &= \frac{1}{2\mu} \int \dif V \int_0^t \dif{t'} \, \dod{}{t'} B^2\del{t'} \\
-	U &= \frac{1}{2\mu} \int \dif V \, B^2\del{t}
+	U &= \frac{1}{2\mu} \int \dif V \, B^2\del{t} = \half \int \dif V \, \inner{\vec B}{\vec H}
 \end{align*}
 
 Dies ist die gesuchte Relation.
