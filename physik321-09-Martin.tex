@@ -157,18 +157,7 @@ Und die Energiestromdichte:
 	&= 2 \sqrt{\frac{\varepsilon_0}{\mu_0}} f(x-ct)f^*(x-ct) \ev_x
 \end{align*}
 
-Sowie den Energie-Impuls-Tensor $\tens T$. Dieser ist definiert als:
-\[
-	\tens T = \begin{pmatrix}
-		\omega & S_x & S_y & S_z \\
-	 S_x & G_{xx} & G_{xy} & G_{xz} \\
-  S_y & G_{yx} & G_{yy} & G_{yz} \\
-  S_z & G_{zx} & G_{zy} & G_{zz} \\
-	\end{pmatrix} \\
-\]
-
-$\omega$ und $\vec S$ haben wir bereits bestimmt. Es fehlt der Spannungstensor
-$\tens G$:
+Es fehlt der Spannungstensor $\tens G$:
 \[
 	G^{\alpha\beta} = \omega \delta^{\alpha\beta} - \varepsilon_0 E^\alpha B^\beta - \frac{1}{\mu_0} B^\alpha B^\beta
 \]
@@ -282,34 +271,48 @@ Wir betrachten die inhomogenen Maxwellgleichungen:
 \]
 
 Dort setzen wir unsere Potentiale ein und erhalten nach einigen Umformungen folgendes Gleichungssystem:
-\[
-	\vnabla \del{\divergence{\vec A} + \frac{1}{c^2} \dot \varphi} - \dalambert \vec A = - \mu \vec j
-	,\quad
-	\laplace \varphi + \divergence{\dot{\vec A}} = - \frac{\rho}{\varepsilon}
-\]
+\begin{subequations}
+	\begin{equation}
+		\label{eq:a}
+		\vnabla \del{\divergence{\vec A} + \frac{1}{c^2} \dot \varphi} - \dalambert \vec A = - \mu \vec j
+	\end{equation}
+	\begin{equation}
+		\label{eq:b}
+		\laplace \varphi + \divergence{\dot{\vec A}} = - \frac{\rho}{\varepsilon}
+	\end{equation}
+\end{subequations}
 
 Nun setzen wir $\divergence{\vec A} = 0$ ein und vereinfachen das System zu:
-\[
-	- \frac{1}{c^2} \vnabla \dot \varphi + \dalambert \vec A = - \mu \vec j
-	,\quad
-	\laplace \varphi = - \frac{\rho}{\varepsilon}
-\]
+\begin{subequations}
+	\begin{equation}
+		\label{eq:a1}
+		- \frac{1}{c^2} \vnabla \dot \varphi + \dalambert \vec A = - \mu \vec j
+	\end{equation}
+	\begin{equation}
+		\label{eq:b1}
+		\laplace \varphi = - \frac{\rho}{\varepsilon}
+	\end{equation}
+\end{subequations}
 
-Die zweite Gleichung ist gerade die aus der Elektrostatik. Diese können wir mit einem Poissonintegral lösen und erhalten:
+Gleichung \eqref{eq:b1} ist gerade die aus der Elektrostatik. Diese können wir
+mit einem Poissonintegral lösen und erhalten:
 \begin{equation}
 	\label{eq:phi}
 	\varphi = \frac{1}{4\pi\varepsilon_0} \int \dif{^3 r'} \frac{\rho}{\abs{\vec r - \vec r'}}
 \end{equation}
 
-Die erste Gleichung formen wir um und erhalten eine Gleichung für das $\vec A$-Feld:
+Gleichung \eqref{eq:a1} formen wir um und erhalten eine Gleichung für das $\vec
+A$-Feld:
 \[
 	\dalambert \vec A = - \mu \vec j + \frac{1}{c^2} \vnabla \dot \varphi 
 \]
 
-Wir setzen \eqref{eq:phi} in die obige Gleichung ein und erhalten:
-\[
-	\dalambert \vec A = - \mu \vec j - \frac{\mu_0}{4 \pi} \vnabla \int \dif{^3 r'} \frac{\dot \varphi}{\abs{\vec r - \vec r'}}
-\]
+Wir setzen \eqref{eq:phi} in die obige Gleichung ein und erhalten bis auf eine
+harmonische Funktion $f$:
+\begin{equation}
+	\label{eq:unsere}
+	\dalambert \vec A = - \mu \vec j - \frac{\mu_0}{4 \pi} \vnabla \int \dif{^3 r'} \frac{\dot \varphi}{\abs{\vec r - \vec r'}} + f
+\end{equation}
 
 Nun benutzen wir die Kontinuitätsgleichung. Diese lautet:
 \[
@@ -318,17 +321,34 @@ Nun benutzen wir die Kontinuitätsgleichung. Diese lautet:
 	\varepsilon \vnabla \dot \varphi = \divergence{\vec j}
 \]
 
-Unsere Gleichung wird zu:
+Gleichung \eqref{eq:unsere} wird zu:
 \[
 	\dalambert \vec A = - \mu \vec j - \frac{\mu_0}{4 \pi} \vnabla \int \dif{^3 r'} \frac{\divergence{\dot{\vec j}}}{\abs{\vec r - \vec r'}}
 \]
 
-Die Differenz auf der rechten Seite können wir als Rotation schreiben. Ein Vektorfeld lässt sich in ein Quellen- und ein Wirbelfeld zerlegen. Dies ist der erste Summand. Davon ziehen wir den Quellenteil ab, es bleibt der Wirbelteil.
+Die Differenz auf der rechten Seite können wir als Rotation schreiben. Ein
+Vektorfeld lässt sich in ein Quellen- und ein Wirbelfeld zerlegen. Dies ist der
+erste Summand. Davon ziehen wir den Quellenteil (zweiter Summand) ab, es bleibt
+der Wirbelteil:
 \[
 	\dalambert \vec A = - \frac{\mu_0}{4 \pi} \curl \int \dif{^3 r'} \frac{\divergence{\dot{\vec j}}}{\abs{\vec r - \vec r'}}
 \]
 
+\subsubsection{immer möglich?}
+
+\fehlt
+
+\subsubsection{Lösung im Vakuum}
+
+\subsubsection{warum „transversal“?}
+
+\fehlt
+
 \subsection{Lorenzeichung}
+
+\fehlt
+
+\subsubsection{immer möglich?}
 
 \fehlt
 
