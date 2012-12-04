@@ -283,11 +283,107 @@ Die Diagonalform heißt wohl, dass dieses Feld nur Druck und keine Scherspannung
 ausübt.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                         Coulomb- und Lorentzeichung                         %
+%                         Coulomb- und Lorenzeichung                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Coulomb- und Lorentzeichung}
+\section{Coulomb- und Lorenzeichung}
 \label 3
+
+\subsection{Begründung und Bestimmungsgleichungen}
+
+Da $\divergence{\vec B} = 0$ gilt, kann ist dieses ein reines Wirbelfeld. Ein
+solches kann immer als Rotation eines anderen Feldes, $\vec A$ geschrieben
+werden:
+\[
+	\vec B = \curl \vec A
+\]
+
+Für den elektrostatischen Fall gilt $\curl \vec E = 0$, so dass sich dieses als
+Gradient eines skalaren Feldes, $\varphi + c_1$ schreiben lässt:
+\[
+	\vec E = - \vnabla \varphi
+\]
+
+Für den elektrodynamischen, aber ladungsfreien Fall gilt $\divergence{\vec E} =
+0$. Außerdem gilt $\curl \vec E = - \dot{\vec B}$. Wir setzen die Induktion ein
+und erhalten:
+\[
+	\curl \vec E = - \curl \dot{\vec A}
+	\iff
+	\vec E = - \dot{\vec A} - \vnabla \dot \psi
+\]
+
+Durch die Linearität der Differentialgleichung können wir beide Fälle zusammensetzen und erhalten:
+\[
+	\vec E = - \vnabla \phi - \dot{\vec A}
+\]
+
+\subsection{Eichinvarianz der Potentiale}
+
+In der vorherigen Aufgabe haben wir bei der Integration schon die Freiheiten
+$c_1$ und $\vnabla \psi$ eingefügt. Das Vektorpotential $\vec A$ ist nur bis
+auf einen Gradienten bestimmt, das skalare Potential $\varphi$ nur bis auf eine
+additive Konstante.
+
+\subsection{Coulombeichung}
+
+Wir betrachten die inhomogenen Maxwellgleichungen:
+\[
+	\divergence{\vec E} = \frac{\rho}{\varepsilon}
+	,\quad
+	\curl \vec B - \frac{1}{c^2} \dot{\vec E} = \mu \vec j
+\]
+
+Dort setzen wir unsere Potentiale ein und erhalten nach einigen Umformungen folgendes Gleichungssystem:
+\[
+	\vnabla \del{\divergence{\vec A} + \frac{1}{c^2} \dot \varphi} - \dalambert \vec A = - \mu \vec j
+	,\quad
+	\laplace \varphi + \divergence{\dot{\vec A}} = - \frac{\rho}{\varepsilon}
+\]
+
+Nun setzen wir $\divergence{\vec A} = 0$ ein und vereinfachen das System zu:
+\[
+	- \frac{1}{c^2} \vnabla \dot \varphi + \dalambert \vec A = - \mu \vec j
+	,\quad
+	\laplace \varphi = - \frac{\rho}{\varepsilon}
+\]
+
+Die zweite Gleichung ist gerade die aus der Elektrostatik. Diese können wir mit einem Poissonintegral lösen und erhalten:
+\begin{equation}
+	\label{eq:phi}
+	\varphi = \frac{1}{4\pi\varepsilon_0} \int \dif{^3 r'} \frac{\rho}{\abs{\vec r - \vec r'}}
+\end{equation}
+
+Die erste Gleichung formen wir um und erhalten eine Gleichung für das $\vec A$-Feld:
+\[
+	\dalambert \vec A = - \mu \vec j + \frac{1}{c^2} \vnabla \dot \varphi 
+\]
+
+Wir setzen \eqref{eq:phi} in die obige Gleichung ein und erhalten:
+\[
+	\dalambert \vec A = - \mu \vec j - \frac{\mu_0}{4 \pi} \vnabla \int \dif{^3 r'} \frac{\dot \varphi}{\abs{\vec r - \vec r'}}
+\]
+
+Nun benutzen wir die Kontinuitätsgleichung. Diese lautet:
+\[
+	\dot \rho + \divergence{\vec j} = 0
+	\iff
+	\varepsilon \vnabla \dot \varphi = \divergence{\vec j}
+\]
+
+Unsere Gleichung wird zu:
+\[
+	\dalambert \vec A = - \mu \vec j - \frac{\mu_0}{4 \pi} \vnabla \int \dif{^3 r'} \frac{\divergence{\dot{\vec j}}}{\abs{\vec r - \vec r'}}
+\]
+
+Die Differenz auf der rechten Seite können wir als Rotation schreiben. Ein Vektorfeld lässt sich in ein Quellen- und ein Wirbelfeld zerlegen. Dies ist der erste Summand. Davon ziehen wir den Quellenteil ab, es bleibt der Wirbelteil.
+\[
+	\dalambert \vec A = - \frac{\mu_0}{4 \pi} \curl \int \dif{^3 r'} \frac{\divergence{\dot{\vec j}}}{\abs{\vec r - \vec r'}}
+\]
+
+\subsection{Lorenzeichung}
+
+\fehlt
 
 %\bibliography{../../zentrale_BibTeX/Central}
 %\bibliographystyle{plain}
