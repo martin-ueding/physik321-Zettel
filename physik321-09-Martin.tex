@@ -1,67 +1,10 @@
 % Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
 %
-\documentclass[11pt, ngerman, fleqn]{article}
+\input{header.tex}
 
-\usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
-\usepackage[activate]{pdfcprot}
-\usepackage[cdot, squaren]{SIunits}
-\usepackage[iso]{isodate}
-\usepackage[parfill]{parskip}
 \usepackage[scaled]{beramono}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{babel}
-\usepackage{color}
-\usepackage{commath}
 \usepackage{fancyhdr}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{lastpage}
-\usepackage{setspace}
 \usepackage{tikz}
-
-\usepackage[charter, greekuppercase=italicized]{mathdesign}
-
-\definecolor{darkblue}{rgb}{0,0,.5}
-\definecolor{darkgreen}{rgb}{0,.5,0}
-
-\hypersetup{
-	breaklinks=false,
-	citecolor=darkgreen,
-	colorlinks=true,
-	linkcolor=black,
-	menucolor=black,
-	urlcolor=darkblue,
-}
-
-\setlength{\columnsep}{2cm}
-
-\DeclareMathOperator{\arcsinh}{arsinh}
-\DeclareMathOperator{\arsinh}{arsinh}
-\DeclareMathOperator{\asinh}{arsinh}
-\DeclareMathOperator{\card}{card}
-\DeclareMathOperator{\diam}{diam}
-\DeclareMathOperator{\re}{Re}
-
-\newcommand{\curl}{\vnabla \times}
-\newcommand{\dalambert}{\mathop{{}\Box}\nolimits}
-\newcommand{\divergence}[1]{\inner{\vnabla}{#1}}
-\newcommand{\ee}{\mathrm e}
-\newcommand{\emesswert}{\del{\messwert \pm \messwert}}
-\newcommand{\ev}{\hat{\vec e}}
-\newcommand{\e}[1]{\cdot 10^{#1}}
-\newcommand{\fehlt}{\textcolor{red}{Hier fehlen noch Inhalte.}}
-\newcommand{\half}{\frac 12}
-\newcommand{\ii}{\mathrm i}
-\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
-\newcommand{\laplace}{\mathop{{}\bigtriangleup}\nolimits}
-\newcommand{\messwert}{\textcolor{blue}{\square}}
-\newcommand{\punkte}{\textcolor{white}{xxxxx}}
-\newcommand{\tens}[1]{\boldsymbol{\mathsf{#1}}}
-\newcommand{\vnabla}{\vec \nabla}
-\renewcommand{\vec}[1]{\boldsymbol{#1}}
 
 \newcommand{\themodul}{physik321}
 \newcommand{\thegruppe}{Gruppe 8 -- Julia Volmer}
@@ -83,6 +26,10 @@
 	Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
 	\and
 	Simon Schlepphorst \\ \small{\href{mailto:s2@uni-bonn.de}{s2@uni-bonn.de}}
+}
+
+\hypersetup{
+	pdftitle={\themodul {} - Übung \theuebung},
 }
 
 \begin{document}
