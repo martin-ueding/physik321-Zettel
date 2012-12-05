@@ -272,6 +272,7 @@ Wir betrachten die inhomogenen Maxwellgleichungen:
 
 Dort setzen wir unsere Potentiale ein und erhalten nach einigen Umformungen folgendes Gleichungssystem:
 \begin{subequations}
+	\label{eq:system}
 	\begin{equation}
 		\label{eq:a}
 		\vnabla \del{\divergence{\vec A} + \frac{1}{c^2} \dot \varphi} - \dalambert \vec A = - \mu \vec j
@@ -346,7 +347,16 @@ der Wirbelteil:
 
 \subsection{Lorenzeichung}
 
-\fehlt
+Wir hatten das Gleichungssystem \eqref{eq:system}. Dort setzen wir in beide
+Gleichungen $\divergence{\vec A} + \frac{1}{c^2} \dot \phi = 0$ ein und
+erhalten:
+\[
+	\dalambert \vec A = \mu \vec j
+	,\quad
+	\dalambert \varphi = - \frac \rho \varepsilon
+\]
+
+Somit sind die Gleichungen entkoppelt.
 
 \subsubsection{immer möglich?}
 
