@@ -59,14 +59,16 @@ Die interessanten Maxwellgleichungen im Vakuum (ohne Ladungen und Ströme) sind:
 	\curl \vec B - \frac{1}{c^2} \dot{\vec E} = \vec 0
 \]
 
-Für die erste Wellengleichung, $\dalambert \vec E = \lambda$, bilde ich die Rotation der ersten Gleichung und leite die zweite nach der Zeit ab:
+Für die erste Wellengleichung, $\dalambert \vec E = \lambda$, bilde ich die
+Rotation der ersten Gleichung und leite die zweite nach der Zeit ab:
 \[
 	\curl \curl \vec E + \curl \dot{\vec B} = \vec 0
 	,\quad
 	\curl \dot{\vec B} - \frac{1}{c^2} \ddot{\vec E} = \vec 0
 \]
 
-Außerdem ist $\curl \curl \vec x = \vnabla \divergence{\vec x} - \laplace \vec x$. Wobei hier die Divergenzen alle $0$ sind.
+Außerdem ist $\curl \curl \vec x = \vnabla \divergence{\vec x} - \laplace \vec
+x$. Wobei hier die Divergenzen alle $0$ sind.
 
 Mit diesen Vorüberlegungen kann ich die erste Wellengleichung umformen:
 \begin{align*}
@@ -92,7 +94,8 @@ Mit diesen Vorüberlegungen kann ich die erste Wellengleichung umformen:
 
 Die Funktion $\lambda_1$ ist also ein beliebiger Gradient.
 
-Analog bilden wir anders herum Rotation und Zeitableitung der beiden Gleichungen:
+Analog bilden wir anders herum Rotation und Zeitableitung der beiden
+Gleichungen:
 \[
 	\curl \dot{\vec E} + \ddot{\vec B} = 0
 	,\quad
@@ -134,7 +137,8 @@ Wir bilden die Rotation dieses Feldes:
 	\curl \vec E = \re\del{f'(x-ct) \del{-\ii \ev_y + \ev_z}}
 \]
 
-Dies integrieren wir nach der Zeit und wählen alle Integrationskonstanten gleich $0$:
+Dies integrieren wir nach der Zeit und wählen alle Integrationskonstanten
+gleich $0$:
 \[
 	\vec B = \frac 1c \re\del{f(x-ct) \del{\ii \ev_y - \ev_z}}
 \]
@@ -159,12 +163,15 @@ Und die Energiestromdichte:
 
 Es fehlt der Spannungstensor $\tens G$:
 \[
-	G^{\alpha\beta} = \omega \delta^{\alpha\beta} - \varepsilon_0 E^\alpha B^\beta - \frac{1}{\mu_0} B^\alpha B^\beta
+	G^{\alpha\beta} =
+	\omega \delta^{\alpha\beta} - \varepsilon_0 E^\alpha B^\beta
+	- \frac{1}{\mu_0} B^\alpha B^\beta
 \]
 
 Oder als ganzer Tensor geschrieben:
 \begin{align*}
-	\tens G &= \omega \tens 1 - \varepsilon_0 \vec E \otimes \vec E - \frac{1}{\mu_0} \vec B \otimes \vec B \\
+	\tens G &= \omega \tens 1 - \varepsilon_0 \vec E \otimes \vec E
+	- \frac{1}{\mu_0} \vec B \otimes \vec B \\
 	&=
 	\begin{pmatrix}
 		\omega & 0 & 0 \\
@@ -249,7 +256,8 @@ und erhalten:
 	\vec E = - \dot{\vec A} - \vnabla \dot \psi
 \]
 
-Durch die Linearität der Differentialgleichung können wir beide Fälle zusammensetzen und erhalten:
+Durch die Linearität der Differentialgleichung können wir beide Fälle
+zusammensetzen und erhalten:
 \[
 	\vec E = - \vnabla \phi - \dot{\vec A}
 \]
@@ -270,16 +278,19 @@ Wir betrachten die inhomogenen Maxwellgleichungen:
 	\curl \vec B - \frac{1}{c^2} \dot{\vec E} = \mu \vec j
 \]
 
-Dort setzen wir unsere Potentiale ein und erhalten nach einigen Umformungen folgendes Gleichungssystem:
+Dort setzen wir unsere Potentiale ein und erhalten nach einigen Umformungen
+folgendes Gleichungssystem:
 \begin{subequations}
 	\label{eq:system}
 	\begin{equation}
 		\label{eq:a}
-		\vnabla \del{\divergence{\vec A} + \frac{1}{c^2} \dot \varphi} - \dalambert \vec A = - \mu \vec j
+		\vnabla \del{\divergence{\vec A} + \frac{1}{c^2} \dot \varphi} - \dalambert \vec A
+		= - \mu \vec j
 	\end{equation}
 	\begin{equation}
 		\label{eq:b}
-		\laplace \varphi + \divergence{\dot{\vec A}} = - \frac{\rho}{\varepsilon}
+		\laplace \varphi + \divergence{\dot{\vec A}} =
+		- \frac{\rho}{\varepsilon}
 	\end{equation}
 \end{subequations}
 
@@ -299,7 +310,8 @@ Gleichung \eqref{eq:b1} ist gerade die aus der Elektrostatik. Diese können wir
 mit einem Poissonintegral lösen und erhalten:
 \begin{equation}
 	\label{eq:phi}
-	\varphi = \frac{1}{4\pi\varepsilon_0} \int \dif{^3 r'} \frac{\rho}{\abs{\vec r - \vec r'}}
+	\varphi =
+	\frac{1}{4\pi\varepsilon_0} \int \dif{^3 r'} \frac{\rho}{\abs{\vec r - \vec r'}}
 \end{equation}
 
 Gleichung \eqref{eq:a1} formen wir um und erhalten eine Gleichung für das $\vec
@@ -312,7 +324,9 @@ Wir setzen \eqref{eq:phi} in die obige Gleichung ein und erhalten bis auf eine
 harmonische Funktion $f$:
 \begin{equation}
 	\label{eq:unsere}
-	\dalambert \vec A = - \mu \vec j - \frac{\mu_0}{4 \pi} \vnabla \int \dif{^3 r'} \frac{\dot \varphi}{\abs{\vec r - \vec r'}} + f
+	\dalambert \vec A =
+	- \mu \vec j - \frac{\mu_0}{4 \pi} \vnabla
+	\int \dif{^3 r'} \frac{\dot \varphi}{\abs{\vec r - \vec r'}} + f
 \end{equation}
 
 Nun benutzen wir die Kontinuitätsgleichung. Diese lautet:
@@ -324,7 +338,9 @@ Nun benutzen wir die Kontinuitätsgleichung. Diese lautet:
 
 Gleichung \eqref{eq:unsere} wird zu:
 \[
-	\dalambert \vec A = - \mu \vec j - \frac{\mu_0}{4 \pi} \vnabla \int \dif{^3 r'} \frac{\divergence{\dot{\vec j}}}{\abs{\vec r - \vec r'}}
+	\dalambert \vec A =
+	- \mu \vec j - \frac{\mu_0}{4 \pi} \vnabla
+	\int \dif{^3 r'} \frac{\divergence{\dot{\vec j}}}{\abs{\vec r - \vec r'}}
 \]
 
 Die Differenz auf der rechten Seite können wir als Rotation schreiben. Ein
@@ -332,7 +348,9 @@ Vektorfeld lässt sich in ein Quellen- und ein Wirbelfeld zerlegen. Dies ist der
 erste Summand. Davon ziehen wir den Quellenteil (zweiter Summand) ab, es bleibt
 der Wirbelteil:
 \[
-	\dalambert \vec A = - \frac{\mu_0}{4 \pi} \curl \int \dif{^3 r'} \frac{\divergence{\dot{\vec j}}}{\abs{\vec r - \vec r'}}
+	\dalambert \vec A =
+	- \frac{\mu_0}{4 \pi} \curl
+	\int \dif{^3 r'} \frac{\divergence{\dot{\vec j}}}{\abs{\vec r - \vec r'}}
 \]
 
 \subsubsection{immer möglich?}
