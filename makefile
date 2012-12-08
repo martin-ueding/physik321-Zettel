@@ -15,7 +15,7 @@ H3.java.txt: H3.class
 	javac $^
 
 H3-c: H3.c
-	gcc -o $@ -O3 $^ -lm
+	gcc -Wall --pedantic -o $@ -O3 $^ -lm
 
 %.pdf: %.tex
 	pdflatex -shell-escape $<
