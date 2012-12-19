@@ -1,0 +1,78 @@
+% Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+%
+\input{header.tex}
+
+\usepackage{tikz}
+
+\newcommand{\themodul}{physik321}
+\newcommand{\thegruppe}{Gruppe 8 -- Julia Volmer}
+\newcommand{\theuebung}{10}
+
+\ifoot{\footnotesize{Martin Ueding, Simon Schlepphorst}}
+\ihead{\themodul{} -- Übung \theuebung}
+\ofoot{\footnotesize{\thegruppe}}
+
+\def\thesection{H \theuebung.\arabic{section}}
+\def\thesubsubsection{\thesubsection\alph{section}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{
+	Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
+	\and
+	Simon Schlepphorst \\ \small{\href{mailto:s2@uni-bonn.de}{s2@uni-bonn.de}}
+}
+
+\hypersetup{
+	pdftitle={\themodul {} - Übung \theuebung},
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c}
+		Aufgabe & \ref 1 & \ref 2 & $\sum$   \\
+		\hline
+		Punkte & \punkte / 20 & \punkte / 20 & \punkte / 40
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            elektrische Quadrupol- und magnetische Dipolstrahlung            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{elektrische Quadrupol- und magnetische Dipolstrahlung}
+\label 1
+
+\fehlt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                    Strahlung einer langsamen Punktladung                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Strahlung einer langsamen Punktladung}
+\label 2
+
+\subsection{Ladungs- und Stromdichte}
+
+Wir haben eine Punktladung mit Ladung $q$ an der Stelle $\vec r_0(t)$. Somit ist die Ladungsdichte:
+\[
+	\rho\del{\vec r, t} = q \delta^3\del{\vec r - \vec r_0(t)}
+\]
+
+Es fließt nur an der Stelle $\vec r_0$ Strom, so dass die Stromdichte sinnvollerweise ist:
+\[
+	\vec j\del{\vec r, t} = \rho\del{\vec r, t} \vec v(t)
+\]
+
+\fehlt
+
+%\bibliography{../../zentrale_BibTeX/Central}
+%\bibliographystyle{plain}
+
+\end{document}
+
+% vim: spell spelllang=de
