@@ -58,15 +58,54 @@
 
 \subsection{Ladungs- und Stromdichte}
 
-Wir haben eine Punktladung mit Ladung $q$ an der Stelle $\vec r_0(t)$. Somit ist die Ladungsdichte:
+Wir haben eine Punktladung mit Ladung $q$ an der Stelle $\vec r_0(t)$. Somit
+ist die Ladungsdichte:
 \[
 	\rho\del{\vec r, t} = q \delta^3\del{\vec r - \vec r_0(t)}
 \]
 
-Es fließt nur an der Stelle $\vec r_0$ Strom, so dass die Stromdichte sinnvollerweise ist:
+Es fließt nur an der Stelle $\vec r_0$ Strom, so dass die Stromdichte
+sinnvollerweise ist:
 \[
 	\vec j\del{\vec r, t} = \rho\del{\vec r, t} \vec v(t)
 \]
+
+\subsection{Potentiale in Lorenz-Eichung}
+
+\fehlt
+
+\subsection{Näherungen}
+
+Durch die Näherung $r \gg r_0$ werden die $\vec r - \vec r_0(t')$ Terme zu
+$\vec r$. Wir können außerdem die Geschwindigkeit zur Zeit $t'$ direkt durch
+$\beta_\text{ret}$ ausdrücken.
+
+\begin{align*}
+	\Phi\del{\vec r, t}
+	&= \frac{q}{4 \pi \varepsilon_0} \frac{1}{r} \frac{1}{1 - \inner{\frac{\vec r}{r}}{\vec \beta_\text{ret}}} \\
+	\intertext{%
+		Oder mit Summenkonvention:
+	}
+	&= \frac{q}{4 \pi \varepsilon_0} \frac{1}{r} \frac{1}{1 - \frac{r_b}{r}\beta_\text{ret}^b} \\
+	\intertext{%
+		Diesen Ausdruck können wir nun um $\vec \beta_\text{ret} = \vec 0$
+		entwickeln. Den Term nullter Ordnung lesen wir ab, es ist $1/r$. Für
+		den Term erster Ordnung bilden wir die erste Ableitung nach $\beta^d$ (ohne Vorfaktor):
+		\[
+			\frac{1}{r} \frac{\frac{r_b}{r}}{\del{1 - \frac{r_d}{r}\beta_\text{ret}^b}^2}
+		\]
+		Wenn wir dies an der Stelle $\vec \beta_\text{ret} = \vec 0$ auswerten, erhalten wir nur $r_d/r^2$. Mit allen Komponenten $d$ zusammen erhalten wir den Vektor $\vec r$. Somit ist die Entwicklung:
+	}
+	&= \frac{q}{4 \pi \varepsilon_0} \del{ \frac 1r + \frac{r_b}{r^2} \beta_\text{ret}^b } + \mathcal O\del{\vec \beta_\text{ret}^2}
+\end{align*}
+
+\fehlt
+
+\subsection{Felder}
+
+\fehlt
+
+\subsection{Polarisierung}
 
 \fehlt
 
