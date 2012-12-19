@@ -106,7 +106,22 @@ $\beta_\text{ret}$ ausdrücken.
 
 \subsection{Felder}
 
-\fehlt
+Das elektrische Feld ist der negative Gradient des skalaren Potentials, so dass gilt:
+\[
+	\vec E = - \vnabla \Phi
+\]
+
+Wir bilden den Gradient des entwickelten Potentials:
+\begin{align*}
+	\vec E
+	&= - \vnabla \Phi \\
+	&= - \frac{q}{4 \pi \varepsilon_0} \vnabla \del{\frac 1r + \frac{1}{r^2}\inner{\vec r}{\vec \beta_\text{ret}} + \mathcal O\del{\vec \beta_\text{ret}^2}} \\ 
+	E^a
+	&= - \frac{q}{4 \pi \varepsilon_0} \partial_a \del{\frac 1r + \frac{1}{r^2}\inner{\vec r}{\vec \beta_\text{ret}} + \mathcal O\del{\vec \beta_\text{ret}^2}} \\ 
+	&= - \frac{q}{4 \pi \varepsilon_0} \partial_a \del{\frac 1r + \frac{1}{r^2} r_b \beta_\text{ret}^b + \mathcal O\del{\vec \beta_\text{ret}^2}} \\ 
+	\intertext{%
+	}
+\end{align*}
 
 \subsection{Polarisierung}
 
