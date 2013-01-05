@@ -48,6 +48,117 @@
 	\end{tabular}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              Die Lorentzgruppe                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Die Lorentzgruppe}
+\label 1
+
+\subsection{Motivation der Einteilung}
+
+Die Länge $d := \norm{\vec x} = \sqrt{\inner{\vec x}{\vec x}} = \sqrt{\vec x
+\tens g \vec x} = \sqrt{x^\mu x^\nu g_{\mu \nu}}$ ist physikalisch die
+Eigenzeit. Für eine Reise entlang des Vektors $\vec x$ vergeht diese Eigenzeit.
+Reisen innerhalb des Lichtkegels erfordern eine positive Zeit, entlang des
+Kegels sind Lichtstrahlen, für die keine Eigenzeit vergeht. Reisen entlang
+Vektoren $\vec x$, die nicht innerhalb des Kegels liegen, sind nicht möglich,
+daher eine imaginäre Reisezeit.
+
+Somit können wir Reisen mit $d = 0$ als lichtartig bezeichnen. Entfernungen,
+die innerhalb des Kegels liegen, haben ihre Hauptentfernung (Maximumsnorm) in
+der Zeit und können so als zeitartig bezeichnet werden. Entfernungen zwischen
+zwei Ereignissen, die gleichzeitig (geht nur bezüglich des aktuellen Systems)
+passieren, ist sinnvollerweise raumartig. Ihr Abstandsquadrat $d^2$ ist kleiner
+als null, so dass dies passt.
+
+\subsection{nur lineare Abbildungen}
+
+Nur lineare Abbildungen lassen die physikalisch sinnvolle Größe, die Eigenzeit
+$d$ invariant. Dies lässt sich am einfachsten in der Penrose-Notation
+darstellen.
+
+Dazu definieren wir folgende Symbole gemäß der Notation. Dabei sind Tensoren
+die geometrischen Formen, Indizes nach oben (Vektor) und unten (Kovektor)
+werden durch Anfasser oben beziehungsweise unten dargestellt. Der metrische
+Tensor ist einfach Bügel:
+\begin{center}
+	\includegraphics{H1-Definitionen.pdf}
+\end{center}
+
+Kontraktion wird in dieser Notation über das Verbinden von Indizes dargestellt.
+So ist das Skalarprodukt:
+\begin{center}
+	\includegraphics{H1-Skalarprodukt.pdf}
+\end{center}
+
+Nun wenden wir die Transformation $\tens \Lambda$ an, kontrahieren $\vec x$
+also mit $\tens \Lambda$:
+\begin{center}
+	\includegraphics{H1-Transformation.pdf}
+\end{center}
+
+Das Skalarprodukt wird auch transformiert. Wir fügen noch zwei metrische
+Tensoren ein und benutzen die Umkehrabbildung $\tens \Lambda^{-1}$. Da die
+Transformation aus der Symmetriegruppe des Minkoswkiraums, $O(1, 3)$ stammt,
+ist die Transformationsmatrix $\tens \Lambda$ es eine orthonormale Matrix.
+Daher ist die inverse Matrix nur die Transponierte. Diese erhalten wir, wie in
+der nächsten Zeichnung schon enthalten, über Kontraktion mit zwei metrischen
+Tensoren ($\Lambda^\alpha{}_\beta \mapsto \Lambda_\gamma{}^\eta$). Im nächsten
+Schritt nutzen wir auch aus, dass $g_{\mu\nu} g^{\nu\xi} = \delta_\mu{}^\xi$.
+Dann nutzen wir aus, dass $\tens \Lambda \tens \Lambda^{-1} = \tens 1$. Wir
+erhalten das ursprüngliche Skalarprodukt:
+\begin{center}
+	\includegraphics{H1-Invarianz.pdf}
+\end{center}
+
+Das ganze können wir auch noch rechnerisch zeigen:
+\begin{align*}
+	\inner{\vec x}{\vec x}
+	&= x^\alpha g_{\alpha \beta} x^\beta \\
+	\intertext{Wir bilden mit $\tens \Lambda$ ab.}
+	&\mapsto \Lambda^\gamma{}_\alpha x^\alpha g_{\gamma \eta} \Lambda^\eta{}_\beta x^\beta \\
+	\intertext{%
+		Wir führen zwei weitere metrische Tensoren ein und benutzen die
+		Umkehrabbildung $\tens \Lambda^{-1} =: \tilde{\tens \Lambda}$.
+	}
+	&= \Lambda^\gamma{}_\alpha x^\alpha g_{\gamma \xi} g^{\xi \eta} \tilde\Lambda_\eta{}^\iota g_{\iota\beta} x^\beta \\
+	\intertext{%
+		Die beiden metrischen Tensoren werden zu einem $\delta$ wegen
+		$g_{\mu\nu} g^{\nu\xi} = \delta_\mu{}^\xi$, so dass sich die Indizes
+		$\gamma$ und $\eta$ identisch werden.
+	}
+	&= \Lambda^\gamma{}_\alpha x^\alpha \tilde\Lambda_\gamma{}^\iota g_{\iota\beta} x^\beta \\
+	\intertext{%
+		Wir nutzen aus, dass $\tens \Lambda \tens \Lambda^{-1} = \tens 1$.
+	}
+	&= \delta^\iota{}_\alpha x^\alpha g_{\iota\beta} x^\beta \\
+	\intertext{%
+		Wir führen noch das letzte $\delta$ aus und erhalten unsere
+		ursprüngliche Summe:
+	}
+	&= x^\alpha g_{\alpha\beta} x^\beta \\
+	&= \inner{\vec x}{\vec x}
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  Unbeobachtbarkeit der Lorentzkontraktion                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Unbeobachtbarkeit der Lorentzkontraktion}
+\label 2
+
+\fehlt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            Lorentztransformation                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Lorentztransformation}
+\label 3
+
+\fehlt
+
 
 %\bibliography{../../zentrale_BibTeX/Central}
 %\bibliographystyle{plain}
