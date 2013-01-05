@@ -269,8 +269,11 @@ $\mathcal L^\uparrow$ zu $\mathcal L^\downarrow$ vollzogen werden.
 \fehlt
 
 
-\bibliography{../../zentrale_BibTeX/Central}
-\bibliographystyle{plain}
+\newcommand{\bibliographyfile}{../../zentrale_BibTeX/Central}
+\IfFileExists{\bibliographyfile}{
+	\bibliography{\bibliographyfile}
+	\bibliographystyle{plain}
+}{}
 
 \end{document}
 
