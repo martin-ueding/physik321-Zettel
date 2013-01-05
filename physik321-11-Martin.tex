@@ -257,7 +257,159 @@ $\mathcal L^\uparrow$ zu $\mathcal L^\downarrow$ vollzogen werden.
 \section{Unbeobachtbarkeit der Lorentzkontraktion}
 \label 2
 
-\fehlt
+\subsection{Projektion}
+\label{2a}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[scale=1.5]
+		\draw[thick]
+		(0, 0) node[below left] {$A$}
+		--
+		(2, 0) node[below right] {$B$}
+		--
+		(2, 1) node[above right] {$C$}
+		--
+		(0, 1) node[above left] {$D$} node[midway, above] {$a$}
+		-- (0, 0) node[midway, left] {$b$};
+
+		\draw[->] (2, 0.5) -- ++(1, 0) node[right] {$\vec \beta$};
+
+		\draw[->] (0, 0, 0) -- ++(4, 0, 0) node[right] {$\ev^x$};
+		\draw[->] (0, 0, 0) -- ++(0, 2, 0) node[above] {$\ev^y$};
+	\end{tikzpicture}
+	\caption{Skizze zu \ref{2a}}
+	\label{fig:2a}
+\end{figure}
+
+Es sei das Rechteck im System $K'$ in Ruhe und der Betrachter im System $K$ in
+Ruhe. Das System $K'$ bewegt sich mit $\vec \beta = \beta \ev^x$ im Bezug zum
+System $K$.
+
+Die beiden wichtigen Eckpunkte des Rechtecks sind im gestrichenen System:
+\[
+	\vec A'(t')
+	=
+	\begin{pmatrix}
+		ct' \\ 0 \\ 0 \\ 0
+	\end{pmatrix}
+	\eqnsep
+	\vec D'(t')
+	=
+	\begin{pmatrix}
+		ct' \\ 0 \\ b' \\ 0
+	\end{pmatrix}
+\]
+
+Die beiden Ausstrahlereignisse der Ecken $A$ und $D$ müssen einen lichtartigen
+Abstand haben, weil sich ein Lichtstrahl von der Ecke $D$ an der Ecke $A$
+vorbei (zumindest in $y$-Projektion) muss.
+
+Wir folgern also folgende Bedingung:
+\begin{align*}
+	\norm{\vec D'(t') - \vec A'(t' + \tau')} &= 0 \\
+	\del{c \tau'}^2 - b^2 &= 0 \\
+	\tau' = \frac bc
+\end{align*}
+
+Das Licht braucht die Zeit $b/c$ um entlang der Kante $AD$, die die Länge $b$
+hat, zu reisen. In dieser Zeit ist der Beobachter schon um $- c \beta \tau'$
+weiter, also um $- b \beta$. Er sieht von der nicht relativistisch betrachteten
+Seite die Länge $\beta b$.
+
+Eigentlich sind wir damit schon fertig, jedoch haben wir überhaupt nicht keine
+Längenkontraktion oder Zeitdilatation in dieser Aufgabe gehabt, der Faktor
+$\gamma$ ist nicht aufgetaucht.
+
+Wenn wir die Transformationsmatrix $\tens \Lambda$ aufstellen, erhalten wir
+diesen Faktor. Die Rücktransformation erhalten wir durch $\beta \mapsto -
+\beta$:
+\[
+	\tens \Lambda
+	=
+	\begin{pmatrix}
+		\gamma & - \beta \gamma & 0 & 0 \\
+		- \beta \gamma & \gamma & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{pmatrix}
+	\eqnsep
+	\tens \Lambda'
+	=
+	\begin{pmatrix}
+		\gamma & \beta \gamma & 0 & 0 \\
+		\beta \gamma & \gamma & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{pmatrix}
+\]
+
+Nun können wir die Vektoren $\vec A'$ und $\vec D'$ transformieren und erhalten
+mit $t' = \gamma t$:
+\[
+	\vec A(t')
+	=
+	\begin{pmatrix}
+		\gamma ct' \\ \beta \gamma ct' \\ 0 \\ 0
+	\end{pmatrix}
+	\eqnsep
+	\vec A(t)
+	=
+	\begin{pmatrix}
+		ct \\ \beta ct \\ 0 \\ 0
+	\end{pmatrix}
+	\eqnsep
+	\vec D(t')
+	=
+	\begin{pmatrix}
+		\gamma ct' \\ \beta \gamma ct' \\ b \\ 0
+	\end{pmatrix}
+	\eqnsep
+	\vec D(t)
+	=
+	\begin{pmatrix}
+		ct \\ \beta ct \\ b \\ 0
+	\end{pmatrix}
+\]
+
+Wenn wir in diesem System jetzt für eine instantane Messung $\norm{\vec A(t) -
+\vec D(t)}$ nehmen, erhalten wir wieder $b$, wie erwartet. Transformieren wir
+allerdings noch den Vektor $\vec B'$:
+\[
+	\vec B(t')
+	=
+	\begin{pmatrix}
+		\gamma ct' \\ \beta \gamma ct' + \gamma a \\ 0 \\ 0
+	\end{pmatrix}
+	\eqnsep
+	\vec B(t)
+	=
+	\begin{pmatrix}
+		ct \\ \beta ct + \gamma a \\ 0 \\ 0
+	\end{pmatrix}
+\]
+
+Der Abstand $\norm{\vec A(t) - \vec B(t)}$ war zwar wie zu erwarten $a$,
+allerdings ist nun $\norm{\vec A(t) - \vec B(t)} = \gamma b$ anstelle $b /
+\gamma$.
+
+Aus der Bedingung für die Lichtartigkeit des Abstandes erhalten wir im System
+$K$ für $\tau$:
+\[
+	\tau = \frac \gamma c b
+\]
+
+In der Zeit $\beta c \tau$ legt das System $K'$ die Strecke $\beta b \gamma$
+zurück. Für $\gamma \gg 1$ kann jetzt der Abstand beliebig groß werden.
+
+Wenn die Länge $b \gamma$ jetzt wieder mit dem Faktor $\gamma$ schrumpft, dann
+kommt gerade wieder $\beta b$ für den sichtbaren teil heraus, es würde passen.
+
+\subsection{ruhendes, gedrehtes Rechteck}
+\label{2b}
+
+Wir drehen das Rechteck um die $z$-Achse um den Winkel $\alpha$. Somit ist die
+Projektion auf die $x$-Achse $\sin\del\alpha b = \beta b$ lang.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                            Lorentztransformation                            %
