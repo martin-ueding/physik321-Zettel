@@ -122,18 +122,21 @@ Das ganze können wir auch noch rechnerisch zeigen:
 	\inner{\vec x}{\vec x}
 	&= x^\alpha g_{\alpha \beta} x^\beta \\
 	\intertext{Wir bilden mit $\tens \Lambda$ ab.}
-	&\mapsto \Lambda^\gamma{}_\alpha x^\alpha g_{\gamma \eta} \Lambda^\eta{}_\beta x^\beta \\
+	&\mapsto \Lambda^\gamma{}_\alpha x^\alpha g_{\gamma \eta}
+	\Lambda^\eta{}_\beta x^\beta \\
 	\intertext{%
 		Wir führen zwei weitere metrische Tensoren ein und benutzen die
 		Umkehrabbildung $\tens \Lambda^{-1} =: \tilde{\tens \Lambda}$.
 	}
-	&= \Lambda^\gamma{}_\alpha x^\alpha g_{\gamma \xi} g^{\xi \eta} \tilde\Lambda_\eta{}^\iota g_{\iota\beta} x^\beta \\
+	&= \Lambda^\gamma{}_\alpha x^\alpha g_{\gamma \xi} g^{\xi \eta}
+	\tilde\Lambda_\eta{}^\iota g_{\iota\beta} x^\beta \\
 	\intertext{%
 		Die beiden metrischen Tensoren werden zu einem $\delta$ wegen
 		$g_{\mu\nu} g^{\nu\xi} = \delta_\mu{}^\xi$, so dass sich die Indizes
 		$\gamma$ und $\eta$ identisch werden.
 	}
-	&= \Lambda^\gamma{}_\alpha x^\alpha \tilde\Lambda_\gamma{}^\iota g_{\iota\beta} x^\beta \\
+	&= \Lambda^\gamma{}_\alpha x^\alpha \tilde\Lambda_\gamma{}^\iota
+	g_{\iota\beta} x^\beta \\
 	\intertext{%
 		Wir nutzen aus, dass $\tens \Lambda \tens \Lambda^{-1} = \tens 1$.
 	}
@@ -209,7 +212,8 @@ Die Gruppe ist bezüglich folgender Verknüpfung $\circ$ gemeint:
 \[
 	\tens B \circ \tens A = \tens B \tens A
 	\iff
-	\del{\tens B \circ \tens A}^\alpha{}_\beta = B^\alpha{}_\gamma A^\gamma{}_\beta
+	\del{\tens B \circ \tens A}^\alpha{}_\beta
+	= B^\alpha{}_\gamma A^\gamma{}_\beta
 \]
 
 \begin{description}
@@ -222,7 +226,8 @@ Die Gruppe ist bezüglich folgender Verknüpfung $\circ$ gemeint:
 		bleibt zu überprüfen, dass die Determinante weiterhin eins bleibt und
 		der Zeitstreckungsfaktor betragsmäßig größer als eins bleibt.
 
-		Die Determinante bleibt eins, weil für beliebige quadratische Matrizen gilt:
+		Die Determinante bleibt eins, weil für beliebige quadratische Matrizen
+		gilt:
 		\[
 			\det\del{\tens B \tens A} = \det \tens B \det \tens A
 		\]
