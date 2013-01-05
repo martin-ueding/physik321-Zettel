@@ -81,7 +81,7 @@ darstellen.
 Dazu definieren wir folgende Symbole gemäß der Notation. Dabei sind Tensoren
 die geometrischen Formen, Indizes nach oben (Vektor) und unten (Kovektor)
 werden durch Anfasser oben beziehungsweise unten dargestellt. Der metrische
-Tensor ist einfach Bügel:
+Tensor ist einfach ein Bügel:
 \begin{center}
 	\includegraphics{H1-Definitionen.pdf}
 \end{center}
@@ -104,7 +104,12 @@ Transformation aus der Symmetriegruppe des Minkoswkiraums, $O(1, 3)$ stammt,
 ist die Transformationsmatrix $\tens \Lambda$ es eine orthonormale Matrix.
 Daher ist die inverse Matrix nur die Transponierte. Diese erhalten wir, wie in
 der nächsten Zeichnung schon enthalten, über Kontraktion mit zwei metrischen
-Tensoren ($\Lambda^\alpha{}_\beta \mapsto \Lambda_\gamma{}^\eta$). Im nächsten
+Tensoren ($\Lambda^\alpha{}_\beta \mapsto \Lambda_\gamma{}^\eta$). Wäre $\tens
+\Lambda$ keine lineare Abbildung, sondern etwas allgemeineres, gäbe es zum
+einen keine Komponentendarstellung, zum anderen wäre das Inverse nicht das
+Transponierte.
+
+Im nächsten
 Schritt nutzen wir auch aus, dass $g_{\mu\nu} g^{\nu\xi} = \delta_\mu{}^\xi$.
 Dann nutzen wir aus, dass $\tens \Lambda \tens \Lambda^{-1} = \tens 1$. Wir
 erhalten das ursprüngliche Skalarprodukt:
@@ -140,6 +145,52 @@ Das ganze können wir auch noch rechnerisch zeigen:
 	&= x^\alpha g_{\alpha\beta} x^\beta \\
 	&= \inner{\vec x}{\vec x}
 \end{align*}
+
+\subsection{Forderung nach Konstanz der Lichtgeschwindigkeit}
+
+Bei einer Lorentztransformation $\tens \Lambda$ soll die Lichtgeschwindigkeit
+konstant bleiben. Unter anderem wollen wir, dass lichtartige Wege (ohne
+Eigenzeit) weiterhin ohne Eigenzeit sind. Dies ist formal:
+\[
+	\norm{\vec x} = 0 \implies \norm{\tens \Lambda \vec x} = 0
+\]
+
+Wir haben in der vorherigen Aufgabe schon gezeigt, dass die
+Lorentztransformation das Skalarprodukt überhaupt nicht ändert. Von daher
+können wir sicher einen Faktor $a(\tens \Lambda) = 1$ einfügen.
+
+\subsection{Faktor gleich eins}
+
+Siehe oben.
+
+\subsection{Isometriebedingung}
+
+Das ist letztlich das, was wir weiter oben schon benutzt haben. Unsere
+Herleitung hat ja gerade nur deshalb funktioniert, weil das Inverse das
+Transponierte ist. Von daher haben wir die Isometriebedingung schon gefolgert.
+
+\subsection{räumliche Drehungen als Lorentztransformation}
+
+Die Symmetriegruppe des Minkoswkiraums $\mathbb M$ ist $O(1, 3)$. Lassen wir
+die Zeit weg, erhalten wir den normalen, drei dimensionalen, Euklidischen Raum
+$\mathbb E^3$. Die Symmetriegruppe ist dort $O(3)$.
+
+\subsection{Zeitumkehr und Parität}
+
+$\tens T$ und $\tens P$ sind orthonormale Matrizen. Dies ist schnell daran zu
+sehen, dass das Inverse das Transponierte ist. Da beide Transformationen
+Umkehrungen sind, ist die gleiche Transformation auch die Umkehrtransformation.
+Somit gilt sogar:
+\[
+	\tens T = \tens T^T = \tens T^{-1}
+\]
+Analog für $\tens P$.
+
+\subsection{Spur und Determinante}
+
+Die Determinante einer orthonormalen Matrix aus $SO(3)$ und $SO(1, 3)$ muss 1
+sein. Da wir auch Abbildungen zulassen, die die Orientierung umkehren, also aus
+$O(1, 3)$, darf auch $-1$ heraus kommen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                  Unbeobachtbarkeit der Lorentzkontraktion                   %
