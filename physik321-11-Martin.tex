@@ -425,11 +425,115 @@ Projektion auf die $x$-Achse $\sin\del\alpha b = \beta b$ lang.
 
 \subsection{lineare Transformation}
 
+Wir möchten von der Isotropie und Homogenität ausgehen. Daher gehen wir davon
+aus, dass sich Lichtwellen als Kugelwelle ausbreiten, und das in allen
+Bezugssystemen.
+
+Die Bedingung, die in allen Systemen erfüllt sein muss, ist folgende:
+\begin{equation}
+	\label{eq:Invarianz1}
+	\norm{\tens x} = 0
+	\iff
+	c^2 \del{x^0}^2 - \del{x^1}^2 - \del{x^2}^2 - \del{x^3}^2
+	\iff
+	c^2 t^2 = x^2 + y^2 + z^2
+\end{equation}
+
+Wir fordern für das System $K'$, dass die gleiche Bedingung erfüllt ist:
+\begin{equation}
+	\label{eq:Invarianz2}
+	c^2 t'^2 = x'^2 + y'^2 + z'^2
+\end{equation}
+
+Nun suchen wir eine Transformation $\tens \Lambda$, die genau dies erfüllt.
+
+Die Homogenität der $y$-$z$-Ebene bedeutet hier, dass $y = y'$ und $z = z'$
+gelten muss. Wäre dies nicht der Fall, wäre mindestens ein Punkt auf der
+$y$-$z$-Ebene ausgezeichnet, der Raum wäre nicht mehr homogen.
+
+Wenn wir nun die $t$ und $z$ Transformationen, die auf dem Aufgabenblatt
+gegeben sind, benutzen, können wir zeigen, dass diese die Bedingung erfüllen.
+Die Transformationen sind:
+\begin{subequations}
+	\label{eq:allgemeineTransformation}
+	\begin{align}
+		x' &= - v f\del{v^2} t +   f\del{v^2} x \\
+		t' &=     g\del{v^2} t - v h\del{v^2} x \\
+	\end{align}
+\end{subequations}
+
+Wir zeigen nun, dass wenn \eqref{eq:Invarianz2} und
+\eqref{eq:allgemeineTransformation} gilt, daraus \eqref{eq:Invarianz1} folgt.
+
+\begin{align*}
+	c^2 t'^2 &= x'^2 + y'^2 + z'^2 \\
+	c^2 \del{g\del{v^2} t - v h\del{v^2} x}^2 &= \del{- v f\del{v^2} t +   f\del{v^2} x}^2 + y^2 + z^2 \\
+	c^2 \del{g^2 t^2 - 2 gtvhx + v^2h^2x^2} &= v^2 f^2 t^2 - 2 v f^2 tx + f^2 x^2 + y^2 + z^2 \\
+\del{- v^2 f^2 + c^2 g^2} t^2 &=  \del{- 2 v f^2 + 2 c^2gvh} tx + \del{f^2- c^2v^2h^2} x^2 + y^2 + z^2
+\end{align*}
+
+Das ganze führt allerdings nur dann zu sinnvollen Ergebnissen, wenn gilt:
+\begin{gather*}
+	- v^2 f^2 + c^2 g^2 = c^2 \\
+	f^2- c^2v^2h^2 = 1 \\
+	- 2 v f^2 + 2 c^2gvh = 0
+\end{gather*}
+
+\begin{gather*}
+	g^2 - \frac{v^2}{c^2} f^2 = 1 \\
+	f^2 - c^2v^2h^2 = 1 \\
+	f^2 - c^2gh = 0
+\end{gather*}
+
 \fehlt
 
 \subsection{Verträglichkeit}
 
-\fehlt
+Wir schreiben die Hin- und Rücktransformation als Matrix:
+\[
+	\tens \Lambda
+	=
+	\begin{pmatrix}
+		g & -vh & 0 & 0 \\
+		-v f & f & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{pmatrix}
+	\eqnsep
+	\tens \Lambda^{-1}
+	=
+	\begin{pmatrix}
+		g & vh & 0 & 0 \\
+		v f & f & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{pmatrix}
+\]
+
+Nun soll gerade $\tens \Lambda \tens \Lambda^{-1} = \tens 1$ gelten. Wir führen die Matrixmultiplikation aus und erhalten:
+\[
+	\begin{pmatrix}
+		g^2 - v^2 hf & gvh - fhv & 0 & 0 \\
+		gvh - fhv & -v^2hf + f^2 & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{pmatrix}
+	\overset != \tens 1
+\]
+
+Daraus ziehen wir die gesuchten Bedingungen:
+\begin{gather*}
+	g^2 - fhv^2 = 1 \\
+	ghv - fhv = 0 \\
+	f^2 - v^2 h f = 1
+\end{gather*}
+
+Diese vereinfachen wir zu:
+\[
+	f^2 - fhv^2 = 1
+	\eqnsep
+	f = g
+\]
 
 \subsection{physikalische Größe}
 
