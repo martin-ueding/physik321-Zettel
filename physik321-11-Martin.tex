@@ -434,7 +434,7 @@ Die Bedingung, die in allen Systemen erfüllt sein muss, ist folgende:
 	\label{eq:Invarianz1}
 	\norm{\tens x} = 0
 	\iff
-	c^2 \del{x^0}^2 - \del{x^1}^2 - \del{x^2}^2 - \del{x^3}^2
+	c^2 \del{x^0}^2 - \del{x^1}^2 - \del{x^2}^2 - \del{x^3}^2 = 0
 	\iff
 	c^2 t^2 = x^2 + y^2 + z^2
 \end{equation}
@@ -457,8 +457,8 @@ Die Transformationen sind:
 \begin{subequations}
 	\label{eq:allgemeineTransformation}
 	\begin{align}
-		x' &= - v f\del{v^2} t +   f\del{v^2} x \\
-		t' &=     g\del{v^2} t - v h\del{v^2} x \\
+		x' &= - v f t +   f x \\
+		t' &=     g t - v h x
 	\end{align}
 \end{subequations}
 
@@ -467,7 +467,7 @@ Wir zeigen nun, dass wenn \eqref{eq:Invarianz2} und
 
 \begin{align*}
 	c^2 t'^2 &= x'^2 + y'^2 + z'^2 \\
-	c^2 \del{g\del{v^2} t - v h\del{v^2} x}^2 &= \del{- v f\del{v^2} t +   f\del{v^2} x}^2 + y^2 + z^2 \\
+	c^2 \del{g t - v h x}^2 &= \del{- v f t +   f x}^2 + y^2 + z^2 \\
 	c^2 \del{g^2 t^2 - 2 gtvhx + v^2h^2x^2} &= v^2 f^2 t^2 - 2 v f^2 tx + f^2 x^2 + y^2 + z^2 \\
 \del{- v^2 f^2 + c^2 g^2} t^2 &=  \del{- 2 v f^2 + 2 c^2gvh} tx + \del{f^2- c^2v^2h^2} x^2 + y^2 + z^2
 \end{align*}
@@ -489,7 +489,8 @@ Das ganze führt allerdings nur dann zu sinnvollen Ergebnissen, wenn gilt:
 
 \subsection{Verträglichkeit}
 
-Wir schreiben die Hin- und Rücktransformation als Matrix:
+Wir schreiben die Hin- und Rücktransformation als Matrix, die auf den
+Ortstensor $\tens x$ angewendet werden kann:
 \[
 	\tens \Lambda
 	=
