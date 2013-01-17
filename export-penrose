@@ -15,8 +15,10 @@ count=0
 
 for p in *Penrose-*.pdf
 do
-	pdfcrop "$p"
+	pdfcrop "$p" > /dev/null &
 	count=$(( count + 1 ))
 done
+
+wait
 
 echo "$count Penrose-Diagramme"
