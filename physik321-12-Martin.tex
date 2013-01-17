@@ -368,14 +368,32 @@ Feldstärketensor (Rechteck) als:
 	\includegraphics{H2-Penrose-1-crop.pdf}
 \end{center}
 
-\fehlt
+Der Tensor ist symmetrisch. Wir haben einen der beiden Feldstärketensoren mit
+einer schwarzen Ecke gekennzeichnet, um die Schritte zu verdeutlichen. Wir
+vertauschen die beiden Indizes ($\mapsto$). Dann verschieben wir die beiden
+Tensoren ein wenig (erstes $=$). Dann benutzen wir die Antisymmetrie zweimal
+(zweites $=$). Wir verschieben wieder (zweite Zeile). Der Tensor mit Indizes
+oben (kontravariant), dessen Indizes nach unten gebogen werden, hatten wir
+bereits mit dem Tensor mit Indizes unten (kovariant) identifiziert. Somit
+erhalten wir den letzten Schritt.
+\begin{center}
+	\includegraphics{H2-Penrose-7-crop.pdf}
+\end{center}
+
+Der metrische Tensor im zweiten Summanden ist symmetrisch, da er Diagonalform hat.
+\begin{center}
+	\includegraphics{H2-Penrose-6-crop.pdf}
+\end{center}
+
+Dieser Tensor transformiert wie jeder andere Tensor der Stufe ${2 \brack 0}$,
+man braucht zwei normale Transformationen $\tens \Lambda$.
 
 Um die Spur zu bestimmen, kontrahieren wir die beiden verbleibenden Indizes.
 Dabei brauchen wir noch einen metrischen Tensor um einen der Indizes
 herunterziehen. Dabei rechnen wir diese Aufgabe komplett in der
 Diagrammnotation.
 
-Zuerst kontrahieren wir den ersten Summanden. Durch verschieben der
+Zuerst kontrahieren wir den ersten Summanden. Durch Verschieben der
 Verbindungen erhalten wir die beiden Tensoren über kreuz kontrahiert. Durch die
 Antisymmetrie können wir dies „entwirren“ und erhalten das Negative:
 \begin{center}
@@ -395,8 +413,7 @@ Zusammen ist die Spur $T^\mu{}_\mu = 0$:
 \end{center}
 
 Die Bianchi-Identität können wir kompakter schreiben als $\partial^{[\alpha}
-F^{\beta\gamma]} = 0$.\cite[Seite 303]{penrose-road_to_reality} Dabei ist der Faktor 2, den wir durch die
-Antisymmetriesierung erhalten, irrelevant. Als Diagramm:
+F^{\beta\gamma]} = 0$.\cite[Seite 303]{penrose-road_to_reality} Als Diagramm:
 \begin{center}
 	\includegraphics{H2-Penrose-5-crop.pdf}
 \end{center}
