@@ -368,6 +368,8 @@ Feldstärketensor (Rechteck) als:
 	\includegraphics{H2-Penrose-1-crop.pdf}
 \end{center}
 
+\paragraph{Symmetrie}
+
 Der Tensor ist symmetrisch. Wir haben einen der beiden Feldstärketensoren mit
 einer schwarzen Ecke gekennzeichnet, um die Schritte zu verdeutlichen. Wir
 vertauschen die beiden Indizes ($\mapsto$). Dann verschieben wir die beiden
@@ -385,8 +387,12 @@ Der metrische Tensor im zweiten Summanden ist symmetrisch, da er Diagonalform ha
 	\includegraphics{H2-Penrose-6-crop.pdf}
 \end{center}
 
+\paragraph{Transformationseigenschaften}
+
 Dieser Tensor transformiert wie jeder andere Tensor der Stufe ${2 \brack 0}$,
 man braucht zwei normale Transformationen $\tens \Lambda$.
+
+\paragraph{Spur}
 
 Um die Spur zu bestimmen, kontrahieren wir die beiden verbleibenden Indizes.
 Dabei brauchen wir noch einen metrischen Tensor um einen der Indizes
@@ -412,19 +418,77 @@ Zusammen ist die Spur $T^\mu{}_\mu = 0$:
 	\includegraphics{H2-Penrose-4-crop.pdf}
 \end{center}
 
-Die Bianchi-Identität können wir kompakter schreiben als $\partial^{[\alpha}
-F^{\beta\gamma]} = 0$.\cite[Seite 303]{penrose-road_to_reality} Als Diagramm:
-\begin{center}
-	\includegraphics{H2-Penrose-5-crop.pdf}
-\end{center}
-
 \subsection{Energiedichte und Energiestromdichte}
 
-\fehlt
+\paragraph{Energiedichte}
+
+Wir beginnen mit der Energiedichte:
+\begin{align*}
+	T^{00}
+	&= \frac1{\mu_0} g^{0\alpha} F_{\alpha\beta} F^{\beta0} + \frac1{4\mu_0} g^{00} F_{\kappa\lambda} F^{\kappa\lambda} \\
+	\intertext{%
+		Im ersten Summanden ist nur $\alpha = 0$ interessant. Somit können wir
+		$\tens F$ einsetzen:
+	}
+	&= \frac1{\mu_0}
+	\begin{pmatrix}
+		0 \\ \vec E / c
+	\end{pmatrix}
+	_\beta
+	\begin{pmatrix}
+		0 \\ \vec E / c
+	\end{pmatrix}
+	^\beta
+	+ \frac1{4\mu_0} F_{\kappa\lambda} F^{\kappa\lambda} \\
+	\intertext{%
+		Im letzten Term werden die beiden Matrizen aufeinander gelegt,
+		elementweise multipliziert und dann alles aufaddiert.
+	}
+	&= \varepsilon_0 \vec E^2 + \frac1{2\mu_0} \del{- \frac{\vec E^2}{c^2} + \vec B^2} \\
+	&= \half \varepsilon_0 \vec E^2 + \frac1{\mu_0} \vec B^2
+\end{align*}
+
+\paragraph{Energiestromdichte}
+
+Für die Energiestromdichte gehen wir ähnlich vor. Dabei leiten wir nur $T^{i0}$
+her, da $T^{0i}$ aufgrund der Symmetrie gleich ist.
+\begin{align*}
+	T^{i0}
+	&= \frac1{\mu_0} g^{i\alpha} F_{\alpha\beta} F^{\beta0} + \frac1{4\mu_0} g^{i0} F_{\kappa\lambda} F^{\kappa\lambda} \\
+	\intertext{%
+		Die $g^{i\alpha}$ sind für $\alpha = i \in \set{1, 2, 3}$ genau $-1$. Alle
+		$g^{i0}$ sind 0.
+	}
+	&= - \frac1{\mu_0} F_{i\beta} F^{\beta0} \\
+	&= - \frac1{\mu_0}
+	\begin{pmatrix}
+		- E_1/c & 0 & -B_3 & B_2 \\
+		- E_2/c & B_3 & 0 & -B_1 \\
+		- E_3/c & -B_2 & B_1 & 0 \\
+	\end{pmatrix}_{i\beta}
+	\begin{pmatrix}
+		0 \\ E_1/c \\ E_2/c \\ E_3/c
+	\end{pmatrix}^{\beta}
+	\\
+	&= \frac1{c\mu_0}
+	\begin{pmatrix}
+		E_2B_3 - E_3B_2 \\
+		E_3B_1 - E_1B_3 \\
+		E_1B_2 - E_2B_1
+	\end{pmatrix}_i \\
+	&= \frac1{c\mu_0} \del{\vec E \times \vec B}_i \\
+	&= \frac1{c\mu_0} \vec S_i \\
+\end{align*}
 
 \subsection{kovariante Ableitung}
 
 \fehlt
+
+Die Bianchi-Identität können wir kompakter schreiben als $\partial^{[\alpha}
+F^{\beta\gamma]} = 0$ \cite[Seite 303]{penrose-road_to_reality}. Als Diagramm:
+\begin{center}
+	\includegraphics{H2-Penrose-5-crop.pdf}
+\end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                      Eindeutigkeit der Elektrodynamik                       %
