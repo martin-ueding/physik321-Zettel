@@ -11,7 +11,12 @@ do
 	pdfseparate "$p" "${p%.xoj.pdf}-%d.pdf"
 done
 
+count=0
+
 for p in *Penrose-*.pdf
 do
 	pdfcrop "$p"
+	count=$(( count + 1 ))
 done
+
+echo "$count Penrose-Diagramme"
