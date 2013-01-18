@@ -167,12 +167,14 @@ ist:
 	\end{pmatrix}
 \]
 
-In der Diagrammnotation oder in der Schreibweise $\nabla^{[\mu}
-A^{\nu]}$, als auch in der Matrixschreibweise, erkennen wir, dass der Tensor
-symmetrisch ist. Daher muss er nicht nur spurlos, sondern auf der ganzen
-Diagonalen $F^{\mu\mu} = 0$ sein.
+In der Diagrammnotation oder in der Schreibweise $\nabla^{[\mu} A^{\nu]}$, als
+auch in der Matrixschreibweise, erkennen wir, dass der Tensor antisymmetrisch
+ist. Daher muss er nicht nur spurlos, sondern auf der ganzen Diagonalen
+$F^{\mu\mu} = 0$ sein.
 
 \subsection{Transformationseigenschaften}
+
+\paragraph{Transformation}
 
 Als Tensor der Stufe ${2 \brack 0}$ wird dieser mit zwei normalen
 Transformationen transformiert:
@@ -184,6 +186,8 @@ In der Diagrammnotation ist dies direkt zu sehen:
 \begin{center}
 	\includegraphics{H1-Penrose-9-crop.pdf}
 \end{center}
+
+\paragraph{nicht Teil}
 
 \fehlt
 
@@ -202,7 +206,7 @@ So erhalten wir $F_{\mu\nu} = g_{\mu\alpha} g_{\nu\beta} = F^{\alpha\beta}$:
 
 Dabei sorgt der erste metrische Tensor auf $\mu$ dafür, dass die Vorzeichen in
 den Zeilen 1 bis 3 gedreht werden. Dann kehrt das zweite $\tens g$ die
-Vorzeichen in den Spalten 1 bis 3 um. Letztendlich werden nur die Vorzeichen
+Vorzeichen in den Spalten 1 bis 3 um. Es werden nur die Vorzeichen
 von $F^{0i}$ und $F^{i0}$ gedreht. Somit wechseln nur die Terme des
 elektrischen Feldes das Vorzeichen und wir erhalten:
 \[
@@ -255,24 +259,22 @@ Dabei gehen wir die Komponenten einzeln durch:
 		\[
 			\nabla_\mu \hat F^{\mu 0}
 			=
-			\divergence{
-				\begin{pmatrix}
-					0 \\ -B_1 \\ -B_2 \\ -B_3
-				\end{pmatrix}
-			}
+			\nabla_\mu
+			\begin{pmatrix}
+				0 \\ -B_1 \\ -B_2 \\ -B_3
+			\end{pmatrix}^\mu
 			=
-			\divergence{\vec B} = 0
+			\nabla_i B^i = 0
 		\]
 
 	\item[Fall $\nu = 1$]
 		\[
 			\nabla_\mu \hat F^{\mu 1}
 			=
-			\divergence{
-				\begin{pmatrix}
-					B_1 \\ 0 \\ E_3/c \\ -E_2/c
-				\end{pmatrix}
-			}
+			\nabla_\mu
+			\begin{pmatrix}
+				B_1 \\ 0 \\ E_3/c \\ -E_2/c
+			\end{pmatrix}^\mu
 			= c \dot B_1 + \frac 1c \del{\nabla_2 E_3 - \nabla_3 E_2}
 			= 0
 		\]
@@ -281,11 +283,10 @@ Dabei gehen wir die Komponenten einzeln durch:
 		\[
 			\nabla_\mu \hat F^{\mu 2}
 			=
-			\divergence{
-				\begin{pmatrix}
-					B_2 \\ -E_3/c \\ 0 \\ E_1/c
-				\end{pmatrix}
-			}
+			\nabla_\mu
+			\begin{pmatrix}
+				B_2 \\ -E_3/c \\ 0 \\ E_1/c
+			\end{pmatrix}^\mu
 			= c \dot B_2 + \frac 1c \del{\nabla_3 E_1 - \nabla_1 E_3}
 			= 0
 		\]
@@ -294,11 +295,10 @@ Dabei gehen wir die Komponenten einzeln durch:
 		\[
 			\nabla_\mu \hat F^{\mu 3}
 			=
-			\divergence{
-				\begin{pmatrix}
-					B_3 \\ E_2/c \\ -E_1/c \\ 0
-				\end{pmatrix}
-			}
+			\nabla_\mu
+			\begin{pmatrix}
+				B_3 \\ E_2/c \\ -E_1/c \\ 0
+			\end{pmatrix}^\mu
 			= c \dot B_3 + \frac 1{c} \del{\nabla_1 E_2 - \nabla_2 E_1}
 			= 0
 		\]
@@ -345,7 +345,7 @@ durch folgendes Konstrukt (ausgefüllter Kreis) gegeben:
 	\includegraphics{H1-Penrose-8-crop.pdf}
 \end{center}
 
-Dabei ist $\tens T$ ein Tensor der Stufe ${2 \brack 2}$. Letztlich ist es der
+Dabei ist $\tens T$ ein Tensor der Stufe ${2 \brack 2}$. Dies ist es der
 gemischte $\tens \epsilon$-Tensor $\half \epsilon^{\mu\nu}{}_{\alpha\beta}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -505,7 +505,8 @@ Für den ersten Summanden wenden wir die Produktregel für Tensoren an:
 
 Der rechte Teil ist:
 \[
-	\del{\nabla_\nu F^{\mu\alpha}} F_{\alpha\nu} + F^{\mu\alpha} \nabla_\nu F_{\alpha\nu}
+	\del{\nabla_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
+	+ F^\mu{}_\alpha \del{\nabla_\nu F^{\alpha\nu}}
 \]
 
 Für den zweiten Summanden von weiter oben wenden wir ebenfalls die Produktregel
@@ -517,20 +518,51 @@ an:
 Alles zusammen:
 \[
 	\nabla_\nu T^{\mu\nu}
-	= \del{\nabla_\nu F^{\mu\alpha}} F_{\alpha\nu}
-	+ F^{\mu\alpha} \nabla_\nu F_{\alpha\nu}
-	+ \del{\nabla^\nu F_{\kappa\lambda}} F^{\kappa\lambda}
-	+ F_{\kappa\lambda} \nabla^\nu F^{\kappa\lambda}
+	=
+	\del{\nabla_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
+	+ F^\mu{}_\alpha \del{\nabla_\nu F^{\alpha\nu}}
+	+ \del{\nabla^\mu F_{\alpha\nu}} F^{\alpha\nu}
+	+ F^{\alpha\nu} \nabla^\mu F_{\alpha\nu}
 \]
 
+Im letzten Term ziehen wir Indizes rauf und herunter:
+\[
+	\nabla_\nu T^{\mu\nu}
+	=
+	\del{\nabla_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
+	+ F^\mu{}_\alpha \del{\nabla_\nu F^{\alpha\nu}}
+	+ \del{\nabla^\mu F_{\alpha\nu}} F^{\alpha\nu}
+	+ F^{\alpha\nu} \nabla^\mu F_{\alpha\nu}
+\]
 
-\fehlt
+\[
+	\nabla_\nu T^{\mu\nu}
+	=
+	\del{\nabla_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
+	+ F^\mu{}_\alpha \del{\nabla_\nu F^{\alpha\nu}}
+	+ 2\del{\nabla^\mu F_{\alpha\nu}} F^{\alpha\nu}
+\]
+
+Wir setzen die Definition von $\tens F$ ein:
+\begin{center}
+	\includegraphics{H2-Penrose-13-crop.pdf}
+\end{center}
 
 Die Bianchi-Identität können wir kompakter schreiben als $\nabla^{[\alpha}
 F^{\beta\gamma]} = 0$ \cite[Seite 303]{penrose-road_to_reality}. Als Diagramm:
 \begin{center}
 	\includegraphics{H2-Penrose-5-crop.pdf}
 \end{center}
+
+
+Diese Identität benutzen wir nun:
+\[
+	\nabla_\nu T^{\mu\nu}
+	=
+	\del{\nabla_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
+	+ F^\mu{}_\alpha \del{\nabla_\nu F^{\alpha\nu}}
+	- \del{\nabla^\mu F_{\alpha\nu}} F^{\alpha\nu}
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                      Eindeutigkeit der Elektrodynamik                       %
@@ -577,13 +609,45 @@ Parität:
 
 \subsection{totale Divergenz}
 
+Folgender zweiter Ausdruck soll vereinfacht werden:
+\begin{equation}
+	\label{start}
+	L_2
+	:=
+	\epsilon_{\mu\nu\alpha\beta} F^{\mu\nu} F^{\alpha\beta}
+	= 
+	\epsilon_{\mu\nu\alpha\beta}
+	\del{\nabla^{[\mu} A^{\nu]}} \del{\nabla^{[\alpha} A^{\beta]}}
+\end{equation}
 \begin{center}
 	\includegraphics{H3-Penrose-5-crop.pdf}
 \end{center}
 
+Wir sollen zeigen, dass sich der obige Ausdruck als totale Divergenz schreiben
+lässt, also als
+\[
+	\nabla_\mu G^\mu
+\]
 \begin{center}
 	\includegraphics{H3-Penrose-6-crop.pdf}
 \end{center}
+
+Wir beginnen, den Term \eqref{start} zu vereinfachen. Dabei erhalten wir durch
+die doppelte Antisymmetrie einen Faktor 4.
+\begin{center}
+	\includegraphics{H3-Penrose-7-crop.pdf}
+\end{center}
+
+$L_2$ können wir auch schreiben als:
+\[
+	L_2 = 2 \hat F^{\mu\nu} F_{\mu\nu}
+\]
+
+Die beiden Matrizen legen wir aufeinander, multiplizieren punktweise und
+addieren alles. Wir erhalten:
+\[
+	L_2 = - \frac 4c B_i E^i
+\]
 
 \fehlt
 
