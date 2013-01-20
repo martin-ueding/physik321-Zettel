@@ -596,9 +596,50 @@ Die beiden Ausdrücke sind:
 	\includegraphics{H3-Penrose-1-crop.pdf}
 \end{center}
 
+Wir nennen sie $L_1$ und $L_2$.
+
 \subsection{elektrische und magnetische Felder}
 
-\fehlt
+\paragraph{erster Ausdruck}
+
+Wir legen die beiden $\tens F$ aufeinander und multiplizieren Punktweise und
+addieren alles auf. Wir erhalten:
+\[
+	L_1 = - 2 \frac 1{c^2} E_i E^i + 2 B_i B^i
+\]
+
+\paragraph{zweiter Ausdruck}
+
+%\begin{comment}
+%Folgender zweiter Ausdruck soll vereinfacht werden:
+%\[
+%	L_2
+%	:=
+%	\epsilon_{\mu\nu\alpha\beta} F^{\mu\nu} F^{\alpha\beta}
+%	= 
+%	\epsilon_{\mu\nu\alpha\beta}
+%	\del{\partial^{[\mu} A^{\nu]}} \del{\partial^{[\alpha} A^{\beta]}}
+%\]
+%\begin{center}
+%	\includegraphics{H3-Penrose-5-crop.pdf}
+%\end{center}
+%
+%Dabei erhalten wir durch
+%die doppelte Antisymmetrie einen Faktor 4.
+%\begin{center}
+%	\includegraphics{H3-Penrose-7-crop.pdf}
+%\end{center}
+
+$L_2$ können wir auch schreiben als:
+\[
+	L_2 = 2 \hat F^{\mu\nu} F_{\mu\nu}
+\]
+
+Die beiden Matrizen legen wir aufeinander, multiplizieren punktweise und
+addieren alles. Wir erhalten:
+\[
+	L_2 = - \frac 4c B_i E^i
+\]
 
 \subsection{Verhalten unter Transformationen}
 
@@ -629,22 +670,9 @@ Parität:
 
 \subsection{totale Divergenz}
 
-Folgender zweiter Ausdruck soll vereinfacht werden:
-\begin{equation}
-	\label{start}
-	L_2
-	:=
-	\epsilon_{\mu\nu\alpha\beta} F^{\mu\nu} F^{\alpha\beta}
-	= 
-	\epsilon_{\mu\nu\alpha\beta}
-	\del{\nabla^{[\mu} A^{\nu]}} \del{\nabla^{[\alpha} A^{\beta]}}
-\end{equation}
-\begin{center}
-	\includegraphics{H3-Penrose-5-crop.pdf}
-\end{center}
 
-Wir sollen zeigen, dass sich der obige Ausdruck als totale Divergenz schreiben
-lässt, also als
+Wir sollen zeigen, dass sich der obige Ausdruck als totale Divergenz eines
+Vierervektors $\tens G$ schreiben lässt, also als
 \[
 	\partial_\mu G^\mu
 \]
@@ -652,22 +680,6 @@ lässt, also als
 	\includegraphics{H3-Penrose-6-crop.pdf}
 \end{center}
 
-Wir beginnen, den Term \eqref{start} zu vereinfachen. Dabei erhalten wir durch
-die doppelte Antisymmetrie einen Faktor 4.
-\begin{center}
-	\includegraphics{H3-Penrose-7-crop.pdf}
-\end{center}
-
-$L_2$ können wir auch schreiben als:
-\[
-	L_2 = 2 \hat F^{\mu\nu} F_{\mu\nu}
-\]
-
-Die beiden Matrizen legen wir aufeinander, multiplizieren punktweise und
-addieren alles. Wir erhalten:
-\[
-	L_2 = - \frac 4c B_i E^i
-\]
 
 \fehlt
 
