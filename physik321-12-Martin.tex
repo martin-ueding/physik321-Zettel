@@ -441,8 +441,8 @@ Wir beginnen mit der Energiedichte:
 	T^{00}
 	&= \frac1{\mu_0} g^{0\alpha} F_{\alpha\beta} F^{\beta0} + \frac1{4\mu_0} g^{00} F_{\kappa\lambda} F^{\kappa\lambda} \\
 	\intertext{%
-		Im ersten Summanden ist nur $\alpha = 0$ interessant. Somit können wir
-		$\tens F$ einsetzen:
+		Im ersten Summanden ist durch den metrischen Tensor nur $\alpha = 0$
+		interessant. Somit können wir $\tens F$ einsetzen:
 	}
 	&= \frac1{\mu_0}
 	\begin{pmatrix}
@@ -459,7 +459,8 @@ Wir beginnen mit der Energiedichte:
 		elementweise multipliziert und dann alles aufaddiert.
 	}
 	&= \varepsilon_0 \vec E^2 + \frac1{2\mu_0} \del{- \frac{\vec E^2}{c^2} + \vec B^2} \\
-	&= \half \varepsilon_0 \vec E^2 + \frac1{\mu_0} \vec B^2
+	&= \half \varepsilon_0 \vec E^2 + \frac1{2\mu_0} \vec B^2 \\
+	&= \half \del{\inner{\vec D}{\vec E} + \inner{\vec B}{\vec H}}
 \end{align*}
 
 \paragraph{Energiestromdichte}
