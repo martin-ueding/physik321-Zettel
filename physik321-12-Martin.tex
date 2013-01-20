@@ -98,7 +98,7 @@ ist als Vierervektor invariant. Die Konstante $\mu_0$ ist ein Skalar und
 ebenfalls invariant. Somit muss $\tens A$ auch invariant sein.
 
 Die Lorenzeichung funktioniert in jedem Inertialsystem, weil sie durch ein
-invariantes Skalarprodukt, $\nabla_\mu A^\mu$, definiert ist.
+invariantes Skalarprodukt, $\partial_\mu A^\mu$, definiert ist.
 
 \subsection{Feldstärketensor}
 
@@ -109,32 +109,32 @@ Die Felder sind wie folgt durch die Potentiale definiert:
 \end{gather*}
 
 Wir schreiben jeweils die Komponenten von $\vec E$ und $\vec B$. Dabei benutzen
-wir im zweiten Schritt aus, dass $\nabla_i = - \nabla^i$ ist, jedoch
-$\nabla_0 = \nabla^0$.
+wir im zweiten Schritt aus, dass $\partial_i = - \partial^i$ ist, jedoch
+$\partial_0 = \partial^0$.
 \begin{gather*}
 	E_1
-	= - \nabla_1 A^0 - \nabla_0 A^1
-	= \nabla^1 A^0 - \nabla^0 A^1
+	= - \partial_1 A^0 - \partial_0 A^1
+	= \partial^1 A^0 - \partial^0 A^1
 	\\
 	E_2
-	= - \nabla_2 A^0 - \nabla_0 A^2
-	= \nabla^2 A^0 - \nabla^0 A^2
+	= - \partial_2 A^0 - \partial_0 A^2
+	= \partial^2 A^0 - \partial^0 A^2
 	\\
 	E_3
-	= - \nabla_3 A^0 - \nabla_0 A^3
-	= \nabla^3 A^0 - \nabla^0 A^3
+	= - \partial_3 A^0 - \partial_0 A^3
+	= \partial^3 A^0 - \partial^0 A^3
 	\\
 	B_1
-	= \nabla_2 A^3 - \nabla_3 A^2
-	= -\del{\nabla^2 A^3 - \nabla^3 A^2}
+	= \partial_2 A^3 - \partial_3 A^2
+	= -\del{\partial^2 A^3 - \partial^3 A^2}
 	\\
 	B_2
-	= \nabla_3 A^1 - \nabla_1 A^3
-	= \del{\nabla^3 A^1 - \nabla^1 A^3}
+	= \partial_3 A^1 - \partial_1 A^3
+	= \del{\partial^3 A^1 - \partial^1 A^3}
 	\\
 	B_3
-	= \nabla_1 A^2 - \nabla_2 A^1
-	= \del{\nabla^1 A^2 - \nabla^2 A^1}
+	= \partial_1 A^2 - \partial_2 A^1
+	= \del{\partial^1 A^2 - \partial^2 A^1}
 	\\
 \end{gather*}
 
@@ -149,7 +149,7 @@ Wir bauen aus dem Vierervektor $\tens A$ und der kovarianten Ableitung (der
 perfekte Kreis) einen Tensor $\tens F$ von Stufe ${2 \brack 0}$ zusammen. Dabei
 führen wir noch Antisymmetrie in den beiden Indizes $\mu$ und $\nu$ durch den
 fetten Balken ein. In Indexschreibweise schreiben wir $F^{\mu\nu} =
-\nabla^{[\mu} A^{\nu]} := \nabla^\mu A^\nu - \nabla^\nu A^\mu$.
+\partial^{[\mu} A^{\nu]} := \partial^\mu A^\nu - \partial^\nu A^\mu$.
 \begin{center}
 	\includegraphics{H1-Penrose-1-crop.pdf}
 \end{center}
@@ -167,7 +167,7 @@ ist:
 	\end{pmatrix}
 \]
 
-In der Diagrammnotation oder in der Schreibweise $\nabla^{[\mu} A^{\nu]}$, als
+In der Diagrammnotation oder in der Schreibweise $\partial^{[\mu} A^{\nu]}$, als
 auch in der Matrixschreibweise, erkennen wir, dass der Tensor antisymmetrisch
 ist. Daher muss er nicht nur spurlos, sondern auf der ganzen Diagonalen
 $F^{\mu\mu} = 0$ sein.
@@ -257,49 +257,49 @@ Dabei gehen wir die Komponenten einzeln durch:
 \begin{description}
 	\item[Fall $\nu = 0$]
 		\[
-			\nabla_\mu \hat F^{\mu 0}
+			\partial_\mu \hat F^{\mu 0}
 			=
-			\nabla_\mu
+			\partial_\mu
 			\begin{pmatrix}
 				0 \\ -B_1 \\ -B_2 \\ -B_3
 			\end{pmatrix}^\mu
 			=
-			\nabla_i B^i = 0
+			\partial_i B^i = 0
 		\]
 
 	\item[Fall $\nu = 1$]
 		\[
-			\nabla_\mu \hat F^{\mu 1}
+			\partial_\mu \hat F^{\mu 1}
 			=
-			\nabla_\mu
+			\partial_\mu
 			\begin{pmatrix}
 				B_1 \\ 0 \\ E_3/c \\ -E_2/c
 			\end{pmatrix}^\mu
-			= c \dot B_1 + \frac 1c \del{\nabla_2 E_3 - \nabla_3 E_2}
+			= c \dot B_1 + \frac 1c \del{\partial_2 E_3 - \partial_3 E_2}
 			= 0
 		\]
 
 	\item[Fall $\nu = 2$]
 		\[
-			\nabla_\mu \hat F^{\mu 2}
+			\partial_\mu \hat F^{\mu 2}
 			=
-			\nabla_\mu
+			\partial_\mu
 			\begin{pmatrix}
 				B_2 \\ -E_3/c \\ 0 \\ E_1/c
 			\end{pmatrix}^\mu
-			= c \dot B_2 + \frac 1c \del{\nabla_3 E_1 - \nabla_1 E_3}
+			= c \dot B_2 + \frac 1c \del{\partial_3 E_1 - \partial_1 E_3}
 			= 0
 		\]
 
 	\item[Fall $\nu = 3$]
 		\[
-			\nabla_\mu \hat F^{\mu 3}
+			\partial_\mu \hat F^{\mu 3}
 			=
-			\nabla_\mu
+			\partial_\mu
 			\begin{pmatrix}
 				B_3 \\ E_2/c \\ -E_1/c \\ 0
 			\end{pmatrix}^\mu
-			= c \dot B_3 + \frac 1{c} \del{\nabla_1 E_2 - \nabla_2 E_1}
+			= c \dot B_3 + \frac 1{c} \del{\partial_1 E_2 - \partial_2 E_1}
 			= 0
 		\]
 \end{description}
@@ -315,8 +315,8 @@ Maxwellgleichungen:
 Um die Gleichungen nur mit $F^{\mu\nu}$ auszudrücken, setzen die die Definition
 von $\hat F^{\mu\nu}$ ein:
 \[
-	\nabla_\mu \hat F^{\mu\nu}
-	= \half \nabla_\mu \epsilon^{\mu\nu\alpha\beta} g_{\alpha\eta} g_{\beta\tau} F^{\eta\tau}
+	\partial_\mu \hat F^{\mu\nu}
+	= \half \partial_\mu \epsilon^{\mu\nu\alpha\beta} g_{\alpha\eta} g_{\beta\tau} F^{\eta\tau}
 	= 0
 \]
 
@@ -484,7 +484,7 @@ Wir definieren den Strom Vierervektor in der Diagrammnotation:
 
 Wir wollen zeigen, dass gilt:
 \[
-	\nabla_\nu T^{\mu\nu} = - j_\nu F^{\mu\nu}
+	\partial_\nu T^{\mu\nu} = - j_\nu F^{\mu\nu}
 \]
 
 Dies im Diagramm:
@@ -505,8 +505,8 @@ Für den ersten Summanden wenden wir die Produktregel für Tensoren an:
 
 Der rechte Teil ist:
 \[
-	\del{\nabla_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
-	+ F^\mu{}_\alpha \del{\nabla_\nu F^{\alpha\nu}}
+	\del{\partial_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
+	+ F^\mu{}_\alpha \del{\partial_\nu F^{\alpha\nu}}
 \]
 
 Für den zweiten Summanden von weiter oben wenden wir ebenfalls die Produktregel
@@ -517,30 +517,30 @@ an:
 
 Alles zusammen:
 \[
-	\nabla_\nu T^{\mu\nu}
+	\partial_\nu T^{\mu\nu}
 	=
-	\del{\nabla_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
-	+ F^\mu{}_\alpha \del{\nabla_\nu F^{\alpha\nu}}
-	+ \del{\nabla^\mu F_{\alpha\nu}} F^{\alpha\nu}
-	+ F^{\alpha\nu} \nabla^\mu F_{\alpha\nu}
+	\del{\partial_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
+	+ F^\mu{}_\alpha \del{\partial_\nu F^{\alpha\nu}}
+	+ \del{\partial^\mu F_{\alpha\nu}} F^{\alpha\nu}
+	+ F^{\alpha\nu} \partial^\mu F_{\alpha\nu}
 \]
 
 Im letzten Term ziehen wir Indizes rauf und herunter:
 \[
-	\nabla_\nu T^{\mu\nu}
+	\partial_\nu T^{\mu\nu}
 	=
-	\del{\nabla_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
-	+ F^\mu{}_\alpha \del{\nabla_\nu F^{\alpha\nu}}
-	+ \del{\nabla^\mu F_{\alpha\nu}} F^{\alpha\nu}
-	+ F^{\alpha\nu} \nabla^\mu F_{\alpha\nu}
+	\del{\partial_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
+	+ F^\mu{}_\alpha \del{\partial_\nu F^{\alpha\nu}}
+	+ \del{\partial^\mu F_{\alpha\nu}} F^{\alpha\nu}
+	+ F^{\alpha\nu} \partial^\mu F_{\alpha\nu}
 \]
 
 \[
-	\nabla_\nu T^{\mu\nu}
+	\partial_\nu T^{\mu\nu}
 	=
-	\del{\nabla_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
-	+ F^\mu{}_\alpha \del{\nabla_\nu F^{\alpha\nu}}
-	+ 2\del{\nabla^\mu F_{\alpha\nu}} F^{\alpha\nu}
+	\del{\partial_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
+	+ F^\mu{}_\alpha \del{\partial_\nu F^{\alpha\nu}}
+	+ 2\del{\partial^\mu F_{\alpha\nu}} F^{\alpha\nu}
 \]
 
 Wir setzen die Definition von $\tens F$ ein:
@@ -548,21 +548,22 @@ Wir setzen die Definition von $\tens F$ ein:
 	\includegraphics{H2-Penrose-13-crop.pdf}
 \end{center}
 
-Die Bianchi-Identität können wir kompakter schreiben als $\nabla^{[\alpha}
+Die Bianchi-Identität können wir kompakter schreiben als $\partial^{[\alpha}
 F^{\beta\gamma]} = 0$ \cite[Seite 303]{penrose-road_to_reality}. Als Diagramm:
 \begin{center}
 	\includegraphics{H2-Penrose-5-crop.pdf}
 \end{center}
 
-
 Diese Identität benutzen wir nun:
 \[
-	\nabla_\nu T^{\mu\nu}
+	\partial_\nu T^{\mu\nu}
 	=
-	\del{\nabla_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
-	+ F^\mu{}_\alpha \del{\nabla_\nu F^{\alpha\nu}}
-	- \del{\nabla^\mu F_{\alpha\nu}} F^{\alpha\nu}
+	\del{\partial_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
+	+ F^\mu{}_\alpha \del{\partial_\nu F^{\alpha\nu}}
+	- \del{\partial^\mu F_{\alpha\nu}} F^{\alpha\nu}
 \]
+
+\fehlt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                      Eindeutigkeit der Elektrodynamik                       %
@@ -626,7 +627,7 @@ Folgender zweiter Ausdruck soll vereinfacht werden:
 Wir sollen zeigen, dass sich der obige Ausdruck als totale Divergenz schreiben
 lässt, also als
 \[
-	\nabla_\mu G^\mu
+	\partial_\mu G^\mu
 \]
 \begin{center}
 	\includegraphics{H3-Penrose-6-crop.pdf}
