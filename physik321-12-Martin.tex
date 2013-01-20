@@ -710,7 +710,36 @@ $\tens G$ schreiben lässt, also als
 	\includegraphics{H3-Penrose-6-crop.pdf}
 \end{center}
 
-\fehlt
+Dazu benutzen wir die Notation für die Antisymmetrie und ziehen eine Ableitung
+heraus. Die Antisymmetrie übernimmt der Levi-Civita-Tensor:
+\[
+	\epsilon_{\mu\nu\alpha\beta} F^{\mu\nu} F^{\alpha\beta}
+	=
+	\epsilon^{\mu\nu\alpha\beta} \del{\partial_{[\mu} A_{\nu]}} \del{\partial_{[\alpha} A_{\beta]}}
+	=
+	\partial_{\mu} \epsilon^{\mu\nu\alpha\beta} A_{\nu} \partial_{[\alpha} A_{\beta]}
+	=:
+	\partial_{\mu} G^\mu
+\]
+
+Dabei haben wir jetzt einen weiteren Term durch die Produktregel bekommen, den
+wir in der Lagrangedichte so nicht stehen haben. Das $\partial_\mu$ soll auf das $A_\nu$ wirken, wirkt jedoch auch noch auf das $A_\beta$. Dieser Summand ist dann:
+\[
+	\epsilon^{\mu\nu\alpha\beta} A_{\nu} \partial_{\mu} \partial_{[\alpha} A_{\beta]}
+\]
+
+Der Levi-Civita-Tensor sorgt allerdings dafür, dass der Term $\partial_{[\mu}
+F_{\alpha\beta]}$ vorkommt, der nach der Bianchi-Identität gerade 0 ist.
+
+Somit gilt die obige
+Herleitung.\footnote{\url{http://physics.stackexchange.com/a/51698/5705}}
+
+Das Anwenden der Produktregel haben wir hier in der Penrose-Notation. Dort
+haben wir direkt $F^{\mu\nu}$ eingesetzt. Im letzten Summanden erkennen wir die
+Bianchi-Identität, der Summand fällt also weg.
+\begin{center}
+	\includegraphics{H3-Penrose-10-crop.pdf}
+\end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                          stromdurchflossener Draht                          %
