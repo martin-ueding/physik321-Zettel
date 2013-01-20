@@ -40,3 +40,5 @@ done
 wait
 
 echo "$count Penrose-Diagramme"
+
+echo "$(grep -cP 'Penrose-\d+-crop' *Martin.tex) Penrose-Diagramme benutzt"
