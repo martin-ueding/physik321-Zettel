@@ -22,7 +22,7 @@
 set -e
 set -u
 
-rm -f *crop.pdf
+rm -f *crop.pdf H?-Penrose-*.pdf
 
 for p in *Penrose.xoj.pdf
 do
