@@ -149,7 +149,7 @@ Wir bauen aus dem Vierervektor $\tens A$ und der kovarianten Ableitung (der
 perfekte Kreis) einen Tensor $\tens F$ von Stufe ${2 \brack 0}$ zusammen. Dabei
 führen wir noch Antisymmetrie in den beiden Indizes $\mu$ und $\nu$ durch den
 fetten Balken ein. In Indexschreibweise schreiben wir $F^{\mu\nu} =
-\partial^{[\mu} A^{\nu]} := \partial^\mu A^\nu - \partial^\nu A^\mu$.
+2 \partial^{[\mu} A^{\nu]} := \partial^\mu A^\nu - \partial^\nu A^\mu$.
 \begin{center}
 	\includegraphics{H1-Penrose-1-crop.pdf}
 \end{center}
@@ -671,7 +671,7 @@ da diese direkt über $j^\mu$ definiert sind:
 \]
 
 Der Vorzeichenwechsel in den $A^\mu$ sorgt auch für Vorzeichenwechsel in
-$F^{\mu\nu}$, da $F^{\mu\nu} := \partial^{[\mu} A^{\nu]}$ ist.
+$F^{\mu\nu}$, da $F^{\mu\nu} := 2 \partial^{[\mu} A^{\nu]}$ ist.
 
 Im Ausdruck $L_1$ ändert sich jedoch nichts, weil die auf beiden Seiten
 eingeführten Minuszeichen sich aufheben. $L_1$ ist also invariant gegenüber
@@ -715,12 +715,12 @@ heraus. Die Antisymmetrie übernimmt der Levi-Civita-Tensor:
 \footnote{\url{http://physics.stackexchange.com/a/51698/5705}}
 \begin{align*}
 	\epsilon_{\mu\nu\alpha\beta} F^{\mu\nu} F^{\alpha\beta}
-	&= \epsilon^{\mu\nu\alpha\beta} \del{\partial_{[\mu} A_{\nu]}} \del{\partial_{[\alpha} A_{\beta]}}
+	&= 4 \epsilon^{\mu\nu\alpha\beta} \del{\partial_{[\mu} A_{\nu]}} \del{\partial_{[\alpha} A_{\beta]}}
 	\intertext{%
 		Der Levi-Civita-Tensor übernimmt schon die Antisymmetrisierung, so dass
 		wir diese in der ersten Klammer weglassen können.
 	}
-	&= \epsilon^{\mu\nu\alpha\beta} \del{\partial_{\mu} A_{\nu}} \del{\partial_{[\alpha} A_{\beta]}}
+	&= 4 \epsilon^{\mu\nu\alpha\beta} \del{\partial_{\mu} A_{\nu}} \del{\partial_{[\alpha} A_{\beta]}}
 	\intertext{%
 		Wir ziehen die partielle Ableitung $\partial_\mu$ nach vorne.  Dabei
 		haben wir jetzt einen weiteren Term durch die Produktregel bekommen,
@@ -728,13 +728,13 @@ heraus. Die Antisymmetrie übernimmt der Levi-Civita-Tensor:
 		soll auf das $A_\nu$ wirken, wirkt jedoch auch noch auf das $A_\beta$.
 		Diesen Summand ziehen wir ab, um den Fehler zu korrigieren.
 	}
-	&= \partial_{\mu} \epsilon^{\mu\nu\alpha\beta} A_{\nu} \partial_{[\alpha} A_{\beta]} - \epsilon^{\mu\nu\alpha\beta} A_{\nu} \partial_{\mu} \partial_{[\alpha} A_{\beta]}
+	&= 4 \partial_{\mu} \epsilon^{\mu\nu\alpha\beta} A_{\nu} \partial_{[\alpha} A_{\beta]} - 4 \epsilon^{\mu\nu\alpha\beta} A_{\nu} \partial_{\mu} \partial_{[\alpha} A_{\beta]}
 	\intertext{%
 		Der Levi-Civita-Tensor sorgt allerdings dafür, dass der Term
 		$\partial_{[\mu} F_{\alpha\beta]}$ vorkommt, der nach der
 		Bianchi-Identität gerade 0 ist.
 	}
-	&= \partial_{\mu} \epsilon^{\mu\nu\alpha\beta} A_{\nu} \partial_{[\alpha} A_{\beta]} \\
+	&= 4 \partial_{\mu} \epsilon^{\mu\nu\alpha\beta} A_{\nu} \partial_{[\alpha} A_{\beta]} \\
 	\intertext{%
 		Den rechten Teil definieren wir als $G^\mu$, so dass dessen totale
 		Divergenz gerade die Lagrangedichte ist.
