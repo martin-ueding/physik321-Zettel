@@ -530,8 +530,10 @@ Für den ersten Summanden wenden wir die Produktregel für Tensoren an:
 
 Der rechte Teil ist:
 \[
+	\frac1{\mu_0}
 	\del{\partial_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
-	+ F^\mu{}_\alpha \del{\partial_\nu F^{\alpha\nu}}
+	+ \frac1{\mu_0}
+	F^\mu{}_\alpha \del{\partial_\nu F^{\alpha\nu}}
 \]
 
 Für den zweiten Summanden von weiter oben wenden wir ebenfalls die Produktregel
@@ -544,34 +546,39 @@ Alles zusammen:
 \[
 	\partial_\nu T^{\mu\nu}
 	=
+	\frac1{\mu_0}
 	\del{\partial_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
-	+ F^\mu{}_\alpha \del{\partial_\nu F^{\alpha\nu}}
-	+ \del{\partial^\mu F_{\alpha\nu}} F^{\alpha\nu}
-	+ F^{\alpha\nu} \partial^\mu F_{\alpha\nu}
+	+ \frac1{\mu_0}
+	F^\mu{}_\alpha \del{\partial_\nu F^{\alpha\nu}}
+	+ \frac1{4\mu_0}
+	\del{\partial^\mu F_{\alpha\nu}} F^{\alpha\nu}
+	+ \frac1{4\mu_0}
+	F^{\alpha\nu} \partial^\mu F_{\alpha\nu}
 \]
 
-Im letzten Term ziehen wir Indizes rauf und herunter:
+Die beiden letzten Terme sind gleich, wir fassen sie zusammen:
 \[
 	\partial_\nu T^{\mu\nu}
 	=
+	\frac1{\mu_0}
 	\del{\partial_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
-	+ F^\mu{}_\alpha \del{\partial_\nu F^{\alpha\nu}}
-	+ \del{\partial^\mu F_{\alpha\nu}} F^{\alpha\nu}
-	+ F^{\alpha\nu} \partial^\mu F_{\alpha\nu}
+	+ \frac1{\mu_0}
+	F^\mu{}_\alpha \del{\partial_\nu F^{\alpha\nu}}
+	+ \frac1{2\mu_0}
+	\del{\partial^\mu F_{\alpha\nu}} F^{\alpha\nu}
 \]
 
+Wir benutzen die Relation $\partial_\mu F^{\mu\nu} = \mu_0 j^\nu$ im zweiten
+Summanden. Außerdem heben und senken wir Indizes im letzten Summanden:
 \[
 	\partial_\nu T^{\mu\nu}
 	=
+	\frac1{\mu_0}
 	\del{\partial_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
-	+ F^\mu{}_\alpha \del{\partial_\nu F^{\alpha\nu}}
-	+ 2\del{\partial^\mu F_{\alpha\nu}} F^{\alpha\nu}
+	- F^{\mu\alpha} j_\alpha
+	+ \frac1{2\mu_0}
+	\del{\partial^\mu F^{\alpha\nu}} F_{\alpha\nu}
 \]
-
-Wir setzen die Definition von $\tens F$ ein:
-\begin{center}
-	\includegraphics{H2-Penrose-13-crop.pdf}
-\end{center}
 
 Die Bianchi-Identität können wir kompakter schreiben als $\partial^{[\alpha}
 F^{\beta\gamma]} = 0$ \cite[Seite 303]{penrose-road_to_reality}. Als Diagramm:
@@ -579,16 +586,55 @@ F^{\beta\gamma]} = 0$ \cite[Seite 303]{penrose-road_to_reality}. Als Diagramm:
 	\includegraphics{H2-Penrose-5-crop.pdf}
 \end{center}
 
-Diese Identität benutzen wir nun:
+Diese Identität benutzen wir nun im letzten Summanden:
 \[
 	\partial_\nu T^{\mu\nu}
 	=
+	\frac1{\mu_0}
 	\del{\partial_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
-	+ F^\mu{}_\alpha \del{\partial_\nu F^{\alpha\nu}}
-	- \del{\partial^\mu F_{\alpha\nu}} F^{\alpha\nu}
+	- F^{\mu\alpha} j_\alpha
+	- \frac1{2\mu_0}
+	\del{
+		\partial^\alpha F^{\nu\mu}
+		+
+		\partial^\nu F^{\mu\alpha}
+	} F_{\alpha\nu}
 \]
 
-\fehlt
+An dieser Stelle wird ein Schritt
+vorgeschlagen\footnote{\url{http://physics.stackexchange.com/a/51801/5705}},
+den wir ehrlich gesagt noch nicht ganz verstanden haben. Die beiden Summanden
+in der letzten Klammer sollen gleich sein, so dass wir vereinfachen können zu:
+\[
+	\partial_\nu T^{\mu\nu}
+	=
+	\frac1{\mu_0}
+	\del{\partial_\alpha F^{\mu}{}_\nu} F^{\nu\alpha}
+	- F^{\mu\alpha} j_\alpha
+	- \frac1{\mu_0}
+	\del{\partial^\nu F^{\mu\alpha}} F_{\alpha\nu}
+\]
+
+Wir verschieben die Indizes im ersten Summanden, außerdem benennen wir die
+Indizes im letzten Summanden so um, dass sie dem ersten entsprechen. Nun ist
+der Erste gleich dem Letzten:
+\[
+	\partial_\nu T^{\mu\nu}
+	=
+	\frac1{\mu_0}
+	\del{\partial^\alpha F^{\mu\nu}} F_{\nu\alpha}
+	- F^{\mu\alpha} j_\alpha
+	- \frac1{\mu_0}
+	\del{\partial^\alpha F^{\mu\nu}} F_{\nu\alpha}
+\]
+
+Wir ersetzen noch das $\alpha$ durch ein $\nu$ und erhalten die auf dem
+Aufgabenblatt gesuchte Relation:
+\[
+	\partial_\nu T^{\mu\nu}
+	=
+	- j_\nu F^{\mu\nu}
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                      Eindeutigkeit der Elektrodynamik                       %
