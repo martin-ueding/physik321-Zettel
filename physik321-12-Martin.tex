@@ -595,16 +595,18 @@ Diese Identität benutzen wir nun im letzten Summanden:
 	- F^{\mu\alpha} j_\alpha
 	- \frac1{2\mu_0}
 	\del{
-		\partial^\alpha F^{\nu\mu}
+		\del{\partial^\alpha F^{\nu\mu}} F_{\alpha\nu}
 		+
-		\partial^\nu F^{\mu\alpha}
-	} F_{\alpha\nu}
+		\del{\partial^\nu F^{\mu\alpha}} F_{\alpha\nu}
+	}
 \]
 
-An dieser Stelle wird ein Schritt
-vorgeschlagen\footnote{\url{http://physics.stackexchange.com/a/51801/5705}},
-den wir ehrlich gesagt noch nicht ganz verstanden haben. Die beiden Summanden
-in der letzten Klammer sollen gleich sein, so dass wir vereinfachen können zu:
+Die Indizes des ersten Summanden in der letzten Klammer benennen wir von
+$\del{\partial^\alpha F^{\nu\mu}} F_{\alpha\nu}$ in $\del{\partial^\nu
+F^{\mu\alpha}} F_{\alpha\nu}$ um, dabei haben wir zweimal die Antisymmetrie
+benutzt\footnote{\url{http://physics.stackexchange.com/a/51801/5705}}. Die
+beiden Summanden in der letzten Klammer sind nun gleich, so dass wir
+vereinfachen können zu:
 \[
 	\partial_\nu T^{\mu\nu}
 	=
