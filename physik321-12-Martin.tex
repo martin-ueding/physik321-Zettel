@@ -63,28 +63,28 @@
 
 Wir beginnen mit den inhomogenen Maxwellgleichungen:
 \begin{gather*}
-	\divergence{\vec E} = \frac{1}{\varepsilon_0} \rho \\
+	\divergence{\vec E} = \frac{1}{\varepsilon_0} \varrho \\
 	\curl \vec B - \frac{1}{c^2} \dot{\vec E} = \mu_0 \vec j
 \end{gather*}
 
 Dort setzen wir die Beziehungen $\vec E = - \vnabla \phi - \dot{\vec A}$ und
 $\vec B = \curl \vec A$ ein. Wir erhalten:
 \begin{gather*}
-	- \vnabla \phi - \divergence{\dot{\vec A}} = \frac{1}{\varepsilon_0} \rho \\
+	- \vnabla \phi - \divergence{\dot{\vec A}} = \frac{1}{\varepsilon_0} \varrho \\
 	\curl \curl \vec A + \frac 1{c^2} \laplace \dot \phi + \frac 1{c^2} \ddot{\vec A} = \mu_0 \vec j
 \end{gather*}
 
 Wir benutzen $\curl \curl \vec A = \vnabla \divergence{\vec A} - \laplace \vec
 A$ und erhalten:
 \begin{gather*}
-	- \vnabla \phi - \dpd{}t \divergence{\vec A} = \frac{1}{\varepsilon_0} \rho \\
+	- \vnabla \phi - \dpd{}t \divergence{\vec A} = \frac{1}{\varepsilon_0} \varrho \\
 	\dalambert A + \vnabla\del{\divergence{\vec A} + \frac 1{c^2} \dot \phi} = \mu_0 \vec j
 \end{gather*}
 
 Nun wenden wir die Lorenzeichung $\phi/\del{c^2} + \divergence{\vec A} = 0$ auf
 beide Gleichungen an:
 \begin{gather*}
-	\dalambert \phi = \frac{1}{\varepsilon_0} \rho \\
+	\dalambert \phi = \frac{1}{\varepsilon_0} \varrho \\
 	\dalambert \vec A = \mu_0 \vec j
 \end{gather*}
 
@@ -714,9 +714,9 @@ Parität:
 	\includegraphics{H3-Penrose-3-crop.pdf}
 \end{center}
 
-Die Ladungskonjugation $\rho \mapsto -\rho$ sorgt dafür, dass in jedem $j^\mu$
-das Vorzeichen umgekehrt wird. Zum einen weil $j^0 = \rho$, zum anderen weil
-$j_i = \rho v_i$ ist. Dadurch ändert sich auch das Vorzeichen in allen $A^\mu$,
+Die Ladungskonjugation $\varrho \mapsto -\varrho$ sorgt dafür, dass in jedem $j^\mu$
+das Vorzeichen umgekehrt wird. Zum einen weil $j^0 = \varrho$, zum anderen weil
+$j_i = \varrho v_i$ ist. Dadurch ändert sich auch das Vorzeichen in allen $A^\mu$,
 da diese direkt über $j^\mu$ definiert sind:
 \[
 	\dalambert A^\mu = \mu_0 j^\mu
@@ -825,7 +825,7 @@ Elektronen bezieht:
 
 Die neuen Positionen sind:
 \[
-	\vec R'_{\text An}
+	\tens R'_{\text An}
 	=
 	\begin{pmatrix}
 		\gamma ct - \beta \gamma n d \\
@@ -834,7 +834,7 @@ Die neuen Positionen sind:
 		0
 	\end{pmatrix}
 	\eqnsep
-	\vec R'_{\text en}
+	\tens R'_{\text en}
 	=
 	\begin{pmatrix}
 		\gamma ct - \beta \gamma n d - \beta \gamma v t \\
@@ -856,7 +856,7 @@ werden, um das ganze Potential zu bekommen:
 \[
 	\varphi_{\text en}
 	= \frac{e}{4\pi\varepsilon_0}
-	\frac{1}{\abs{\vec x' - \vec R'_{\text en}}}
+	\frac{1}{\abs{\tens x' - \tens R'_{\text en}}}
 \]
 
 Dadurch, dass die Elektronen in ihrem System $\Sigma'$ in Ruhe sind, ist $\vec
@@ -873,7 +873,7 @@ Das elektrische Feld im Ruhesystem der Elektronen $\Sigma'$ ist das elektrische 
 \[
 	\vec E'
 	= - \frac{e}{4\pi\varepsilon_0}
-	\vnabla \frac{1}{\abs{\vec x' - \vec R'_{\text en}}}
+	\vnabla \frac{1}{\abs{\tens x' - \tens R'_{\text en}}}
 \]
 
 Wir transformieren in das Ruhesystem der Atome $\Sigma$:
@@ -885,13 +885,121 @@ Wir transformieren in das Ruhesystem der Atome $\Sigma$:
 	\end{pmatrix}
 \]
 
-Das elektrische Feld im System $\Sigma$
+Das elektrische Feld im System $\Sigma$:
+\begin{align*}
+	\vec E_{\text en}
+	&= - \gamma \nabla \frac{e}{4 \pi \varepsilon_0}
+	\frac{1}{\abs{\tens x' - \tens R'_{\text en}}}
+\end{align*}
+
+Hier müssen wir $\tens x'$ und $\tens R'$ wieder zurück transformieren. Jedoch
+kommt hier dann ein recht sperriger Ausdruck raus.
+
+\fehlt
+
+Das magnetische Feld erhalten wir durch Rotation:
+\[
+	\vec B = - \beta \frac \gamma c \frac{e}{4\pi\varepsilon_0} \curl 
+	\frac{1}{\abs{\tens x' - \tens R'_{\text en}}}
+\]
+
+Auch hier müssten wir wieder in das System $\Sigma$ transformieren.
 
 \fehlt
 
 \subsection{kontinuierlicher Strom}
 
-\fehlt
+Im System $\Sigma$ ist die Stromdichte:
+\[
+	\vec j = I \delta\del y \delta\del z \ev_1
+\]
+
+Das Geschwindigkeitsfeld ist:
+\[
+	\vec v = v \ev_1
+\]
+
+Da $\vec j = \varrho \vec j$ gelten soll, ist die Ladungsdichte:
+\[
+	\varrho = \frac Iv \delta\del y \delta\del z
+\]
+
+Das elektrische Feld um der Elektronen bestimmen wir mit dem Gesetz von Gauß:
+\begin{align*}
+	\oint \inner{\vec{\dif A}}{\vec D}
+	&=
+	\int \dif V \, \varrho \\
+	%
+	2 \pi r D \dif x &= \frac Iv \dif x \\
+	\vec E &= \frac{I}{2\pi v \varepsilon_0} \frac 1r \ev_\rho
+\end{align*}
+
+Die magnetische Induktion bestimmen wir mit dem Satz von Stokes:
+\begin{align*}
+	\oint \inner{\vec s}{\vec H} &= \int \dif A \, \vec j \\
+	2 \pi r H &= I \\
+	\vec B &= \frac{\mu_0 I}{2 \pi} \frac 1r \ev_\phi
+\end{align*}
+
+Wir setzen den Vierer-Strom zusammen:
+\[
+	\tens j
+	=
+	\begin{pmatrix}
+		\frac I{cv} \delta\del y \delta\del z \\
+		I \delta\del y \delta\del z \\
+		0 \\
+		0
+	\end{pmatrix}
+\]
+
+Diesen Vektor transformieren wir mit $\tens \Lambda$:
+\[
+	\tens j'
+	=
+	\begin{pmatrix}
+		\gamma \frac I{cv} \delta\del y \delta\del z
+		- \beta\gamma I \delta\del y \delta\del z \\
+		%
+		-\beta\gamma \frac I{cv} \delta\del y \delta\del z
+		+ \gamma I \delta\del y \delta\del z \\
+		%
+		0 \\
+		0
+	\end{pmatrix}
+\]
+
+Daraus erhalten wir die transformierte Ladungs- und Stromdichten:
+\[
+	\varrho'
+	=
+	\gamma \frac I{cv} \delta\del y \delta\del z
+	- \beta\gamma I \delta\del y \delta\del z
+	%
+	\eqnsep
+	%
+	\vec j'
+	=
+	\del{
+		-\beta\gamma \frac I{cv} \delta\del y \delta\del z
+		+ \gamma I \delta\del y \delta\del z
+	} \ev_1
+	= \vec 0
+\]
+
+Nun können wir analog das elektrische Feld für das System $\Sigma'$ aufstellen.
+\begin{align*}
+	\oint \inner{\vec{\dif A}}{\vec D'}
+	&=
+	\int \dif V \, \varrho' \\
+	%
+	2 \pi D' \dif x &= \del{\frac{\gamma I}{cv} - \beta\gamma I} \dif x \\
+	\vec E' &= \frac{\frac{\gamma I}{cv} - \beta\gamma I}{2 \pi \varepsilon_0} \ev_\rho
+\end{align*}
+
+Die magnetische Induktion: $\vec B' = \vec 0$.
+
+Diese Ergebnisse decken sich mit denen aus der Elektro- und Magnetostatik.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                   Relativistik in den Maxwellgleichungen                    %
