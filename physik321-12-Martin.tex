@@ -808,6 +808,89 @@ Bianchi-Identität, der Summand fällt also weg.
 \section{stromdurchflossener Draht}
 \label 4
 
+\subsection{Transformation ins Ruhesystem}
+
+Wir transformieren mit folgender Abbildung, wobei sich $\beta$ auf das $v$ der
+Elektronen bezieht:
+\[
+	\tens \Lambda
+	=
+	\begin{pmatrix}
+		\gamma & -\beta\gamma & & \\
+		-\beta\gamma & \gamma & & \\
+									& & 1 & \\
+									& & & 1
+	\end{pmatrix}
+\]
+
+Die neuen Positionen sind:
+\[
+	\vec R'_{\text An}
+	=
+	\begin{pmatrix}
+		\gamma ct - \beta \gamma n d \\
+		-\beta \gamma c t + \gamma n d \\
+		0 \\
+		0
+	\end{pmatrix}
+	\eqnsep
+	\vec R'_{\text en}
+	=
+	\begin{pmatrix}
+		\gamma ct - \beta \gamma n d - \beta \gamma v t \\
+		\gamma n d \\
+		0 \\
+		0
+	\end{pmatrix}
+\]
+
+Die Abstände sind jetzt jeweils:
+\[
+	d'_{\text A} = d'_{\text e} = \gamma d
+\]
+
+\subsection{elektrische und magnetische Feld}
+
+Das elektrische Potential sind Punktladungen. Die $\varphi_n$ können aufaddiert
+werden, um das ganze Potential zu bekommen:
+\[
+	\varphi_{\text en}
+	= \frac{e}{4\pi\varepsilon_0}
+	\frac{1}{\abs{\vec x' - \vec R'_{\text en}}}
+\]
+
+Dadurch, dass die Elektronen in ihrem System $\Sigma'$ in Ruhe sind, ist $\vec
+B = \vec 0$. Das Vierer-Potential ist also:
+\[
+	\tens A'
+	=
+	\begin{pmatrix}
+		\varphi / c \\ 0 \\ 0 \\ 0
+	\end{pmatrix}
+\]
+
+Das elektrische Feld im Ruhesystem der Elektronen $\Sigma'$ ist das elektrische Feld der Gradient:
+\[
+	\vec E'
+	= - \frac{e}{4\pi\varepsilon_0}
+	\vnabla \frac{1}{\abs{\vec x' - \vec R'_{\text en}}}
+\]
+
+Wir transformieren in das Ruhesystem der Atome $\Sigma$:
+\[
+	\tens A
+	=
+	\begin{pmatrix}
+		\varphi / c \\ - \beta \gamma \varphi / c \\ 0 \\ 0
+	\end{pmatrix}
+\]
+
+Das elektrische Feld im System $\Sigma$
+
+\fehlt
+
+\subsection{kontinuierlicher Strom}
+
 \fehlt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
