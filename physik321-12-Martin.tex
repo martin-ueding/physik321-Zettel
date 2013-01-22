@@ -894,18 +894,27 @@ Das elektrische Feld im System $\Sigma$:
 
 Hier müssen wir $\tens x'$ und $\tens R'$ wieder zurück transformieren. Jedoch
 kommt hier dann ein recht sperriger Ausdruck raus.
-
-\fehlt
-
-Das magnetische Feld erhalten wir durch Rotation:
 \[
-	\vec B = - \beta \frac \gamma c \frac{e}{4\pi\varepsilon_0} \curl 
-	\frac{1}{\abs{\tens x' - \tens R'_{\text en}}}
+	\vec E_{\text en}
+	=
+	- \gamma \nabla \frac{e}{4 \piup \varepsilon_0} \frac{1}{
+		\abs{
+			\begin{pmatrix}
+				\gamma^2 ct + \beta \gamma x^1 - \gamma ct + \beta \gamma nd + \beta\gamma vt \\
+				\beta \gamma^2 ct + \gamma x^1 - \gamma nd \\
+				0 \\
+				0
+			\end{pmatrix}
+		}
+	}
 \]
 
-Auch hier müssten wir wieder in das System $\Sigma$ transformieren.
-
-\fehlt
+Das magnetische Feld erhalten wir durch Rotation. Auch hier müssten wir wieder
+in das System $\Sigma$ transformieren, dies schreiben wir nur formal hin:
+\[
+	\vec B = - \beta \frac \gamma c \frac{e}{4\piup\varepsilon_0} \curl 
+	\frac{1}{\abs{\Lambda^{-1} \tens x' - \Lambda^{-1} \tens R'_{\text en}}}
+\]
 
 \subsection{kontinuierlicher Strom}
 
