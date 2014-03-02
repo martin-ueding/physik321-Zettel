@@ -1,0 +1,119 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3305,        109]
+NotebookOptionsPosition[      2815,         87]
+NotebookOutlinePosition[      3153,        102]
+CellTagsIndexPosition[      3110,         99]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"<<", "PhysicalConstants`"}]], "Input",
+ CellChangeTimes->{{3.561029001440551*^9, 3.5610290085000973`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"1", "/", "2"}], 
+  RowBox[{"(", "VacuumPermeability", ")"}], " ", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"1", " ", "Milli", " ", "Coulomb"}], ")"}], "^", "2"}], " ", "1", 
+  " ", "Meter", " ", "1", " ", "Milli", " ", 
+  RowBox[{"Meter", "/", 
+   RowBox[{"(", 
+    RowBox[{"1", " ", "Meter", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"80", " ", "0.5", "Meter"}], "+", 
+        RowBox[{"0.5", " ", "Meter"}]}], ")"}], "^", "2"}]}], 
+    ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.561029010774284*^9, 3.5610291176740913`*^9}, {
+  3.56103014884979*^9, 3.561030150476817*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"3.830626616174111`*^-10", " ", 
+   SuperscriptBox["Coulomb", "2"], " ", 
+   SuperscriptBox["Milli", "3"], " ", "Second", " ", "Volt"}], 
+  RowBox[{"Ampere", " ", 
+   SuperscriptBox["Meter", "2"]}]]], "Output",
+ CellChangeTimes->{{3.561029082165036*^9, 3.5610291182975388`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Convert", "[", 
+  RowBox[{"%", ",", " ", "Joule"}], "]"}]], "Input",
+ CellChangeTimes->{{3.561029084128236*^9, 3.5610290894415903`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Convert", "::", "incomp"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Incompatible units in \
+\[NoBreak]\\!\\(\\(3.830626616174111`*^-10\\\\ Coulomb\\^2\\\\ Milli\\^3\\\\ \
+Second\\\\ Volt\\)\\/\\(Ampere\\\\ Meter\\^2\\)\\)\[NoBreak] and \
+\[NoBreak]\\!\\(Joule\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\
+\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:Units/ref/Convert\\\", ButtonNote -> \
+\\\"Units`Convert::incomp\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.561029090073845*^9, 3.56102912027046*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"3.830626616174111`*^-10", " ", 
+   SuperscriptBox["Coulomb", "2"], " ", 
+   SuperscriptBox["Milli", "3"], " ", "Second", " ", "Volt"}], 
+  RowBox[{"Ampere", " ", 
+   SuperscriptBox["Meter", "2"]}]]], "Output",
+ CellChangeTimes->{{3.561029090076191*^9, 3.5610291202770777`*^9}}]
+}, Open  ]]
+},
+WindowSize->{740, 867},
+WindowMargins->{{Automatic, 338}, {79, Automatic}},
+FrontEndVersion->"8.0 for Linux x86 (64-bit) (February 23, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 130, 2, 30, "Input"],
+Cell[CellGroupData[{
+Cell[712, 26, 638, 18, 50, "Input"],
+Cell[1353, 46, 316, 7, 52, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1706, 58, 160, 3, 30, "Input"],
+Cell[1869, 63, 611, 12, 71, "Message"],
+Cell[2483, 77, 316, 7, 52, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
