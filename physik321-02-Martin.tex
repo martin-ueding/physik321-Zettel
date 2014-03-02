@@ -1,6 +1,6 @@
 % Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
 %
-\documentclass[11pt, ngerman]{article}
+\documentclass[11pt, ngerman, fleqn]{article}
 
 \usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
 \usepackage[activate]{pdfcprot}
@@ -48,6 +48,7 @@
 \newcommand{\divergence}[1]{\inner{\vnabla}{#1}}
 \newcommand{\ee}{\mathrm e}
 \newcommand{\emesswert}{\del{\messwert \pm \messwert}}
+\newcommand{\ev}{\hat{\vec e}}
 \newcommand{\e}[1]{\cdot 10^{#1}}
 \newcommand{\fehlt}{\textcolor{red}{Hier fehlen noch Inhalte.}}
 \newcommand{\half}{\frac 12}
@@ -87,9 +88,9 @@
 \begin{table}[h]
 	\centering
 	\begin{tabular}{l|c|c|c|c|c|c}
-		Aufgabe & H \theuebung.1 & H \theuebung.2 & H \theuebung.3 & H \theuebung.4 & H \theuebung.5 & $\Sigma$   \\
+		Aufgabe & \ref{1} & \ref{2} & \ref{3} & \ref{4} & \ref{5} & $\Sigma$   \\
 		\hline
-		Punkte & \punkte & \punkte & \punkte & \punkte & \punkte & \punkte
+		Punkte & \punkte / 10 & \punkte / 10 & \punkte / 10 & \punkte / 10 & \punkte / 10 & \punkte / 40
 	\end{tabular}
 \end{table}
 
@@ -98,6 +99,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{zylindrische und sphärische Koordinaten}
+\label{1}
 
 \subsection{orthonormales System}
 
@@ -196,73 +198,140 @@ Auch hier kann ich schnell sehen, dass die Vektoren paarweise orthogonal sind. S
 
 \subsection{Ableitungsoperatoren}
 
+Die Vorgehensweise habe ich in \cite{lautrup-curviliniar} gefunden.
 
 \subsubsection{Zylinderkoordinaten}
-
-% http://www.cns.gatech.edu/~predrag/courses/PHYS-4421-10/Lautrup/curvilinear.pdf
 
 Für den Nabla in Zylinderkoordinaten projiziere ich diesen auf die
 Einheitsvektoren, die allerdings nicht normiert worden sind. Von der anderen
 Seite kann ich über die Kettenregel die Koordinatentransformation durchführen.
 \begin{align*}
-	\dpd{}\rho &= \dpd x\rho \dpd{}x + \dpd y\rho \dpd{}y = \cos(\phi) \dpd{}x + \sin(\phi) \dpd{}y = \inner{\hat{\vec e}_\rho}\vnabla \\
- \dpd{}\phi &= \dpd x\phi \dpd{}x + \dpd y\phi \dpd{}y= - \rho \sin(\phi) \dpd{}x + \rho \cos(\phi) \dpd{}y = \rho \inner{\hat{\vec e}_\phi}\vnabla \\
+	\dpd{}\rho &= \dpd x\rho \dpd{}x + \dpd y\rho \dpd{}y = \cos(\phi) \dpd{}x + \sin(\phi) \dpd{}y = \inner{\ev_\rho}\vnabla \\
+ \dpd{}\phi &= \dpd x\phi \dpd{}x + \dpd y\phi \dpd{}y= - \rho \sin(\phi) \dpd{}x + \rho \cos(\phi) \dpd{}y = \rho \inner{\ev_\phi}\vnabla \\
 	  \dpd{} z &= \dpd{} z = \inner{\hat{\vec z}_\phi}\vnabla
 \end{align*}
 
 Daraus folgt:
 \[
-	\vnabla_z =
-	\begin{pmatrix}
-		\pd{}r \\
-		\frac 1r \pd{}\phi \\
-		\pd{}z
-	\end{pmatrix}
+	\vnabla_z :=
+	\ev_\rho
+		\dpd{}\rho
+	+\ev_\phi
+		\frac 1\rho \dpd{}\phi
+	+\ev_z
+		\dpd{}z
 \]
-
 
 \paragraph{Divergenz}
 
-\fehlt
+Nun wende ich den gerade hergeleiteten $\vnabla_z$-Operator auf ein Vektorfeld $\vec A$ an, das in Zylinderkoordinaten gegeben ist:
+\[
+	\vec A := \ev_\rho A_\rho + \ev_\phi A_\phi + \ev_z A_z
+\]
+
+Anders als in den kartesischen Koordinaten sind die Ableitungen der Basisvektoren nicht immer 0:
+\[
+	\dpd{\ev_\rho}\phi = \ev_\phi
+	, \quad
+	\dpd{\ev_\phi}\phi = - \ev_\rho
+\]
+
+Bei der Divergenz ist zu beachten, dass nicht nur das Vektorfeld, sondern auch
+die Einheitsvektoren abgeleitet werden müssen. Das Skalarprodukt
+$\inner{\vnabla_z}{\vec A}$ wird dann zu einem normalen Produkt. Im
+kartesischen Fall würden dann einfach alle Einheitsvektoren, die nicht gleich
+sind, als Skalarprodukt 0 haben und entfallen. Mit den beiden Identitäten oben, kommt allerdings noch ein weiterer Term hinzu:
+\begin{align*}
+	\inner{\vnabla_z}{\vec A}
+	&=
+	\ev_\rho \dpd{}\rho \del{\ev_\rho A_\rho + \ev_\phi A_\phi + \ev_z A_z} \\
+	&\quad+\ev_\phi \frac 1\rho \dpd{}\phi \del{\ev_\rho A_\rho + \ev_\phi A_\phi + \ev_z A_z} \\
+	&\quad+\ev_z \dpd{}z \del{\ev_\rho A_\rho + \ev_\phi A_\phi + \ev_z A_z} \\
+	\intertext{Die meisten Skalarprodukte entfallen direkt. Bei den $\pd{}\phi$ Termen wandeln sich einige Einheitsvektoren um, so dass deren Skalarprodukt mit $\ev_\phi$ nicht mehr 0 sind.}
+	&=
+	\dpd{A_\rho}\rho + \ev_\phi \frac 1\rho \del{
+		\ev_\phi A_\rho - \ev_\rho A_\phi + \ev_\phi \dpd{A_\phi}\phi
+	} + \dpd{A_z}z \\
+	&=
+	\dpd{A_\rho}\rho + \frac{A_\rho}\rho  + \frac 1\rho \dpd{A_\phi}\phi
+	 + \dpd{A_z}z
+\end{align*}
 
 \paragraph{Rotation}
 
-\fehlt
+Die Rotation funktioniert ähnlich wie die Divergenz.
+\begin{align*}
+	\vnabla_z \times A
+	&=
+	\begin{vmatrix}
+		\pd{}\rho & \frac 1\rho \pd{}\phi & \pd{}z \\
+		   A_\rho & A_\phi & A_z \\
+		 \ev_\rho & \ev_\phi & \ev_z
+	\end{vmatrix} \\
+	&=
+	\dpd{}\rho \del{A_\phi \ev_z - A_z \ev_\phi}
+	+ \frac 1\rho \dpd{}\phi \del{A_z \ev_\rho - A_\rho \ev_z}
+	+ \dpd{}z \del{A_\rho \ev_\phi - A_\phi \ev_\rho} \\
+	\intertext{Auch hier kommen durch die Produktregel einige weitere Terme hinzu.}
+	&=
+	\ev_z \dpd{A_\phi}\rho - \ev_\phi \dpd{A_z}\rho
+	+ \frac 1\rho \del{\ev_\rho \dpd{A_z}\phi + \ev_\phi A_z - \ev_z \dpd{A_\rho}\phi}
+	+ \ev_\phi \dpd{A_\rho}z - \ev_\rho \dpd{A_\phi}z \\
+	&=
+	\ev_\rho \del{-\dpd{A_\phi}z
+		+ \frac 1\rho  \dpd{A_z}\phi
+	}
+	+ \ev_\phi \del{ \dpd{A_\rho}z
+		- \dpd{A_z}\rho
+		+ \frac 1\rho A_z
+	}
+	+ \ev_z \del{- \frac 1\rho \dpd{A_\rho}\phi
+		+ \dpd{A_\phi}\rho
+	}
+\end{align*}
+
+Das Ergebnis ist nicht ganz das Richtige, allerdings kann ich den Fehler nicht
+finden.
 
 \paragraph{Laplace}
 
-\fehlt
+In die Gleichung mit der Divergenz kann ich den Gradienten einsetzen. Ich erhalte dann:
+\[
+	\laplace_z = \frac 1\rho \dpd{}\rho \del{\rho \dpd {}\rho} + \frac 1{\rho^2} \dpd[2]{}\phi + \dpd[2]{}z
+\]
 
 \subsubsection{Kugelkoordinaten}
 
 Die gleiche Idee wie bei den Zylinderkoordinaten:
 \begin{align*}
-	\dpd{}r &= \dpd xr \dpd{}x + \dpd yr \dpd{}y + \dpd zr \dpd{}z = \cos(\phi) \sin(\theta) \dpd{}x + \sin(\phi) \sin(\theta) \dpd{}y + \cos(\theta) \dpd{}z = \inner{\hat{\vec e}_r}\vnabla \\
+	\dpd{}r &= \dpd xr \dpd{}x + \dpd yr \dpd{}y + \dpd zr \dpd{}z = \cos(\phi) \sin(\theta) \dpd{}x + \sin(\phi) \sin(\theta) \dpd{}y + \cos(\theta) \dpd{}z = \inner{\ev_r}\vnabla \\
 	%
-	\dpd{}\phi &= \dpd x\phi \dpd{}x + \dpd y\phi \dpd{}y + \dpd z\phi \dpd{}z \\
+ \dpd{}\phi &= \dpd x\phi \dpd{}x + \dpd y\phi \dpd{}y + \dpd z\phi \dpd{}z = - r \sin(\phi)\sin(\theta) \dpd{}x + r \cos(\phi) \sin(\theta) \dpd{}y = \frac 1{r \sin(\theta)} \inner{\ev_\phi}\vnabla \\
 	%
-	\dpd{}\theta &= \dpd x\theta \dpd{}x + \dpd y\theta \dpd{}y + \dpd z\theta \dpd{}z
+  \dpd{}\theta &= \dpd x\theta \dpd{}x + \dpd y\theta \dpd{}y + \dpd z\theta \dpd{}z = r \cos(\phi) \cos(\theta) \dpd{}x + r \sin(\phi) \cos(\theta) \dpd{}y - r \sin(\theta) \dpd{}z \\
+			   &= \frac 1r \inner{\ev_\theta}\vnabla
 \end{align*}
 
-\fehlt
+Daraus folgt:
+\[
+	\vnabla_k :=
+	\ev_r
+		\dpd{}r
+	+\ev_\phi
+		\frac 1{r \sin(\theta)} \dpd{}\phi
+	+\ev_\theta
+		\frac 1r \dpd{}\theta
+\]
 
-\paragraph{Divergenz}
-
-\fehlt
-
-\paragraph{Rotation}
-
-\fehlt
-
-\paragraph{Laplace}
-
-\fehlt
+Wie bei den Zylinderkoordinaten wird hier eingesetzt und die Basisvektoren mit
+differenziert. Diese Rechnung lasse ich aus.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                         zum Integralsatz von Stokes                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{zum Integralsatz von Stokes}
+\label{2}
 
 Gegeben ist ein Vektorfeld:
 \[ \vec K \del{\vec r} = \vec r \]
@@ -309,15 +378,15 @@ Es soll ein Linienintegral berechnet werden, der Pfad ist in Abbildung \ref{fig:
 
 Ich beginne mit den normierten Tangentialvektoren:
 \[
-	\vec \tau = \begin{pmatrix}
+	\vec \tau_1 = \begin{pmatrix}
 		0 \\ 0 \\ 1
 	\end{pmatrix}
 	,\quad
-	\vec \tau = \begin{pmatrix}
+	\vec \tau_2 = \begin{pmatrix}
 		0 \\ 1 \\ 0
 	\end{pmatrix}
 	,\quad
-	\vec \tau = \frac{1}{\sqrt{2}} \begin{pmatrix}
+	\vec \tau_3 = \frac{1}{\sqrt{2}} \begin{pmatrix}
 		0 \\ -1 \\ -1
 	\end{pmatrix}
 \]
@@ -328,25 +397,25 @@ Die Karten für die eindimensionale Untermannigfaltigkeit, die die Linie ja ist,
 		0 \\ 0 \\ 1
 	\end{pmatrix} t
 	,\quad
-	\vec\varphi_1(t) = \begin{pmatrix}
+	\vec\varphi_2(t) = \begin{pmatrix}
 		0 \\ 0 \\ 1
 	\end{pmatrix} + \begin{pmatrix}
 		0 \\ 1 \\ 0
 	\end{pmatrix} t
 	,\quad
-	\vec\varphi_1(t) = \begin{pmatrix}
+	\vec\varphi_3(t) = \begin{pmatrix}
 		0 \\ 1 \\ 1
 	\end{pmatrix} + \frac{1}{\sqrt{2}} \begin{pmatrix}
 		0 \\ -1 \\ -1
 	\end{pmatrix} t
 \]
 
-Die gramschen Determinanten sind allesamt $1$.
+Die Definitionsbereiche der Karten sind $(0, 1)$, $(0, 1)$ und $\intoo{0, \sqrt{2}}$. Die Randpunkte, die eigentlich zum Pfad noch dazu gehören sind eine Nullmenge und machen bei der Integration keinen Unterschied. Die gramschen Determinanten der Karten sind allesamt $1$.
 
 Nun kann ich die Linienintegrale ausrechnen:
 \begin{align*}
 	W &=
-	\sum_i \int \dif t \inner{\vec \tau_i}{\vec K \del{\vec\varphi_i(t)}} \\
+	\sum_{i=1}^3 \int \dif t \inner{\vec \tau_i}{\vec K \del{\vec\varphi_i(t)}} \\
 	\intertext{Ich setze alles ein.}
 	&=
 	\int_0^1 \dif t \inner{\begin{pmatrix}
@@ -405,7 +474,7 @@ Nun kann ich die Linienintegrale ausrechnen:
 &= \sbr{\half t^2 + \half t^4}_0^1 - 1 = 0
 \end{align*}
 
-Es fällt auf, dass die beiden geschlossenen Integrale gerade null sind. Somit scheint dieses Kraftfeld, zumindest hier lokal, konservativ zu sein.
+Es fällt auf, dass die beiden geschlossenen Integrale gerade 0 sind. Somit scheint dieses Kraftfeld, zumindest hier lokal, konservativ zu sein.
 
 \subsection{mit dem Satz von Stokes}
 
@@ -414,13 +483,14 @@ Vektorfeldes bestimmt werden. Das Vektorfeld muss allerdings differenzierbar
 sein und das Gebiet kompakt.
 
 Da $\vnabla \times \vec r = 0$ gilt, sind hier alle geschlossenen Pfadintegrale
-gleich null.
+gleich 0.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                             Multipolentwicklung                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Multipolentwicklung}
+\label{3}
 
 Die Verteilungen der Ladungen im Raum habe ich in Abbildung \ref{fig:ladungen}
 skizziert. Berechnet werden soll das Dipolmoment $\vec p$ und der Quadrupoltensor $\tens Q$ bestimmt werden.
@@ -454,10 +524,19 @@ skizziert. Berechnet werden soll das Dipolmoment $\vec p$ und der Quadrupoltenso
 		\shade[ball color=black!5] (-0.5,  0,  0) circle (1.2mm) node {$-q$};
 		\shade[ball color=black!5] (   1,  0,  0) circle (1.2mm) node {$-q$};
 		\shade[ball color=black!5] (   2,  0,  0) circle (1.2mm) node {$-q$};
+
+		\shade[ball color=black!50] (0, 0, 0) circle (.3mm) node[above] {$\vec 0$};
+		\shade[ball color=black!50] (3/16, 0, 0) circle (.3mm) node[above] {$\vec s$};
+
+		\draw[|-|] (-1, -1, +1) ++(-0.1, 0, 0) -- ++(0, 1, 0) node[midway, left] {$d$};
+
+		\draw[->] (-1.5, 0, 0) -- ++(-0.5, 0, 0) node[midway, above] {Richtung $\vec p$};
 	\end{tikzpicture}
-	\caption{Anordnung der Ladungen}
+	\caption{Anordnung der Ladungen. $\vec 0$ ist der Koordinatenursprung, $\vec s$ der Schwerpunkt der Ladungen.}
 	\label{fig:ladungen}
 \end{figure}
+
+\subsection{Dipolmoment}
 
 Das Dipolmoment $\vec p$ eines Dipols mit Ladung $+q$ und $-q$ und Separation
 $\vec d$ ist:
@@ -465,13 +544,123 @@ $\vec d$ ist:
 	\vec p = q \vec d
 \]
 
-\fehlt
+Ich bestimme den Schwerpunkt:
+\begin{align*}
+	\vec s &= \frac 18 \sum_{i=1}^8 \vec r_i \\
+		   &= \frac 18 \del{
+		\begin{pmatrix}
+			0 \\ d \\ 0
+		\end{pmatrix}
+		+
+		\begin{pmatrix}
+			0 \\ -d \\ 0
+		\end{pmatrix}
+		+
+		\begin{pmatrix}
+			0 \\ 0 \\ d
+		\end{pmatrix}
+		+
+		\begin{pmatrix}
+			0 \\ 0 \\ -d
+		\end{pmatrix}
+		+
+		\begin{pmatrix}
+			-d \\ 0 \\ 0
+		\end{pmatrix}
+		+
+		\begin{pmatrix}
+			-\half d \\ 0 \\ 0
+		\end{pmatrix}
+		+
+		\begin{pmatrix}
+			d \\ 0 \\ 0
+		\end{pmatrix}
+		+
+		\begin{pmatrix}
+			2d \\ 0 \\ 0
+		\end{pmatrix}
+	} \\
+	&= \begin{pmatrix}
+	\frac 3{16} d \\ 0 \\ 0
+	\end{pmatrix}
+\end{align*}
+
+Bei mehreren Ladungen $\del{\del{q_i, \vec r_i}}_{i \in \set{1, \ldots, 8}}$ setzt sich das Dipolmoment aus den einzelnen Momenten zusammen. Dabei ist $\vec r_i$ die Position und $\vec s$ der Schwerpunkt der Ladungsverteilung:
+\begin{align*}
+	\vec p &= \sum_{i=1}^8 q_i \del{\vec r_i - \vec s} \\
+		   &= q \del{
+		\begin{pmatrix}
+			-\frac 3{4}d \\ 0 \\ 0
+		\end{pmatrix}
+		-
+		\begin{pmatrix}
+			d -\frac 3{16}d \\ 0 \\ 0
+		\end{pmatrix}
+		-
+		\begin{pmatrix}
+			\half d-\frac 3{16}d  \\ 0 \\ 0
+		\end{pmatrix}
+		-
+		\begin{pmatrix}
+			 d-\frac 3{16} \\ 0 \\ 0
+		\end{pmatrix}
+		-
+		\begin{pmatrix}
+			 2d-\frac 3{16}d \\ 0 \\ 0
+		\end{pmatrix}
+	} \\
+	&=
+	q \begin{pmatrix}
+		- \frac 92 d \\ 0 \\ 0
+	\end{pmatrix}
+\end{align*}
+
+\subsection{Quadrupoltensor}
+
+Das Quadrupolmoment ist gegegeben durch:
+\begin{align*}
+	Q_{ij} &= \int \dif{}^3 \vec x' \del{3 x_i' x_j' - r'^2 \delta_{ij}} \rho\del{\vec x'} \\
+	\intertext{
+		In diesem Fall hier habe ich keine kontinuierliche Ladungsverteilung,
+		sondern diskrete Ladungen. Dies kann ich mit der $\delta$-Funktion
+		modellieren:
+	}
+	&= \int \dif{}^3 \vec x' \del{3 x_i' x_j' - r'^2 \delta_{ij}} \sum_{k=1}^8 q_k \delta\del{\vec r_k - \vec x'} \\
+	\intertext{
+		Integral und Summe kann ich vertauschen. Das Integral über die
+		$\delta$-Funktion liefert die gewünschten diskreten Ladungen.
+	}
+	&= \sum_{k=1}^8 \int \dif{}^3 \vec x' \del{3 x_i' x_j' - r'^2 \delta_{ij}} q_k \delta\del{\vec r_k - \vec x'} \\
+	\intertext{
+		Da die $\delta$-Distribution nur auf den 8 Stellen von 0 verschieden
+		ist, kann ich das Integral ausführen. Mit $r_{ki} = \inner{\vec
+		r_k}{\vec e_i}$:
+	}
+	Q_{ij} &= \sum_{k=1}^8 q_k \del{3 r_{ki} r_{kj} - \del{r_k}^2 \delta_{ij}} \\
+	\intertext{
+		Mit dem Tensorprodukt $\otimes$ kann ich das auch als ganzen Tensor
+		schreiben. Dabei bezeichnet $\tens 1$ den Einheitstensor oder -matrix.
+	}
+	\tens Q &= \sum_{k=1}^8 q_k \del{3 \vec r_k \otimes \vec r_k - \tens 1 r_k^2}
+	\intertext{
+		Nun kann ich alle Zahlen einsetzen und erhalte:
+	}
+	\tens Q &= \frac {d^2q}{4}
+	\begin{pmatrix}
+		-246 & 27 & 27 \\
+		  27 & 123 & 27 \\
+		  27 & 27 & 123
+	\end{pmatrix}
+\end{align*}
+
+Der Tensor ist symmetrisch und spurlos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                Magnetisches Feld eines ausgedehnten Leiters                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Magnetisches Feld eines ausgedehnten Leiters}
+\label{4}
 
 Es gilt $\vnabla \times \vec H = \vec j$. Dies kann ich auch in Integralen
 schreiben, für dieses Problem benutze ich Zylinderkoordinaten. Ich betrachte
@@ -505,6 +694,7 @@ werden kann.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{geladene Walze, Rohr und Platte}
+\label{5}
 
 Bei all diesen Aufgaben benutze ich das Gesetz von Gauß.
 
@@ -529,8 +719,8 @@ Innerhalb des Zylinders befindet sich keine Ladung, so dass es dort auch kein Fe
 Das Potential ist das negative Feld nach dem Radius integriert. Dabei ist es innerhalb des Zylinders konstant, weil keine Kraft wirkt.
 \[
 	\phi(r) = \begin{cases}
-		\epsilon_0 R \sigma \ln\del{\frac rR} & r \geq R \\
-								 \phi(R) & r < R
+	-	\frac{1}{\epsilon_0} R \sigma \ln\del{r} & r \geq R \\
+														0 & r < R
 	\end{cases}
 \]
 
@@ -555,8 +745,9 @@ Verschiebungsdichte und Potential sind in Abbildung \ref{fig:Dhohl} beziehungswe
 			\draw[domain=1:3] plot (\x, {ln(\x)});
 			\draw (0, 0) -- (1, 0);
 			\draw[thin, ->] (0, -1) -- ++(3, 0) node[right] {$r$};
-			\draw[thin, ->] (0, -1) -- ++(0, +1.5) node[above] {$\phi(r)$};
+			\draw[thin, ->] (0, -1) -- ++(0, +1.5) node[above] {$-\phi(r)$};
 			\draw[thin] (1, -0.9) -- ++(0, -0.2) node[below] {$R$};
+			\draw (0.1, 0) -- (-0.1, 0) node[left] {$0$};
 		\end{tikzpicture}
 		\caption{Potential des Hohlzylinders}
 		\label{fig:phihohl}
@@ -582,8 +773,8 @@ Innerhalb des Vollzylinders gibt es nun ein Feld. Dieses ist:
 Das Potential ist wieder das negative Feld nach dem Radius integriert. Es ergibt sich:
 \[
 	\phi(r) = \begin{cases}
-		\half \rho R^2 \ln\del{\frac rR} & r \geq R \\
-   \frac 14 \rho r^2 - \frac 14 \rho R^2 & r < R
+		- \half \frac{1}{\epsilon_0} \rho R^2 \ln\del{r} & r \geq R \\
+   - \frac 14 \frac{1}{\epsilon_0} \rho r^2 + \frac 14 \frac{1}{\epsilon_0} \rho R^2 + \phi(R) & r < R
 	\end{cases}
 \]
 
@@ -609,7 +800,7 @@ Verschiebungsdichte und Potential sind in Abbildung \ref{fig:Dvoll} beziehungswe
 			\draw[domain=1:3] plot (\x, {0.5 * ln(\x)});
 			\draw[domain=0:1] plot (\x, {0.25 * \x^2 - 0.25});
 			\draw[thin, ->] (0, -1) -- ++(3, 0) node[right] {$r$};
-			\draw[thin, ->] (0, -1) -- ++(0, +1.5) node[above] {$\phi(r)$};
+			\draw[thin, ->] (0, -1) -- ++(0, +1.5) node[above] {$-\phi(r)$};
 			\draw[thin] (1, -0.9) -- ++(0, -0.2) node[below] {$R$};
 		\end{tikzpicture}
 		\caption{Potential des Vollzylinders}
@@ -628,7 +819,7 @@ Bei einer Platte wähle ich ein beliebiges Prisma, dessen Stirnflächen (Fläche
 
 Das Potential ist das negative Feld nach dem Abstand integriert:
 \[
-	\phi(r) = - \half \sigma \abs r
+	\phi(r) = - \half \frac{1}{\epsilon_0} \sigma \abs r
 \]
 
 Verschiebungsdichte und Potential sind in Abbildung \ref{fig:Dplatte} beziehungsweise \ref{fig:phiplatte} gezeigt.
@@ -657,6 +848,9 @@ Verschiebungsdichte und Potential sind in Abbildung \ref{fig:Dplatte} beziehungs
 		\label{fig:phiplatte}
 	\end{minipage}
 \end{figure}
+
+\bibliography{../../zentrale_BibTeX/Central}
+\bibliographystyle{plain}
 
 \end{document}
 
