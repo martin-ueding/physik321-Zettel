@@ -1,0 +1,381 @@
+% Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+%
+\input{header.tex}
+
+\usepackage[scaled]{beramono}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+
+\newcommand{\themodul}{physik321}
+\newcommand{\thegruppe}{Gruppe 8 -- Julia Volmer}
+\newcommand{\theuebung}{9}
+
+\pagestyle{fancy}
+
+\fancyfoot[C]{\footnotesize{\thegruppe}}
+\fancyfoot[L]{\footnotesize{Martin Ueding, Simon Schlepphorst}}
+\fancyfoot[R]{\footnotesize{Seite \thepage\ / \pageref{LastPage}}}
+\fancyhead[L]{\themodul{} -- Übung \theuebung}
+
+\def\thesection{H \theuebung.\arabic{section}}
+\def\thesubsubsection{\thesubsection\alph{section}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{
+	Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
+	\and
+	Simon Schlepphorst \\ \small{\href{mailto:s2@uni-bonn.de}{s2@uni-bonn.de}}
+}
+
+\hypersetup{
+	pdftitle={\themodul {} - Übung \theuebung},
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c}
+		Aufgabe & \ref 1 & \ref 2 & \ref 3 & $\sum$   \\
+		\hline
+		Punkte & \punkte / 10 & \punkte / 10 & \punkte / 10 & \punkte / 30
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         inhomogene Wellengleichung                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{inhomogene Wellengleichung}
+\label 1
+
+Die interessanten Maxwellgleichungen im Vakuum (ohne Ladungen und Ströme) sind:
+\[
+	\curl \vec E + \dot{\vec B} = \vec 0
+	,\quad
+	\curl \vec B - \frac{1}{c^2} \dot{\vec E} = \vec 0
+\]
+
+Für die erste Wellengleichung, $\dalambert \vec E = \lambda$, bilde ich die
+Rotation der ersten Gleichung und leite die zweite nach der Zeit ab:
+\[
+	\curl \curl \vec E + \curl \dot{\vec B} = \vec 0
+	,\quad
+	\curl \dot{\vec B} - \frac{1}{c^2} \ddot{\vec E} = \vec 0
+\]
+
+Außerdem ist $\curl \curl \vec x = \vnabla \divergence{\vec x} - \laplace \vec
+x$. Wobei hier die Divergenzen alle $0$ sind.
+
+Mit diesen Vorüberlegungen kann ich die erste Wellengleichung umformen:
+\begin{align*}
+	\dalambert \vec E &= \lambda_1 \\
+	\laplace \vec E - \frac{1}{c^2} \ddot{\vec E} &= \lambda_1 \\
+	- \curl \curl \vec E - \frac{1}{c^2} \ddot{\vec E} &= \lambda \\
+	\intertext{%
+		Wir setzen eine der Gleichungen ein.
+	}
+	- \curl \curl \vec E - \curl \dot{\vec B} &= \lambda_1 \\
+	\intertext{%
+		Die Rotation können wir aufheben. Dabei müssen wir einen beliebigen
+		Gradienten addieren.
+	}
+	- \curl \vec E - \dot{\vec B} &= \lambda_1 + \vnabla \phi \\
+	\intertext{%
+		Die linke Seite ist gerade die negative Stromdichte, die hier
+		allerdings $0$ ist.
+	}
+	0 &= \lambda_1 + \vnabla \phi \\
+	\lambda_1 &= - \vnabla \phi
+\end{align*}
+
+Die Funktion $\lambda_1$ ist also ein beliebiger Gradient.
+
+Analog bilden wir anders herum Rotation und Zeitableitung der beiden
+Gleichungen:
+\[
+	\curl \dot{\vec E} + \ddot{\vec B} = 0
+	,\quad
+	\curl \curl B - \curl \dot{\vec D} = 0
+\]
+
+Nun können wir wieder die Wellengleichung umformen:
+\begin{align*}
+	\dalambert \vec B &= \lambda_2 \\
+	\laplace \vec B - \frac{1}{c^2} \ddot{\vec B} &= \lambda_2 \\
+- \curl \curl \vec B - \frac{1}{c^2} \ddot{\vec B} &= \lambda_2 \\
+	   - \curl \curl \vec B - \frac{1}{c^2} \curl \dot{\vec E} &= \lambda_2 \\
+	\intertext{%
+		Wir nehmen wieder eine Rotation weg und addieren einen Gradienten.
+	}
+	   - \curl \vec B - \frac{1}{c^2} \dot{\vec E} &= \lambda_2 + \vnabla \psi \\
+	   0 &= \lambda_2 + \vnabla \psi \\
+	   \lambda_2 &= - \vnabla \psi
+\end{align*}
+
+Die zweite Funktion $\lambda_2$ ist also wieder ein Gradient.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         zirkular polarisierte Welle                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{zirkular polarisierte Welle}
+\label 2
+
+\subsection{Magnetfeld}
+
+Gegeben ist das elektrische Feld:
+\[
+	\vec E = \re\del{f(x-ct) \del{\ev_y + \ii \ev_z}}
+\]
+
+Wir bilden die Rotation dieses Feldes:
+\[
+	\curl \vec E = \re\del{f'(x-ct) \del{-\ii \ev_y + \ev_z}}
+\]
+
+Dies integrieren wir nach der Zeit und wählen alle Integrationskonstanten
+gleich $0$:
+\[
+	\vec B = \frac 1c \re\del{f(x-ct) \del{\ii \ev_y - \ev_z}}
+\]
+
+\subsection{Energiedichten}
+
+Wir bestimmen die Energiedichte:
+\begin{align*}
+	\omega
+	&= \half\del{\inner{\vec B}{\vec H} + \inner{\vec D}{\vec E}} \\
+	&= \half f(x-ct)f^*(x-ct) \del{\frac{1}{c^2} \frac{1}{\mu_0} \del{\ii\ev_y - \ev_z}\del{-\ii\ev_y - \ev_z} + \varepsilon_0 \del{\ev_y+\ii\ev_z}\del{\ev_y - \ii \ev_z}} \\
+	&= 2 \varepsilon_0 f(x-ct)f^*(x-ct) \\
+\end{align*}
+
+Und die Energiestromdichte:
+\begin{align*}
+	\vec S
+	&= \vec E \times \vec H \\
+	&= \frac{1}{c \mu} f(x-ct)f^*(x-ct) \begin{pmatrix} 0 \\ 1 \\ \ii \end{pmatrix} \times \begin{pmatrix} 0 \\ \ii \\ 1 \end{pmatrix} \\
+	&= 2 \sqrt{\frac{\varepsilon_0}{\mu_0}} f(x-ct)f^*(x-ct) \ev_x
+\end{align*}
+
+Es fehlt der Spannungstensor $\tens G$:
+\[
+	G^{\alpha\beta} =
+	\omega \delta^{\alpha\beta} - \varepsilon_0 E^\alpha B^\beta
+	- \frac{1}{\mu_0} B^\alpha B^\beta
+\]
+
+Oder als ganzer Tensor geschrieben:
+\begin{align*}
+	\tens G &= \omega \tens 1 - \varepsilon_0 \vec E \otimes \vec E
+	- \frac{1}{\mu_0} \vec B \otimes \vec B \\
+	&=
+	\begin{pmatrix}
+		\omega & 0 & 0 \\
+				0 & \omega & 0 \\
+		  0 & 0 & \omega
+	\end{pmatrix}
+	-
+	\re\del{
+		f^2(x-ct)
+		\del{
+			\varepsilon_0
+			\begin{pmatrix}
+				0 & 0 & 0 \\
+		  0 & 1 & \ii \\
+		  0 & \ii & -1
+			\end{pmatrix}
+			+
+			\frac{1}{c^2 \mu_0}
+			\begin{pmatrix}
+				0 & 0 & 0 \\
+		  0 & -1 & -\ii \\
+		  0 & -\ii & 1
+			\end{pmatrix}
+		}
+	} \\
+	&=
+	f(x-ct)f^*(x-ct) \varepsilon_0 \del{
+		\begin{pmatrix}
+			2 & 0 & 0 \\
+			0 & 2 & 0 \\
+			0 & 0 & 2
+		\end{pmatrix}
+		-
+		\del{
+			\begin{pmatrix}
+				0 & 0 & 0 \\
+		  0 & 1 & \ii \\
+		  0 & \ii & -1
+			\end{pmatrix}
+			+
+			\begin{pmatrix}
+				0 & 0 & 0 \\
+		  0 & -1 & -\ii \\
+		  0 & -\ii & 1
+			\end{pmatrix}
+		}
+	} \\
+	&= 2 f(x-ct)f^*(x-ct) \varepsilon_0 \tens 1
+\end{align*}
+
+Die Diagonalform heißt wohl, dass dieses Feld nur Druck und keine Scherspannung
+ausübt.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         Coulomb- und Lorenzeichung                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Coulomb- und Lorenzeichung}
+\label 3
+
+\subsection{Begründung und Bestimmungsgleichungen}
+
+Da $\divergence{\vec B} = 0$ gilt, kann ist dieses ein reines Wirbelfeld. Ein
+solches kann immer als Rotation eines anderen Feldes, $\vec A$ geschrieben
+werden:
+\[
+	\vec B = \curl \vec A
+\]
+
+Für den elektrostatischen Fall gilt $\curl \vec E = 0$, so dass sich dieses als
+Gradient eines skalaren Feldes, $\varphi + c_1$ schreiben lässt:
+\[
+	\vec E = - \vnabla \varphi
+\]
+
+Für den elektrodynamischen, aber ladungsfreien Fall gilt $\divergence{\vec E} =
+0$. Außerdem gilt $\curl \vec E = - \dot{\vec B}$. Wir setzen die Induktion ein
+und erhalten:
+\[
+	\curl \vec E = - \curl \dot{\vec A}
+	\iff
+	\vec E = - \dot{\vec A} - \vnabla \dot \psi
+\]
+
+Durch die Linearität der Differentialgleichung können wir beide Fälle
+zusammensetzen und erhalten:
+\[
+	\vec E = - \vnabla \phi - \dot{\vec A}
+\]
+
+\subsection{Eichinvarianz der Potentiale}
+
+In der vorherigen Aufgabe haben wir bei der Integration schon die Freiheiten
+$c_1$ und $\vnabla \psi$ eingefügt. Das Vektorpotential $\vec A$ ist nur bis
+auf einen Gradienten bestimmt, das skalare Potential $\varphi$ nur bis auf eine
+additive Konstante.
+
+\subsection{Coulombeichung}
+
+Wir betrachten die inhomogenen Maxwellgleichungen:
+\[
+	\divergence{\vec E} = \frac{\rho}{\varepsilon}
+	,\quad
+	\curl \vec B - \frac{1}{c^2} \dot{\vec E} = \mu \vec j
+\]
+
+Dort setzen wir unsere Potentiale ein und erhalten nach einigen Umformungen
+folgendes Gleichungssystem:
+\begin{subequations}
+	\label{eq:system}
+	\begin{equation}
+		\label{eq:a}
+		\vnabla \del{\divergence{\vec A} + \frac{1}{c^2} \dot \varphi} - \dalambert \vec A
+		= - \mu \vec j
+	\end{equation}
+	\begin{equation}
+		\label{eq:b}
+		\laplace \varphi + \divergence{\dot{\vec A}} =
+		- \frac{\rho}{\varepsilon}
+	\end{equation}
+\end{subequations}
+
+Nun setzen wir $\divergence{\vec A} = 0$ ein und vereinfachen das System zu:
+\begin{subequations}
+	\begin{equation}
+		\label{eq:a1}
+		- \frac{1}{c^2} \vnabla \dot \varphi + \dalambert \vec A = - \mu \vec j
+	\end{equation}
+	\begin{equation}
+		\label{eq:b1}
+		\laplace \varphi = - \frac{\rho}{\varepsilon}
+	\end{equation}
+\end{subequations}
+
+Gleichung \eqref{eq:b1} ist gerade die aus der Elektrostatik. Diese können wir
+mit einem Poissonintegral lösen und erhalten:
+\begin{equation}
+	\label{eq:phi}
+	\varphi =
+	\frac{1}{4\pi\varepsilon_0} \int \dif{^3 r'} \frac{\rho}{\abs{\vec r - \vec r'}}
+\end{equation}
+
+Gleichung \eqref{eq:a1} formen wir um und erhalten eine Gleichung für das $\vec
+A$-Feld:
+\[
+	\dalambert \vec A = - \mu \vec j + \frac{1}{c^2} \vnabla \dot \varphi 
+\]
+
+Wir setzen \eqref{eq:phi} in die obige Gleichung ein und erhalten bis auf eine
+harmonische Funktion $f$:
+\begin{equation}
+	\label{eq:unsere}
+	\dalambert \vec A =
+	- \mu \vec j - \frac{\mu_0}{4 \pi} \vnabla
+	\int \dif{^3 r'} \frac{\dot \varphi}{\abs{\vec r - \vec r'}} + f
+\end{equation}
+
+Nun benutzen wir die Kontinuitätsgleichung. Diese lautet:
+\[
+	\dot \rho + \divergence{\vec j} = 0
+	\iff
+	\varepsilon \vnabla \dot \varphi = \divergence{\vec j}
+\]
+
+Gleichung \eqref{eq:unsere} wird zu:
+\[
+	\dalambert \vec A =
+	- \mu \vec j - \frac{\mu_0}{4 \pi} \vnabla
+	\int \dif{^3 r'} \frac{\divergence{\dot{\vec j}}}{\abs{\vec r - \vec r'}}
+\]
+
+Die Differenz auf der rechten Seite können wir als Rotation schreiben. Ein
+Vektorfeld lässt sich in ein Quellen- und ein Wirbelfeld zerlegen. Dies ist der
+erste Summand. Davon ziehen wir den Quellenteil (zweiter Summand) ab, es bleibt
+der Wirbelteil:
+\[
+	\dalambert \vec A =
+	- \frac{\mu_0}{4 \pi} \curl
+	\int \dif{^3 r'} \frac{\curl {\dot{\vec j}}}{\abs{\vec r - \vec r'}}
+\]
+
+\subsubsection{Lösung im Vakuum}
+
+\subsubsection{warum „transversal“?}
+
+Wir haben $\dalambert \vec A$ ausschließlich durch die transversale Stromdichte
+ausgedrückt, daher wird dies \emph{transversale Eichung} genannt.
+
+\subsection{Lorenzeichung}
+
+Wir hatten das Gleichungssystem \eqref{eq:system}. Dort setzen wir in beide
+Gleichungen $\divergence{\vec A} + \frac{1}{c^2} \dot \phi = 0$ ein und
+erhalten:
+\[
+	\dalambert \vec A = \mu \vec j
+	,\quad
+	\dalambert \varphi = - \frac \rho \varepsilon
+\]
+
+Somit sind die Gleichungen entkoppelt.
+
+%\bibliography{../../zentrale_BibTeX/Central}
+%\bibliographystyle{plain}
+
+\end{document}
+
+% vim: spell spelllang=de
