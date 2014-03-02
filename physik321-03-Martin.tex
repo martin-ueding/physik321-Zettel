@@ -1,0 +1,424 @@
+% Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+%
+\documentclass[11pt, ngerman, fleqn]{article}
+
+\usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[activate]{pdfcprot}
+\usepackage[cdot, squaren]{SIunits}
+\usepackage[iso]{isodate}
+\usepackage[parfill]{parskip}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{babel}
+\usepackage{color}
+\usepackage{commath}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage{setspace}
+\usepackage{tikz}
+
+\usepackage[charter, greekuppercase=italicized]{mathdesign}
+
+\definecolor{darkblue}{rgb}{0,0,.5}
+\definecolor{darkgreen}{rgb}{0,.5,0}
+
+\hypersetup{
+	breaklinks=false,
+	citecolor=darkgreen,
+	colorlinks=true,
+	linkcolor=black,
+	menucolor=black,
+	urlcolor=darkblue,
+}
+
+\setlength{\columnsep}{2cm}
+
+\DeclareMathOperator{\arcsinh}{arsinh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\asinh}{arsinh}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\dalambert}{\mathop{{}\Box}\nolimits}
+\newcommand{\divergence}[1]{\inner{\vnabla}{#1}}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\emesswert}{\del{\messwert \pm \messwert}}
+\newcommand{\ev}{\hat{\vec e}}
+\newcommand{\e}[1]{\cdot 10^{#1}}
+\newcommand{\fehlt}{\textcolor{red}{Hier fehlen noch Inhalte.}}
+\newcommand{\half}{\frac 12}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\laplace}{\mathop{{}\Deltaup}\nolimits}
+\newcommand{\messwert}{\textcolor{blue}{\square}}
+\newcommand{\punkte}{\textcolor{white}{xxxxx}}
+\newcommand{\tens}[1]{\boldsymbol{#1}}
+\newcommand{\vnabla}{\vec \nabla}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+
+\newcommand{\themodul}{physik321}
+\newcommand{\thegruppe}{Gruppe 8 -- Julia Volmer}
+\newcommand{\theuebung}{3}
+
+\pagestyle{fancy}
+
+\fancyfoot[C]{\footnotesize{\thegruppe}}
+\fancyfoot[L]{\footnotesize{Martin Ueding, Simon Schlepphorst}}
+\fancyfoot[R]{\footnotesize{Seite \thepage\ / \pageref{LastPage}}}
+\fancyhead[L]{\themodul{} -- Übung \theuebung}
+
+\setcounter{section}{0}
+
+\def\thesection{H \theuebung.\arabic{section}}
+\def\thesubsubsection{\thesubsection\alph{section}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}} \and Simon Schlepphorst \\ \small{\href{mailto:s2@uni-bonn.de}{s2@uni-bonn.de}}}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c|c}
+		Aufgabe & H \theuebung.1 & H \theuebung.2 & H \theuebung.3 & H \theuebung.4 & $\sum$   \\
+		\hline
+		Punkte & \punkte / 10 & \punkte / 10 & 0 / 20 & \punkte / 20 & \punkte / 40
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                    eine Konfiguration von Punktladungen                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{eine Konfiguration von Punktladungen}
+
+\subsection{Ladungsverteilung und Potential}
+
+Das Potential einer Punktladung ist:
+\[
+	\Phi\del{\vec r} = \frac{1}{4\pi\varepsilon_0} \frac{Q}{\abs{\vec r - \vec r'}}
+\]
+
+Die Ladungsverteilung kann ich mit $\delta$-Distributionen darstellen:
+\[
+	\rho\del{\vec r} = Q \delta\del{x} \delta\del{y} \del{
+		\delta\del{\frac a2 - z} - \delta\del{-\frac a2 - z}
+	}
+\]
+
+Die Punktladungen haben jeweils ein Potential, das ich mit Superposition zu
+einem Gesamtpotential zusammensetzen kann:
+\[
+	\Phi\del{\vec r} = \frac{1}{4 \pi \varepsilon_0} \del{
+		\frac{Q}{\abs{\vec r - \begin{pmatrix}
+	0 \\ 0 \\ a/2
+	\end{pmatrix}}} - \frac{Q}{\abs{\vec r - \begin{pmatrix}
+	0 \\ 0 \\ - a/2
+	\end{pmatrix}}}
+	}
+\]
+
+\subsection{Ladungen zusammenrücken}
+
+Die Dipolmoment $p = Qa$ soll konstant bleiben, dabei soll $a \to 0$ gehen.
+Ich entwickele das Potential um $a = 0$:
+\[
+	\Phi\del{\vec r} = \frac{1}{4 \pi \varepsilon_0} \frac{a Q z}{r^3} + \mathcal O\del{a^2}
+	= \frac{1}{4 \pi \varepsilon_0} \frac{pz}{r^3} + \mathcal O\del{a^2}
+\]
+
+Wenn man jetzt ein Einheitensystem wählt, in dem $1/\del{4 \pi \varepsilon_0} = 1$
+gilt, dann ergibt dies das geforderte $\Phi = pz/r^3$.
+
+\subsection{andere Ladungsdichte}
+
+Gegeben ist die Ladungsdichte:
+\[
+	\rho\del{\vec r} = - p \delta(x) \delta(y) \delta'(z)
+\]
+
+Durch Integration erhalte ich das Potential:
+\begin{align*}
+	\Phi\del{\vec x}
+	&= - \frac{1}{4 \pi \varepsilon_0} \int_{\mathbb R} \dif x' \int_{\mathbb R} \dif y' \int_{\mathbb R} \dif z'  \frac{\rho\del{x', y', z'}}{\abs{\vec r - \vec r'}} \\
+	&= - \frac{1}{4 \pi \varepsilon_0} p \int_{\mathbb R} \dif x' \delta\del{x'} \int_{\mathbb R} \dif y' \delta\del{y'} \int_{\mathbb R} \dif z' \frac{\delta'\del{z'}}{\abs{\vec r - \vec r'}} \\
+	\intertext{%
+		Durch partielle Integration kann ich die Ableitung nach $z$ von der
+		$\delta$-Distribution auf den inversen Abstand umwälzen.
+	}
+	&= - \frac{1}{4 \pi \varepsilon_0} p \int_{\mathbb R} \dif x' \delta\del{x'} \int_{\mathbb R} \dif y' \delta\del{y'} \int_{\mathbb R} \dif z' \delta\del{z'} \dpd{}{z'} \frac{1}{\abs{\vec r - \vec r'}} \\
+	&= - \frac{1}{4 \pi \varepsilon_0} p \int_{\mathbb R} \dif x' \delta\del{x'} \int_{\mathbb R} \dif y' \delta\del{y'} \int_{\mathbb R} \dif z' \frac{\delta\del{z'} \del{z - z'}}{\del{\del{x-x'}^2 + \del{y-y'}^2 + \del{z-z'}^2}^{3/2}} \\
+	\intertext{%
+		Die Integrale sind jetzt recht einfach durch die
+		$\delta$-Distributionen. Letztlich ist $x' = 0$, $y' = 0$, $z' = 0$.
+	}
+	&= - \frac{1}{4 \pi \varepsilon_0} p \frac{z}{\del{x^2 + y^2 + z^2}^{3/2}} \\
+	&= - \frac{1}{4 \pi \varepsilon_0} p \frac{z}{r^3}
+\end{align*}
+
+Das ist genau das gleiche Potential wie bei der vorherigen Aufgabe.
+
+\subsection{elektrisches Feld}
+
+Für das elektrische Feld bilde ich den Gradienten:
+\[
+	\vec E
+	= \frac{1}{4 \pi \varepsilon_0} p \vnabla \frac{z}{r^3}
+	= \frac{1}{4 \pi \varepsilon_0} p \del{ \underbrace{\frac{1}{r^3} \begin{pmatrix}
+		0 \\ 0 \\ 1
+\end{pmatrix}}_{1/r^3 \nabla z} - \underbrace{\frac{3z}{r^4}}_{-z \nabla 1/r^3} }
+\]
+
+Das Feld ist in Abbildung \ref{plot} gezeigt. Die Äquipotenzlinien fehlen noch, sollten allerdings Hyperboloide sein.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[height=0.3\textheight]{Vektorplot.pdf}
+	\caption{elektrisches Feld}
+	\label{plot}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                 Trennung der Variablen in Polarkoordinaten                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Trennung der Variablen in Polarkoordinaten}
+
+\subsection{Lösung der Laplacegleichung}
+
+\begin{footnotesize}
+	Da das Spiel „finde die Zahl“ inzwischen langweilig ist, schlage ich als
+	neues Spiel „finde den lateinischen Buchstaben“ für diese Aufgabe vor.
+\end{footnotesize}
+
+Da $\phi$ und $\varphi$ eigentlich der gleiche Buchstabe ist, benutze ich für
+das Potential $\Phi$.
+
+Als Ansatz für das Potential benutze ich $\Phi\del{\rho, \phi} = V_0 +
+\Phi_\rho(\rho) \Phi_\phi(\phi)$. Dies setze ich in die Laplacegleichung, die
+in Polarkoordinaten gegeben ist, ein:
+\[
+	\frac 1\rho \dpd{}\rho \del{\rho \dpd{\Phi_\rho}\rho \Phi_\phi} + \frac
+	1{\rho^2} \dpd[2]{\Phi_\phi}\phi \Phi_\rho = 0
+\]
+
+Ich trenne die Variablen:
+\[
+	\frac \rho{ \Phi_\rho } \dpd{}\rho \del{\rho \dpd{\Phi_\rho}\rho} +  \frac
+	1{ \Phi_\phi } \dpd[2]{\Phi_\phi}\phi  = 0
+\]
+
+Beide Seiten hängen von unterschiedlichen Variablen ab, somit müssen sie beide
+gleich einer Konstanten, $\beta^2$, sein. Das Quadrat ist willkürlich und wird
+erst später praktisch. Somit ergeben sich zwei Differentialgleichungen:
+\[
+	\rho^2 \dpd[2]{\Phi_\rho}\rho + \rho \dpd{\Phi_\rho}\rho - \beta^2 \Phi_\rho = 0
+	\quad\wedge\quad
+	-\beta^2 \Phi_\phi = \dpd[2]{\Phi_\phi}\phi
+\]
+
+Die Lösung für die erste Gleichung habe ich nicht selbst finden können, sie
+stammt aus \cite[Seite~92]{jackson-klassische_elektrodynamik}. Die zweite
+Gleichung lässt sich durch Kosinus und Sinus lösen (und jede Linearkombination
+davon). Dabei stellt die Funktion $\mathcal L[M]$ die lineare Hülle der Menge
+$M$ dar.
+\[
+	\Phi_\rho \in \mathcal L \sbr{\set{\rho^\beta, \rho^{-\beta}}}
+	\quad\wedge\quad
+	\Phi_\phi \in \mathcal L \sbr{\set{\cos\del{\beta \phi}, \sin\del{\beta \phi}}}
+\]
+
+Die Randbedingungen erfordern, dass $\Phi\del{\rho, 0} = 0$ und $\Phi\del{\rho,
+\alpha} = 0$ sind. Daraus folgt, dass keine Kosinusterme in $\Phi_\phi$
+vorkommen. Außerdem muss $\sin\del{\beta \phi} = 0$ gelten, woraus folgt:
+$\beta = n \pi / \alpha$. Da $\Phi$ bei $\rho = 0$ keine Singularität haben
+soll, folgt auch noch, dass keine negativen Potenzen von $\rho$ vorkommen
+können. Die $\gamma_n$ sind die Koeffizienten für die Linearkombination. Die
+allgemeine Lösung dann so aus:
+\[
+	\Phi\del{\rho, \phi} = V_0 + \sum_{n = 1}^\infty \gamma_n \rho^{n \pi /
+	\alpha} \sin\del{\frac{n\pi}{\alpha} \phi}
+\]
+
+\subsection{Näherung und elektrisches Feld $\vec E$}
+
+Für kleines $\rho$ ist nur der erste Term in der Potenzreihe maßgebend. Somit ist das Potential näherungs\-weise:
+\[
+	\Phi\del{\rho, \phi} \approx V_0 + \gamma_1 \rho^{\pi/\alpha} \sin\del{\frac\pi\beta\phi}
+\]
+
+Das elektrische Feld ist die negative Ableitung des Potentials. Diese sind mit den entsprechenden Formeln für Polarkoordinaten:
+\[
+	E_\rho = - \dpd\Phi\rho = - \gamma_1 \frac\pi\beta \rho^{\pi/\beta - 1} \sin{\frac\pi\beta\phi}
+	, \quad
+	E_\phi = - \frac 1\rho \dpd\Phi\phi = - \gamma_1 \frac\pi\beta \rho^{\pi/\beta - 1} \cos{\frac\pi\beta\phi}
+\]
+
+Somit ist das Feld in Polarkoordinaten:
+\[
+	\vec E(\rho, \phi) = \vec e_\rho E_\rho  + \vec e_\phi E_\phi
+\]
+
+Die Oberflächenladungsdichte ist gegeben durch $\sigma = \varepsilon_0 E$.
+Diese ist aufgrund der Azimutalsymmetrie auf beiden Platten gleich, ich gebe
+die Ladungsdichte für $\phi = 0$ an. Der Vektor $\vec \nu$ ist der
+Normalenvektor auf die Platte.
+\[
+	\sigma(\rho)
+	= \varepsilon_0 \inner{\vec \nu}{\vec E(\rho, 0)}
+	= \varepsilon_0 \inner{\vec e_\phi}{\vec e_\rho E_\rho(\rho, 0)  + \vec e_\phi E_\phi(\rho, 0)}
+	= - \varepsilon_0 \gamma_1 \frac\pi\beta \rho^{\pi/\beta - 1}
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           Kugelflächenfunktionen                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Kugelflächenfunktionen}
+
+Diese Aufgaben lasse ich aus.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              Spiegelladungen 2                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Spiegelladungen 2}
+
+Aus Symmetriegründen muss die Spiegelladung auf der Verbindungslinie vom
+Koordinatenursprung und Ladung liegen. Die Ladung sei $q'$ groß und an der
+Position $\vec r_{q'}$.
+
+Ich habe mich bei der Bearbeitung an
+\cite[Seite~70]{jackson-klassische_elektrodynamik} gehalten.
+
+\subsection{Potential}
+
+Das Potential $\Phi$ ist eine Superposition von Punktladung und Spiegelladung:
+\[
+	\Phi\del{\vec r} = \frac{1}{4 \pi \varepsilon_0} \del{
+		\frac{q}{\abs{\vec r - \vec r_q}}
+		+
+		\frac{q'}{\abs{\vec r - \vec r_{q'}}}
+	}
+\]
+
+Da die beiden Ladungen auf einer Linie liege, kann ich die Position als Vielfaches eines Normalenvektors $\vec \nu$ schreiben:
+\[
+	\Phi\del{r} = \frac{1}{4 \pi \varepsilon_0} \del{
+		\frac{q}{\abs{\vec \nu r - \vec \nu r_q}}
+		+
+		\frac{q'}{\abs{\vec \nu r - \vec \nu r_{q'}}}
+	}
+\]
+
+An der Stelle $r = R$ soll das Potential 0 sein. Somit muss gelten:
+\[
+	\Phi\del{R} = \frac{1}{4 \pi \varepsilon_0} \del{
+		\frac{q}{\abs{\vec \nu R - \vec \nu r_q}}
+		+
+		\frac{q'}{\abs{\vec \nu R - \vec \nu r_{q'}}}
+	}
+	\overset != 0
+\]
+
+Jetzt klammere ich im Nenner aus:
+\[
+	\Phi\del{R} = \frac{1}{4 \pi \varepsilon_0} \del{
+		\frac{q}{R \abs{\vec \nu - \vec \nu \frac{r_q}R}}
+		+
+		\frac{q'}{r_{q'} \abs{\vec \nu \frac{ R}{r_{q'}} - \vec \nu}}
+	}
+	\overset != 0
+\]
+
+Der Ausdruck ist genau dann gleich 0, wenn folgende Bedingungen erfüllt sind:
+\[
+	\frac qR = - \frac{q'}{r_{q'}}
+	\quad\wedge\quad
+	\frac{r_1}R = \frac R{r_{1'}}
+\]
+
+Dies kann ich umformen zu:
+\[
+	q' = - \frac R{r_q} q
+	\quad\wedge\quad
+	r_{q'} = \frac{R^2}{r_q}
+\]
+
+Das setze ich in das Potential ein und erhalte:
+\[
+	\Phi\del{\vec r} = \frac{q}{4 \pi \varepsilon_0} \del{
+		\frac{1}{\abs{\vec r - \vec r_q}}
+		-
+		\frac{1}{\abs{\vec r \frac{r_q}R - R \vec r_{q}}}
+	}
+\]
+
+\subsection{Flächenladungsdichte}
+
+Die Flächenladungsdichte ist, mit $\gamma$ als Winkel zwischen $\vec r$ und $\vec r_q$:
+\[
+	\sigma = \varepsilon_0 \eval{\dpd\Phi{\vec r}}_{r=R} = - \frac{q}{4 \pi R^2} \frac R{r_q} \frac{1 - \frac{R^2}{{r_q}^2}}{\del{1 + \frac{R^2}{{r_q}^2} - R \frac R{r_q} \cos\del\gamma}^{3/2}}
+\]
+
+Die Ladung auf der Oberfläche muss gleich der Spiegelladung und das Negative
+der realen Ladung sein, da der gesamte Raum ohne das Innere der Kugel durch den
+Leiter begrenzt wird, der feldfrei sein muss. Somit muss außerhalb der Kugel
+total keine Ladung sein.
+
+\subsection{Kraft}
+
+Die Kraft auf die Ladung könnte durch Integration über die Ladungsverteilung ermittelt werden. Ich wähle hier den einfacheren Weg, in dem ich die Kraft auf die Spiegelladung berechne. Diese ist:
+\[
+	\vec F
+	= \frac{1}{4 \pi \varepsilon_0} \frac{q^2}{d^3} \vec d
+\]
+
+
+Dann setze ich noch die in den vorherigen Aufgaben gefundene Relationen für die Position und Ladung der Spiegelladung ein. Damit erhalte ich:
+\[
+	\vec F
+	= \frac{1}{4 \pi \varepsilon_0} \frac{q^2}{{r_q}^2} \del{\frac a{r_q}}^3 \del{1-\frac{a^2}{{r_q}^2}}^{-2} \hat{\vec r}_q
+\]
+
+\subsection{isolierte, leitende Hohlkugel}
+
+Laut \cite[Seite~75]{jackson-klassische_elektrodynamik} kann ich die Ladung $Q$
+auf der Kugeloberfläche als lineare Superposition von einer Ladung $q'$, die
+die äußere Ladung $q$ ausgleicht und einer Restladung $Q - q'$ ansehen. Dabei
+verteilt sich die Restladung homogen, weil die Ladung $q'$ bereits das externe
+Feld der Ladung $q$ ausgleicht.
+
+Somit kommen als zu den Potentialen und Kräften der vorherigen Aufgabenteilen
+folgende Teile hinzu. Dabei kann ich die Restladung im Koordinatenursprung
+zentriert annehmen.
+\[
+	\Phi_{Q + q'}\del{\vec x}
+	= \frac{1}{4 \pi \varepsilon_0} \frac{Q+\frac R{r_q} q}{x}
+\]
+
+Die Kraft bekommt ebenfalls einen weiteren Term:
+\[
+	\vec F_{Q + q'}\del{\vec x}
+	= \frac{1}{4 \pi \varepsilon_0} \frac{\del{Q+\frac R{r_q} q}q}{x^3} \vec x
+\]
+
+Ein Ladungsüberschuss auf der Außenseite wird diese nicht verlassen und auf die
+Innenseite wandern. Da innerhalb des Leiters kein Feld herrschen kann, muss
+nach dem Gesetz von Gauß das Innere ladungsfrei sein. Daher kann die Ladung
+nicht nach innen wandern. Von der Kugel könnte die Ladung bei ausreichend hohen
+elektrischen Feldern und realen Leitern allerdings in einem Blitz entkommen.
+
+\bibliography{../../zentrale_BibTeX/Central}
+\bibliographystyle{plain}
+
+\end{document}
+
+% vim: spell spelllang=de
