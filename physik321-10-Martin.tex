@@ -106,22 +106,41 @@ $\beta_\text{ret}$ ausdrücken.
 
 \subsection{Felder}
 
-Das elektrische Feld ist der negative Gradient des skalaren Potentials, so dass gilt:
+Das elektrische Feld ist der negative Gradient des skalaren Potentials minus der Zeitableitung des $\vec A$-Feldes, so dass gilt:
 \[
-	\vec E = - \vnabla \Phi
+	\vec E = - \vnabla \Phi - \dot{\vec A}
 \]
 
-Wir bilden den Gradient des entwickelten Potentials:
+Wir bilden den zuerst den Gradienten des entwickelten skalaren Potentials:
 \begin{align*}
 	\vec E
 	&= - \vnabla \Phi \\
 	&= - \frac{q}{4 \pi \varepsilon_0} \vnabla \del{\frac 1r + \frac{1}{r^2}\inner{\vec r}{\vec \beta_\text{ret}} + \mathcal O\del{\vec \beta_\text{ret}^2}} \\ 
-	E^a
-	&= - \frac{q}{4 \pi \varepsilon_0} \partial_a \del{\frac 1r + \frac{1}{r^2}\inner{\vec r}{\vec \beta_\text{ret}} + \mathcal O\del{\vec \beta_\text{ret}^2}} \\ 
-	&= - \frac{q}{4 \pi \varepsilon_0} \partial_a \del{\frac 1r + \frac{1}{r^2} r_b \beta_\text{ret}^b + \mathcal O\del{\vec \beta_\text{ret}^2}} \\ 
 	\intertext{%
+		Dabei werden wir den $\vnabla$-Operator in Kugelkoordinaten benutzen.
 	}
+	&= - \frac{q}{4 \pi \varepsilon_0} \del{\ev^r \dpd{}r + \frac 1r \ev^\theta \dpd{}\theta + \frac{1}{r \sin \theta} \ev^\phi \dpd{}\phi} \del{\frac 1r + \frac{1}{r^2}\inner{\vec r}{\vec \beta_\text{ret}} + \mathcal O\del{\vec \beta_\text{ret}^2}} \\ 
+	&= - \frac{q}{4 \pi \varepsilon_0} \del{ - \frac 1{r^2} \ev^r + \del{\ev^r \dpd{}r + \frac 1r \ev^\theta \dpd{}\theta + \frac{1}{r \sin \theta} \ev^\phi \dpd{}\phi} \del{\frac{1}{r^2}\inner{\vec r}{\vec \beta_\text{ret}} + \mathcal O\del{\vec \beta_\text{ret}^2}}} \\ 
+	\intertext{%
+		Terme der Ordnung $1/r^2$ lassen wir fallen.
+	}
+	&= - \frac{q}{4 \pi \varepsilon_0} \del{\ev^r \dpd{}r + \frac 1r \ev^\theta \dpd{}\theta + \frac{1}{r \sin \theta} \ev^\phi \dpd{}\phi} \frac{1}{r^2}\inner{\vec r}{\vec \beta_\text{ret}} + \mathcal O\del{\frac 1{r^2}} \\ 
+	&= - \frac{q}{4 \pi \varepsilon_0} \del{\ev^r \dpd{}r + \frac 1r \ev^\theta \dpd{}\theta + \frac{1}{r \sin \theta} \ev^\phi \dpd{}\phi} \frac{1}{r^2} \ev_a \beta_\text{ret}^a + \mathcal O\del{\frac 1{r^2}} \\ 
+	%
+	\intertext{%
+		\fehlt
+	}
+	\intertext{%
+		Den Summanden $\dot{\vec \beta}_\text{ret}$ erhalten wir durch
+		$\dot{\vec A}$.
+	}
+	&= \frac{q}{4 \pi \varepsilon_0} \frac 1r \del{\dot{\beta}_\text{ret}^r \ev^r + \dot{\vec \beta}_\text{ret}} + \mathcal O\del{\frac 1{r^2}} \\
+	&= \frac{q}{4 \pi \varepsilon_0} \frac 1r \del{\ev^r \inner{\ev^r}{\dot{\vec \beta}_\text{ret}} + \dot{\vec \beta}_\text{ret}} + \mathcal O\del{\frac 1{r^2}} \\
+&= \frac{q}{4 \pi \varepsilon_0} \frac 1r \del{\ev^r \inner{\ev^r}{\dot{\vec \beta}_\text{ret}} + \dot{\vec \beta}_\text{ret} \inner{\ev^r}{\ev^r}} + \mathcal O\del{\frac 1{r^2}} \\
+	&= \frac{q}{4 \pi \varepsilon_0} \frac 1r \ev^r \times \del{\ev^r \times \dot{\vec \beta}_\text{ret}} + \mathcal O\del{\frac 1{r^2}}
 \end{align*}
+
+\fehlt
 
 \subsection{Polarisierung}
 
