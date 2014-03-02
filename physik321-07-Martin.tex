@@ -1,0 +1,341 @@
+% Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+%
+\documentclass[11pt, ngerman, fleqn]{article}
+
+\usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[activate]{pdfcprot}
+\usepackage[cdot, squaren]{SIunits}
+\usepackage[iso]{isodate}
+\usepackage[parfill]{parskip}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{babel}
+\usepackage{color}
+\usepackage{commath}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage{setspace}
+\usepackage{tikz}
+
+\usepackage[charter, greekuppercase=italicized]{mathdesign}
+
+\definecolor{darkblue}{rgb}{0,0,.5}
+\definecolor{darkgreen}{rgb}{0,.5,0}
+
+\hypersetup{
+	breaklinks=false,
+	citecolor=darkgreen,
+	colorlinks=true,
+	linkcolor=black,
+	menucolor=black,
+	urlcolor=darkblue,
+}
+
+\setlength{\columnsep}{2cm}
+
+\DeclareMathOperator{\arcsinh}{arsinh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\asinh}{arsinh}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\curl}{\vnabla \times}
+\newcommand{\dalambert}{\mathop{{}\Box}\nolimits}
+\newcommand{\divergence}[1]{\inner{\vnabla}{#1}}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\emesswert}{\del{\messwert \pm \messwert}}
+\newcommand{\ev}{\hat{\vec e}}
+\newcommand{\e}[1]{\cdot 10^{#1}}
+\newcommand{\fehlt}{\textcolor{red}{Hier fehlen noch Inhalte.}}
+\newcommand{\half}{\frac 12}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\laplace}{\mathop{{}\bigtriangleup}\nolimits}
+\newcommand{\messwert}{\textcolor{blue}{\square}}
+\newcommand{\punkte}{\textcolor{white}{xxxxx}}
+\newcommand{\tens}[1]{\boldsymbol{\mathsf{#1}}}
+\newcommand{\vnabla}{\vec \nabla}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+
+\newcommand{\themodul}{physik321}
+\newcommand{\thegruppe}{Gruppe 8 -- Julia Volmer}
+\newcommand{\theuebung}{7}
+
+\pagestyle{fancy}
+
+\fancyfoot[C]{\footnotesize{\thegruppe}}
+\fancyfoot[L]{\footnotesize{Martin Ueding, Simon Schlepphorst}}
+\fancyfoot[R]{\footnotesize{Seite \thepage\ / \pageref{LastPage}}}
+\fancyhead[L]{\themodul{} -- Übung \theuebung}
+
+\def\thesection{H \theuebung.\arabic{section}}
+\def\thesubsubsection{\thesubsection\alph{section}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{
+	Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
+	\and
+	Simon Schlepphorst \\ \small{\href{mailto:s2@uni-bonn.de}{s2@uni-bonn.de}}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c}
+		Aufgabe & \ref 1 & \ref 2 & \ref 3 & $\sum$   \\
+		\hline
+		Punkte & \punkte / 20 & \punkte / 10 & \punkte / 10 & \punkte / 40
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         Reflexion und Transmission                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Reflexion und Transmission}
+\label 1
+
+\subsection{Brechungsgesetz, Amplituden}
+
+\paragraph{Einfallswinkel}
+
+Es soll gerade gelten, dass für alle $\vec r$ entlang der Grenzschicht die gleiche Phase herrscht. Somit muss gelten:
+\begin{align*}
+	\exp\del{i\del{\inner{\vec k}{\vec r} - \omega t}} &= \exp\del{i\del{\inner{\vec k''}{\vec r} - \omega t}} \\
+	\intertext{Daraus folgt:}
+	\inner{\vec k}{\vec r} &= \inner{\vec k''}{\vec r} \\
+	  k r \cos\del{\alpha} &= k'' r \cos\del{\alpha ''} \\
+	\intertext{Da allerdings gerade $k = k''$ gilt, folgt:}
+	\alpha &= \alpha''
+\end{align*}
+
+Somit ist Einfalls- gleich Ausfallswinkel.
+
+\paragraph{Brechungsgesetz}
+
+Wir setzen analog an:
+\begin{align*}
+	\exp\del{i\del{\inner{\vec k}{\vec r} - \omega t}} &= \exp\del{i\del{\inner{\vec k'}{\vec r} - \omega t}} \\
+	  k \cos\del{\alpha} &= k' \cos\del{\alpha '} \\
+	  \sqrt{\varepsilon \mu} \cos\del{\alpha} &= \sqrt{\varepsilon' \mu'} \cos\del{\alpha '} \\
+	  \frac{\cos\del{\alpha}}{\cos\del{\alpha '}} &= \frac{\sqrt{\varepsilon' \mu'}}{\sqrt{\varepsilon \mu}} \\
+	  \frac{\cos\del{\alpha}}{\cos\del{\alpha '}} &= \frac{n'}{n}
+	\intertext{%
+		Allerdings ist $\alpha$ der Winkel zwischen Strahl und Grenzfläche. Wir
+		setzen $\theta = \pi/2 - \alpha$ ein und erhalten das Brechungsgesetz:
+	}
+	  \frac{\sin\del{\theta}}{\sin\del{\theta '}} &= \frac{n'}{n}
+\end{align*}
+
+\paragraph{Amplituden}
+
+Es sollen die vier Relationen hergeleitet werden.
+
+An der Grenzfläche gilt:
+\[
+	\curl \vec E + \dot{\vec B} = 0
+	, \quad
+	\divergence{\vec D} = 0
+\]
+
+\begin{enumerate}
+	\item
+		Daraus können wir ableiten, dass die zur Grenzfläche parallele
+		Komponente stetig sein muss. Die parallelen Komponenten erhalten wir
+		durch Projektion der zur Ebene parallelen Komponenten mit
+		$\cos\del{\theta}$ und $\cos\del{\theta'}$:
+		\[
+			\del{E_\parallel - E_\parallel''} \cos\del{\theta} - E_\parallel' \cos\del{\theta'} = 0
+		\]
+
+	\item
+		Für die zur Ebene parallele Komponente gilt auch eine Erhaltung der
+		projizierten Normalenkomponente aufgrund von $\divergence{\vec D} = 0$.
+		Diese skaliert mit dem Sinus der Winkel. Für das $\vec E$-Feld müssen
+		wir noch das $\epsilon'$ mitnehmen. Somit gilt:
+		\begin{align*}
+			E_\parallel \sin\del{\theta} - E_\parallel'' \sin\del{\theta''} &= E_\parallel' \sin\del{\theta'} \epsilon'
+			\intertext{Wir benutzen $\theta = \theta''$.}
+			\del{E_\parallel - E_\parallel''} \sin\del{\theta} &= E_\parallel' \sin\del{\theta'} \epsilon'
+			\intertext{Wir setzen das Brechungsgesetz ein.}
+			\del{E_\parallel - E_\parallel''} &= E_\parallel' \epsilon' \sqrt{\frac{\mu \epsilon}{\mu' \epsilon'}} \\
+			\del{E_\parallel - E_\parallel''} &= E_\parallel' \sqrt{\frac{\mu \epsilon \mu'}{\epsilon'}} \\
+	\del{E_\parallel - E_\parallel''} \sqrt{\frac{1}{\mu \epsilon}} &= E_\parallel' \sqrt{\frac{\mu'}{\epsilon'}}
+		\end{align*}
+
+		Das ist zwar so grob in die richtige Richtung, allerdings solle
+		eigentlich $\sqrt{\epsilon/\mu}$ auf beiden Seiten stehen.
+
+	\item
+		Die senkrechte Komponente muss genauso wie in der ersten Relation
+		stetig sein. Dabei müssen wir hier allerdings nicht projizieren. Somit
+		gilt direkt:
+		\[
+			E_\perp - E_\perp'' + E_\perp' = 0
+		\]
+
+		Die gesuchte Relation ist allerdings:
+		\[
+			E_\perp + E_\perp'' - E_\perp' = 0
+		\]
+
+		Das zusätzliche Minuszeichen kommt vielleicht daher, dass die
+		reflektierte Welle am optisch dichteren Medium um $\pi$
+		Phasenverschoben wird.
+
+	\item \fehlt
+\end{enumerate}
+
+\subsection{Reflexions- und Transmissionsfaktor}
+
+\fehlt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     Reflexion von unpolarisiertem Licht                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Reflexion von unpolarisiertem Licht}
+\label 2
+
+\fehlt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                    Isolator im elektromagnetischen Feld                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Isolator im elektromagnetischen Feld}
+\label 3
+
+\subsection{Maxwellgleichungen}
+
+Im Isolator mit $\mu_r$ und $\varepsilon_r$ können wir $\vec D$ und $\vec H$
+ersetzen und erhalten:
+\[
+	\divergence{\vec E} = 0
+	,\quad
+	\divergence{\vec B} = 0
+	,\quad
+	\frac 1{\mu_r \mu_0} \curl \vec B - \varepsilon_r \varepsilon_0 \dot{\vec E} = \vec 0
+	,\quad
+	\curl \vec E + \dot{\vec B} = \vec 0
+\]
+
+\subsection{homogene Wellengleichung}
+
+Wir stellen die letzte Gleichung um, bilden die Rotation der Dritten und
+erhalten:
+\[
+	\ddot{\vec B}
+	= - \curl \dot{\vec E}
+	= - c^2 \curl \del{\curl \vec B}
+	= - c^2 \del{\vnabla \divergence{\vec B} - \laplace \vec B}
+	= c^2 \laplace \vec B
+\]
+
+Somit gilt $\dalambert \vec B = \vec 0$.
+
+\subsection{Berechnung des magnetischen Flusses}
+\label c
+
+Das $\vec E$-Feld breitet sich in $z$-Richtung aus. Somit muss das $\vec
+B$-Feld dies auch tun. Außerdem handelt es sich hier um ebene Wellen, so dass
+$\partial_x \vec B = \vec 0$ und $\partial_y \vec B = \vec 0$ gelten muss. Wir
+setzen das gegebene elektrische Feld dritte Gleichung ein und erhalten als
+Differentialgleichung:
+\[
+	c^2
+	\begin{pmatrix}
+		- \partial_z B_y \\ \partial_z B_x \\ 0
+	\end{pmatrix}
+	=
+	\frac{E_0}{5}
+	\begin{pmatrix}
+		1 \\ -2 \\ 0
+	\end{pmatrix}
+	\exp\del{\ii \del{kz-\omega t}} (-\ii \omega)
+\]
+
+Die ersten beiden Zeilen können wir integrieren und erhalten (von
+einer additiven harmonischen Funktion abgesehen):
+\[
+	\vec B = \frac{1}{c^2} \frac{\omega}{k} \frac{E_0}{5}
+	\begin{pmatrix}
+		2 \\ 1 \\ 0
+	\end{pmatrix}
+	\exp\del{\ii \del{kz-\omega t}}
+\]
+
+Die Polarisierung ist linear. Dabei sind $\vec E$- und $\vec B$-Feld und
+$\pi/2$ phasenverschoben, das letztere vor dem ersteren (siehe Abbildung
+\ref{fig:3-3}). Beide Felder schwingen in der Ebene, die von ihrem Feld und der
+$z$-Achse aufgespannt wird.
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw[thick, ->] (0, 0) -- (-60:2) node[right] {$\vec E$};
+		\draw[thick, ->] (0, 0) -- (30:2) node[right] {$\vec B$};
+		\draw[dotted, ->] (0, 0) -- (120:2) node[left] {$\vec E'$};
+		\draw[dotted, ->] (0, 0) -- (210:2) node[left] {$\vec B'$};
+		\draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+		\draw[->] (0, -2) -- (0, 2) node[above] {$y$};
+	\end{tikzpicture}
+	\caption{Polarisation der Felder in Aufgabe \ref c}
+	\label{fig:3-3}
+\end{figure}
+
+\subsection{Berechnung des elektrischen Feldes}
+\label d
+
+Wir setzen analog zur Aufgabe \ref c an und erhalten als Differentialgleichung:
+\[
+	\begin{pmatrix}
+		- \partial_z E_y \\ \partial_z E_x \\ 0
+	\end{pmatrix}
+	=
+	B_0 \omega
+	\begin{pmatrix}
+		\sin\del{kz-\omega t} \\ - \cos\del{kz-\omega t} \\ 0
+	\end{pmatrix}
+\]
+
+Durch Integration erhalten wir (bis auf eine harmonische Funktion):
+\[
+	\vec E = B_0 \frac \omega k
+	\begin{pmatrix}
+		- \sin\del{kz-\omega t} \\ \cos\del{kz-\omega t} \\ 0
+	\end{pmatrix}
+\]
+
+Diese Welle ist zirkulär polarisiert. Dabei ist das $\vec E$- um $\pi/2$ vor
+dem $\vec B$-Feld. Ein bestimmter Zeitpunkt ist in Abbildung \ref{fig:3-4}
+gezeigt.
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw[thick, ->] (0, 0) -- (30:2) node[right] {$\vec B$};
+		\draw[dotted, ->] (30:1.5) arc (30:50:1.5);
+		\draw[thick, ->] (0, 0) -- (120:2) node[right] {$\vec E$};
+		\draw[dotted, ->] (120:1.5) arc (120:140:1.5);
+		\draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+		\draw[->] (0, -2) -- (0, 2) node[above] {$y$};
+	\end{tikzpicture}
+	\caption{Polarisation der Felder in Aufgabe \ref d}
+	\label{fig:3-4}
+\end{figure}
+
+%\bibliography{../../zentrale_BibTeX/Central}
+%\bibliographystyle{plain}
+
+\end{document}
+
+% vim: spell spelllang=de
