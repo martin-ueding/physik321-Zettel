@@ -1,0 +1,331 @@
+% Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+%
+\documentclass[11pt, ngerman, fleqn]{article}
+
+\usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[activate]{pdfcprot}
+\usepackage[cdot, squaren]{SIunits}
+\usepackage[iso]{isodate}
+\usepackage[parfill]{parskip}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{babel}
+\usepackage{color}
+\usepackage{commath}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage{setspace}
+\usepackage{tikz}
+
+\usepackage[charter, greekuppercase=italicized]{mathdesign}
+
+\definecolor{darkblue}{rgb}{0,0,.5}
+\definecolor{darkgreen}{rgb}{0,.5,0}
+
+\hypersetup{
+	breaklinks=false,
+	citecolor=darkgreen,
+	colorlinks=true,
+	linkcolor=black,
+	menucolor=black,
+	urlcolor=darkblue,
+}
+
+\setlength{\columnsep}{2cm}
+
+\DeclareMathOperator{\arcsinh}{arsinh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\asinh}{arsinh}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\dalambert}{\mathop{{}\Box}\nolimits}
+\newcommand{\divergence}[1]{\inner{\vnabla}{#1}}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\emesswert}{\del{\messwert \pm \messwert}}
+\newcommand{\ev}{\hat{\vec e}}
+\newcommand{\e}[1]{\cdot 10^{#1}}
+\newcommand{\fehlt}{\textcolor{red}{Hier fehlen noch Inhalte.}}
+\newcommand{\half}{\frac 12}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\laplace}{\mathop{{}\Deltaup}\nolimits}
+\newcommand{\messwert}{\textcolor{blue}{\square}}
+\newcommand{\punkte}{\textcolor{white}{xxxxx}}
+\newcommand{\tens}[1]{\boldsymbol{\mathsf{#1}}}
+\newcommand{\vnabla}{\vec \nabla}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+
+\newcommand{\themodul}{physik321}
+\newcommand{\thegruppe}{Gruppe 8 -- Julia Volmer}
+\newcommand{\theuebung}{5}
+
+\pagestyle{fancy}
+
+\fancyfoot[C]{\footnotesize{\thegruppe}}
+\fancyfoot[L]{\footnotesize{Martin Ueding, Simon Schlepphorst}}
+\fancyfoot[R]{\footnotesize{Seite \thepage\ / \pageref{LastPage}}}
+\fancyhead[L]{\themodul{} -- Übung \theuebung}
+
+\def\thesection{H \theuebung.\arabic{section}}
+\def\thesubsubsection{\thesubsection\alph{section}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{
+	Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
+	\and
+	Simon Schlepphorst \\ \small{\href{mailto:s2@uni-bonn.de}{s2@uni-bonn.de}}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c}
+		Aufgabe & \ref 1 & \ref 2 & \ref 3 & $\sum$   \\
+		\hline
+		Punkte & \punkte / 20 & \punkte / 10 & \punkte / 10 & \punkte / 40
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         Magnetfeld an Grenzflächen                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Magnetfeld an Grenzflächen}
+\label 1
+
+\subsection{Gradient}
+
+Es gibt keine Stromdichte, somit gilt überall $\vec j = 0$. Daraus folgt für
+$\vec H$:
+\[
+	\vnabla \times \vec H = \vec j = 0
+\]
+
+Somit ist $\vec H$ rotationsfrei und kann als Gradient geschrieben werden.
+
+Die magnetische Flussdichte setzt sich aus der Erregung und Magnetisierung
+zusammen:
+\[
+	\vec B = \mu_0 \del{\vec H + \vec M}
+\]
+
+Da allerdings auch $\divergence{\vec B} = 0$ gelten muss, gilt
+$\divergence{\vec H + \vec M} = 0$.
+
+Mit dem Poissonintegral können wir das skalare Potential $\varphi_m$ bestimmen
+\cite[Seite 200]{nolting-elektrodynamik}:
+\begin{align*}
+	\varphi_m\del{\vec r}
+	&= - \frac{1}{4 \pi} \int \dif^3 r' \, \frac{\divergence{\vec M\del{\vec r'}}}{\abs{\vec r - \vec r'}} \\
+	&= - \frac{M_0}{4 \pi} \dod{}z \int \dif^3 r' \, \frac{1}{\abs{\vec r - \vec r'}} \\
+	&= - \frac{M_0}{4 \pi} \dod{}z \frac{4 \pi R^3}{3r} \\
+	&= \frac{M_0 R^3 \cos\del{\angle\del{\vec r, \ev_z}}}{3r}
+\end{align*}
+
+Das magnetische Moment der Kugel ist, da das Feld homogen ist:
+\begin{equation}
+	\label{eq:1-m}
+	\vec m = \int \dif^3 r' \, \vec M \del{\vec r'} = \frac 43 \pi R^3 M_0 \ev_z
+\end{equation}
+
+Zusammen erhalten wir:
+\[
+	\varphi_m \del{\vec r}
+	= \frac{1}{4\pi} \frac{\inner{\vec m}{\vec r}}{r^3}
+\]
+
+\subsection{Magnetfeld innerhalb und außerhalb}
+
+Das Magnetfeld außerhalb lässt sich als Gradient des skalaren Potentials
+ausdrücken:
+\[
+	\vec H
+	= - \vnabla \varphi_m
+	= - \frac{1}{4 \pi} \del{\frac{\vec m}{r^3} - 3 \frac{\inner{\vec m}{\vec r} \vec r}{r^5}}
+\]
+
+Für das Innere der Kugel ist das Magnetfeld durch die Magnetisierung gegeben. Daher gilt: $\vec M = \chi_M \vec H$. Da die Magnetisierung homogen ist, ergibt dies ein homogenes Magnetfeld innerhalb:
+\[
+	\vec H = \frac{M_0}{\chi_M} \ev_z
+\]
+
+\subsection{Oberflächenstromdichte}
+
+Es soll erklärt werden, warum die Oberflächenstromdichte folgende Form haben
+muss:
+\[
+	\vec j = \alpha\del\theta \delta\del{r-R} \ev_\phi
+\]
+
+Damit die Magnetisierung parallel zur $z$-Achse ist, muss der Strom ein
+Wirbelfeld um die $z$-Achse sein. Die Richtung von $\phi$ sind konzentrische
+Kreise um die $z$-Achse, womit der Strom in $\ev_\phi$ Richtung fließen
+muss. Daher das $\ev_\phi$.
+
+Das magnetische Moment ist definiert als:
+\[
+	m := \half \int \dif^3 r \, \del{\vec r \times \vec j\del{\vec r}}
+\]
+
+Dies muss gerade \eqref{eq:1-m} sein. Somit erhalten wir als Gleichung für
+$\vec j$:
+\[
+	\half \int \dif^3 r \del{\vec r \times \vec j\del{\vec r}}
+	= \frac 43 \pi R^3 M_0 \ev_z
+\]
+
+Wir können $\vec r \times \ev_\phi = - r \ev_\theta$ in das Integral für die
+Stromdichte einsetzen und erhalten:
+\begin{align*}
+	- \half \int \dif^3 r \alpha(\theta) \delta(r-R) r \ev_\theta
+	&= - \half \int_0^\pi \dif \theta \int_0^{2 \pi} \dif \phi \int_0^R \dif r \, r^2 \sin\del\theta r \alpha(\theta) \delta(r-R) r \ev_\theta \\
+	&= - \half \int_0^\pi \dif \theta \int_0^{2 \pi} \dif \phi \, R^3 \sin\del\theta \alpha(\theta) \ev_\theta \\
+	\intertext{%
+		An dieser Stelle setzen wir $\ev_\theta$ in kartesischen Koordinaten
+		ein, damit wir später auch ein $\ev_z$ erhalten können. Dieses ist:
+		$\ev_\theta = \del{\cos\del\phi \cos\del\theta, \sin\del\phi
+		\cos\del\theta, - \sin\del\theta}^T$.
+	}
+	&= - \half \int_0^\pi \dif \theta \int_0^{2 \pi} \dif \phi \, R^3 \sin\del\theta \alpha(\theta) \begin{pmatrix}
+		\cos\del\phi \cos\del\theta \\ \sin\del\phi \cos\del\theta \\ - \sin\del\theta
+	\end{pmatrix} \\
+	\intertext{%
+		Jetzt nutzen wir aus, dass $\int_0^{2\pi} \dif \phi \, \cos\del\phi =
+		0$, sowie $\int_0^{2\pi} \dif \phi \, \sin\del\phi = 0$ und
+		$\int_0^{2\pi} \dif \phi = 2\pi$.
+	}
+	&= \pi R^3 \ev_z \int_0^\pi \dif \theta \, \sin\del\theta \alpha(\theta)
+\end{align*}
+
+Dies sollte jetzt gerade $\frac 43 \pi R^3 M_0 \ev_z$ sein.
+\begin{align*}
+	\pi R^3 \ev_z \int_0^\pi \dif \theta \, \sin\del\theta \alpha(\theta) &= \frac 43 \pi R^3 M_0 \ev_z \\
+	\int_0^\pi \dif \theta \, \sin\del\theta \alpha(\theta) &= \frac 43 M_0 \\
+	\int_0^\pi \dif \theta \, \sin\del\theta \alpha(\theta) &= \frac 1\pi \int_0^\pi \dif \theta \, \frac 43 M_0 \\
+	\alpha\del\theta &= \frac 43 \frac 1\pi M_0 \csc^2\del\theta
+\end{align*}
+
+Somit ist die Stromverteilung:
+\[
+	\vec j = \frac 4{3\pi} M_0 \csc^2\del\theta \delta\del{r-R} \ev_\phi
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                   Konzentrische Zylinder mit Dielektrikum                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Konzentrische Zylinder mit Dielektrikum}
+\label 2
+
+Mit dem gaußschen Gesetz können wir herleiten, dass das Innere ($\rho < a$)
+feldfrei sein muss. Dazu wählen wir einen Zylinder mit Radius $R = a$. Dann
+liegt die Oberfläche im (feldfreien) Leiter. Aus Symmetriegründen geht nichts
+durch Boden und Deckel des Zylinders. Somit kann sich keine Ladung auf der
+Innenseite befinden.
+
+Außerdem können wir ein Ringprisma mit Radien $a$ und $b$ konzentrisch in die
+Anordnung legen und damit feststellen, dass die Ladung pro Höhe auf der
+Außenseite des inneren und auf der Innenseite des Äußeren gleich sein muss. Mit
+einem Ringsektorprisma mit Bogenlänge $a \dif \phi$ auf der Innenseite, $b \dif
+\phi$ auf der Außenseite und Radius $b-a$ finden wir konkret für die
+Flächenladungsdichten:
+\[
+	\dif \phi \del{a \sigma_a + b \sigma_b} = 0
+\]
+
+Zwischen $a$ und $b$ muss das Potential $\varphi$ die Laplacegleichung
+erfüllen. In Zylinderkoordinaten erhalten wir (durch die Symmetrie bezüglich
+$\phi$ und $z$ vereinfacht):
+\[
+	\laplace \varphi = \frac 1\rho \dpd{}\rho \del{\rho \dpd\varphi\rho} = 0
+\]
+
+Die Differentialgleichung $\pd\varphi\rho = \frac{c_1}\varphi$ können wir durch
+Integration nach $\rho$ lösen und erhalten als Lösung:
+\[
+	\varphi(\rho) = c_1 \ln\del\rho + c_2
+\]
+
+Durch Umformungen und die Randbedingungen $\varphi\del a = 0$ und $\varphi\del
+b = V_0$ erhalten wir:
+\[
+	\varphi\del\rho = \frac{V_0}{\ln\del{\frac ba}} \ln\del{\frac \rho a}
+\]
+
+Für das Innere ($\rho < a$) muss $c_1$ = 0 gelten, da dort keine Singularität
+auftreten darf. Somit ist das Potential dort einfach konstant $0$.
+
+Außerhalb ($\rho > b$) hängt das Potential von der Ladungsdichte außen auf dem
+Äußeren Zylinder ab, das interessiert hier allerdings nicht.
+
+Somit ist das Potential:
+\[
+	\varphi\del\rho = \begin{cases}
+		0 & \rho \in \intcc{0, a} \\
+		\frac{V_0}{\ln\del{\frac ba}} \ln\del{\frac \rho a} & \rho \in \intoc{a, b} \\
+		\text{undefiniert} & \rho \in \intoo{b, \infty}
+	\end{cases}
+\]
+
+Die Ableitung des Potentials ist das negative $\vec E$-Feld:
+\[
+	E_\rho = \frac{V_0}{\ln\del{\frac ab}} \frac 1\rho
+\]
+
+Innerhalb von $\intcc{0, a}$ gilt $E_\rho = 0$. Ohne Beschränkung der
+Allgemeinheit nehmen wir jetzt an, dass für $\rho \in \intoo{b, \infty}$ gilt:
+$E_\rho = 0$. Einen anderen Wert könnten wir mit einer Oberflächenladung
+außerhalb des außeren Zylinders realisieren.
+
+Der Sprung des $\vec D$-Feldes gilt die Oberflächenladung:
+\[
+	\inner{\vec \nu}{\vec D_2 - \vec D_1} = \sigma
+\]
+
+Da im Inneren gerade $\vec D = 0$ gilt, und das Feld immer senkrecht zu den
+Oberflächen ist, vereinfacht sich die Gleichung zu:
+\[
+	D = \sigma
+\]
+
+Mit $\vec E \varepsilon \varepsilon_0 = \vec D$ erhalten wir für die
+Oberflächenladungsdichten:
+\[
+	\sigma_a = \varepsilon \varepsilon_0 \frac{V_0}{\ln\del{\frac ba} a}
+	, \quad
+	\sigma_b = - \varepsilon \varepsilon_0 \frac{V_0}{\ln\del{\frac ba} b}
+\]
+
+Von der Richtung her passt dies gut, weil die Feldlinien so radial nach außen
+laufen und auf das höhere Potential führen.
+
+Die Linienladungsdichte ist in beiden Fällen gleich, sie ist die
+Oberflächenladungsdichte multipliziert mit dem Kreisumfang:
+\[
+	\lambda_a = - \lambda_b = 2 \pi \varepsilon \varepsilon_0 \frac{V_0}{\ln\del{\frac ba}}
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                 Greensfunktionen in $d = 2, 1$ Dimensionen                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Greensfunktionen in $d = 2, 1$ Dimensionen}
+\label 3
+
+Siehe nächstes Blatt.
+
+\bibliography{../../zentrale_BibTeX/Central}
+\bibliographystyle{plain}
+
+\end{document}
+
+% vim: spell spelllang=de
